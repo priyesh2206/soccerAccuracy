@@ -1,0 +1,17 @@
+.bar {
+    float: right;
+    margin-left: 1350px;
+}
+
+@media screen and (max-width: 800px) {
+ .bar{
+      width: 100%; /* The width is 100%, when the viewport is 800px or smaller */
+    }
+}
+
+/* ----------------HEADING ------------*/
+.heading{
+  font-size: 30px;
+  font-weight: 600px;
+  font-family: cursive;
+}
