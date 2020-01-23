@@ -4,6 +4,7 @@ const mongoose= require("mongoose");
 const cors= require("cors");
 const passport = require("passport");
 const mongoURI = require('./config/keys');
+const players = require('./routes/api/player')
 
 require('dotenv').config();
 
@@ -34,4 +35,11 @@ app.use(function(req, res, next) {
 app.listen(port,()=>{
     console.log(`[Server]:${port}`);
 });
+
+app.use(passport.initialize());
+
+require('./config/passport')(passport);
+
+
+app.use('/api/users',players);
 

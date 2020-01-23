@@ -1,39 +1,40 @@
-const isempty = require('is-empty');
 const validator = require("validator");
+const isEmpty = require('is-empty');
+
 
 module.exports = function validatingregisterInput(data){
   let error ={} 
 
-  data.username = !isempty(data.username) ? data.username:'';
-  data.email = !isempty(data.email) ? data.email:'';
-  data.password=!isempty(data.password) ? data.password:'';
-  data.password2 = !isempty(data.password2) ? data.password2:'';
+  data.username = !isEmpty(data.username) ? data.username:'';
+  data.email = !isEmpty(data.email) ? data.email:'';
+  data.password=!isEmpty(data.password) ? data.password:'';
+  data.password2 = !isEmpty(data.password2) ? data.password2:'';
 
 
-  if(validator.isempty(data.username)){
+  if(validator.isEmpty(data.username)){
       error.username = "username is required";
   }
-  if(validator.isempty(data.email)){
+  if(validator.isEmpty(data.email)){
       error.email = "email is required!!";
   }
-  else if(!validator.isempty(data.email)){
+  else if(!validator.isEmail(data.email)){
       error.email = "email is not valid";
   }
-  if(validator.isempty(password)){
+  if(validator.isEmpty(data.password)){
       error.password = "password is required!!"
   }
-  if(validator.isempty(data.password2)){
+  if(validator.isEmpty(data.password2)){
       error.password2 = "repassword is required";
   }
-  if (validator.islength(data.password,{min:6,max:20})){
-  error.password = "password atleast have min 6 characters"
+  if (!validator.isLength(data.password,{min:6,max:20})){
+      error.password = "password atleast have min 6 characters"
   }
-  if(validator.equal(password,password2)){
+  if(!validator.equals(data.password,data.password2)){
       error.password2 = "repassword doesn't match plz check"
   }
   return {
      error,
-     isValid:isempty(error)
+     isValid:isEmpty(error)
   }
 
 }

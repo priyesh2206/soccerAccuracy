@@ -14,7 +14,7 @@ const Player = require("../../model/player")
 
 
 
-router.post('/register',(req,res)=>{
+router.post("/register",(req,res)=>{
 
   console.log("[server]",req.body);
     const {error,isValid} = validatingregisterInput(req.body)
@@ -26,7 +26,7 @@ router.post('/register',(req,res)=>{
            return res.status(400).json({username:"username is already exist!"})
        }
        else{
-           const newpalyer = new Player({
+           const newplayer = new Player({
                username:req.body.username,
                email:req.body.email,
                password:req.body.password,
@@ -34,13 +34,13 @@ router.post('/register',(req,res)=>{
            });
 
            bcrypt.genSalt(10,(err,salt) =>{
-            bcrypt.hash(newpalyer,salt,(err,hash)=>{
+            bcrypt.hash(newplayer.password,salt,(err,hash)=>{
                 if(err) throw err;
-                newpalyer.password = hash;
-                newpalyer
+                newplayer.password = hash;
+                newplayer
                    .save()
                    .then(user => {
-                       return req.status(200).json({message:"palyer added successfully! :-)"})
+                       return res.status(200).json({message:"player added successfully! :-)"})
                    })
                    .catch(err => console.log(err));
             });
@@ -50,4 +50,45 @@ router.post('/register',(req,res)=>{
 });
 
 
+router.post("/login",(req,res) =>{
+    
+    console.log('[server]' ,req.body)
+     const {error,isValid} = validatingLoginInput(req.body);
+     if(!isValid){
+         return res.status(400).json(error);
+     }
+
+     const username = req.body.username;
+     const password = req.body.password;
+     
+     Player.findOne({username}).then(user =>{
+         if(!user){
+             return res.status(404).json({message:" user not found"});
+         }
+         bcrypt.compare(password,user.password).then(ismatch =>{
+             if(ismatch){
+                 const payload = {
+                     id:user.id,
+                     username:user.username
+                 }
+                 jwt.sign(payload,keys.secretOrKey,
+                {
+                    expiresIn:31556926    
+                },
+                (err,token) =>{
+                    res.json({
+                        success:true,
+                        token:'Bearer' + token
+                    });
+                }
+                 );
+             }
+             else{
+                 res.status(400).json({message:"password is incorrect plz check !:-)"})
+             }
+         });
+    });
+});
+
+module.exports = router;
 
