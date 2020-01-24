@@ -4,7 +4,9 @@ import DashBoard from './components/dashboard'
 import { BrowserRouter as Router,Route,Link} from "react-router-dom"
 import Login from './components/login'
 import signup from './components/signup'
-
+import "@fortawesome/fontawesome-free/css/all.min.css";
+import "bootstrap-css-only/css/bootstrap.min.css";
+import "mdbreact/dist/css/mdb.css";
 class App extends React.Component{
 
 render(){

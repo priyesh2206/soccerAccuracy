@@ -17,6 +17,7 @@
     "init": "^0.1.2",
     "is-empty": "^1.2.0",
     "jsonwebtoken": "^8.5.1",
+    "mdbreact": "^4.25.0",
     "mongoose": "^5.8.9",
     "node-sass": "^4.13.1",
     "passport": "^0.4.1",
