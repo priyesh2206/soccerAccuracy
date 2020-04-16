@@ -14,35 +14,37 @@ class Login extends React.Component{
       <MDBRow>
         <MDBCol md='6'>
           <MDBCard
-            className='card-image '
+            className='card-image'
             style={{
               backgroundImage:
-                'url(http://fullhdwall.com/wp-content/uploads/2017/08/HD-Dark-Background.jpg)',
-              width: '25rem'
+                'url(https://i.pinimg.com/originals/4f/8a/18/4f8a18a2a6f9a3291bee46c24ea9ec5d.jpg)',
+              width: '25rem', backgroundRepeat: 'no-repeat',backgroundSize: '100%',
             }}
           >
-            <div className='text-white rgba-stylish-strong py-5 px-5 z-depth-4'>
+            <div className='text-white rgba-blue-slight py-5 px-5 z-depth-4'>
               <div className='text-center'>
-                <h3 className='white-text mb-5 mt-4 font-weight-bold'>
+                <h3 className='text-dark mb-5 mt-4 font-weight-bold'>
                   <strong>Log</strong>
-                  <a href='#!' className='green-text font-weight-bold'>
+                  <a  className='purple-text font-weight-bold'>
                     <strong>In</strong>
                   </a>
                 </h3>
               </div>
+              <div>
               <MDBInput
-                label='Your UserName'
+                label='👤 Your Username'
                 group
                 type='text'
                 validate
-                labelClass='white-text'
+                labelClass='text-dark font-weight-bold'
               />
+              </div>
               <MDBInput
-                label='Your Password'
+                label=' 🔑 Your Password'
                 group
                 type='password'
                 validate
-                labelClass='white-text'
+                labelClass='text-dark font-weight-bold'
               />
               <div className='md-form pb-2'>
               
@@ -50,7 +52,7 @@ class Login extends React.Component{
               <MDBRow className='d-flex align-items-center mb-6'>
                 <div className='text-center mb-3 col-md-12'>
                   <MDBBtn
-                    color='success'
+                    color='dark'
                     rounded
                     type='button'
                     className='btn-block z-depth-1'
@@ -60,9 +62,9 @@ class Login extends React.Component{
                 </div>
               </MDBRow>
               <MDBCol md='10'>
-                <p className='font-small white-text d-flex justify-content-end'>
-                  Not Have an account?
-                  <a href='#!' className='green-text ml-1 font-weight-bold'>
+                <p className='font-small text d-flex justify-content-end '>
+                  Not Have an account?&nbsp;&nbsp;
+                  <a href='/signup' className='black-text ml-54 font-weight-bold'>
                     SignUp
                   </a>
                 </p>

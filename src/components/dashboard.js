@@ -1,11 +1,10 @@
 import React from 'react'
 import Navbars from "./navbar"
-import BackgroundSlideshow from 'react-background-slideshow'
 import bg1 from './images/bg1.jpg'
 import bg2 from './images/bg2.jpg'
 import bg3 from './images/bg3.jpg'
 import bg4 from './images/bg4.jpg'
-import './dashboard'
+import './dashboard.css'
 
 class DashBoard extends React.Component{
 
@@ -13,10 +12,12 @@ class DashBoard extends React.Component{
         return(
             <div>
              <Navbars/>
-            <div className="bb">
-            {/* <BackgroundSlideshow images={[ bg1,bg2,bg3,bg4 ]} /> */}
-            </div>
-
+             {/* <div id="container">
+                <img class = "img1" src={bg1}/>
+                <img src={bg2}/>
+                <img src={bg3}/>
+                <img src={bg4}/>
+            </div> */}
             </div>
         )
     }

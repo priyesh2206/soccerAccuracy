@@ -14,17 +14,19 @@ render(){
          className='card-image '
          style={{
            backgroundImage:
-             'url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ1qorg1oGefMt-u9lkgjclIsr2lwz3T66RDsDNXs4Dx7bHWf6E&s)',
+             'url(https://i.pinimg.com/originals/4f/8a/18/4f8a18a2a6f9a3291bee46c24ea9ec5d.jpg)',
            width: '25rem',
-           height:'41em',
+           backgroundRepeat:'no-repeat',
+           backgroundSize: '111%'
+
            
          }}
        >
-         <div className='text-white rgba-stylish-strong py-5 px-5 z-depth-4'>
+         <div className='text-white rgba-blue-slight py-5 px-5 z-depth-4'>
            <div className='text-center'>
-             <h3 className='white-text mb-5 mt-4 font-weight-bold'>
+             <h3 className='text-dark mb-5 mt-4 font-weight-bold'>
                <strong>Sign</strong>
-               <a href='#!' className='green-text font-weight-bold'>
+               <a className='purple-text font-weight-bold'>
                  <strong>Up</strong>
                </a>
              </h3>
@@ -34,27 +36,27 @@ render(){
              group
              type='text'
              validate
-             labelClass='white-text'
+             labelClass='text-dark font-weight-bold'
            />
            <MDBInput
              label='Your Email'
              group
              type='email'
              validate
-             labelClass='white-text'
+             labelClass='text-dark font-weight-bold'
            />
             <MDBInput
              label='Your Password'
              group
              type='password'
              validate
-             labelClass='white-text'
+             labelClass='text-dark font-weight-bold'
            /> <MDBInput
            label='Re-Enter password'
            group
            type='password'
            validate
-           labelClass='white-text'
+           labelClass='text-dark font-weight-bold'
          />
            <div className='md-form pb-2'>
            
@@ -62,7 +64,7 @@ render(){
            <MDBRow className='d-flex align-items-center mb-6'>
              <div className='text-center mb-3 col-md-12'>
                <MDBBtn
-                 color='success'
+                 color='dark'
                  rounded
                  type='button'
                  className='btn-block z-depth-1'
@@ -72,9 +74,9 @@ render(){
              </div>
            </MDBRow>
            <MDBCol md='10'>
-             <p className='font-small white-text d-flex justify-content-end'>
-               Have an account?
-               <a href='#!' className='green-text ml-1 font-weight-bold'>
+             <p className='font-medium white-text d-flex justify-content-end'>
+               Have an account?&nbsp;&nbsp;
+               <a href="/login"className='black-text ml-54 font-weight-bold'>
                  LogIn
                </a>
              </p>
