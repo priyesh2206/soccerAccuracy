@@ -33,6 +33,7 @@ render(){
            </div>
            <MDBInput
              label='Your UserName'
+             icon="user"
              group
              type='text'
              validate
@@ -40,6 +41,7 @@ render(){
            />
            <MDBInput
              label='Your Email'
+             icon="envelope"
              group
              type='email'
              validate
@@ -47,12 +49,14 @@ render(){
            />
             <MDBInput
              label='Your Password'
+             icon="lock"
              group
              type='password'
              validate
              labelClass='text-dark font-weight-bold'
            /> <MDBInput
            label='Re-Enter password'
+           icon="exclamation-triangle"
            group
            type='password'
            validate

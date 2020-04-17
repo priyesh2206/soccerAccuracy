@@ -25,14 +25,15 @@ class Login extends React.Component{
               <div className='text-center'>
                 <h3 className='text-dark mb-5 mt-4 font-weight-bold'>
                   <strong>Log</strong>
-                  <a  className='purple-text font-weight-bold'>
+                  <a className='purple-text font-weight-bold'>
                     <strong>In</strong>
                   </a>
                 </h3>
               </div>
               <div>
               <MDBInput
-                label='👤 Your Username'
+                label='Your Username'
+                icon='user'
                 group
                 type='text'
                 validate
@@ -40,7 +41,8 @@ class Login extends React.Component{
               />
               </div>
               <MDBInput
-                label=' 🔑 Your Password'
+                label='Your Password'
+                icon="lock"
                 group
                 type='password'
                 validate
@@ -51,6 +53,7 @@ class Login extends React.Component{
               </div>
               <MDBRow className='d-flex align-items-center mb-6'>
                 <div className='text-center mb-3 col-md-12'>
+                <a href="/PlayerDetails">
                   <MDBBtn
                     color='dark'
                     rounded
@@ -59,6 +62,7 @@ class Login extends React.Component{
                   >
                     LogIn
                   </MDBBtn>
+                  </a>
                 </div>
               </MDBRow>
               <MDBCol md='10'>

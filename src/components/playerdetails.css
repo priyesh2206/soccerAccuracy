@@ -1,0 +1,26 @@
+.Card1{
+    float:left;
+    margin-left:-15%;
+    margin-top: 3%;
+    width: 100%;
+    overflow:hidden;
+}
+
+.display{
+    display: inline-block;
+    padding: 25px;
+}
+
+@media screen and (max-width: 800px) {
+    .Card1{
+         
+        width: 100%; /* The width is 100%, when the viewport is 800px or smaller */
+        margin-left: 2%;;
+       }
+
+.display{
+    display: inline-block;
+    padding: 1px;
+}
+
+   }
