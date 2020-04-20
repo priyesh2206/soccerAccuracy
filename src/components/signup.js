@@ -1,9 +1,51 @@
 import React from "react"
 import { MDBContainer, MDBRow, MDBCol, MDBBtn, MDBCard, MDBInput } from 'mdbreact';
+import axios from "axios";
 
 class Signup extends React.Component{
 
+  constructor(props){
+    super(props);
+      this.state ={
+        username:"",
+        email:"",
+        password:"",
+        password2:"",
+        error:{}
+    }
+  }
+  changeUserName=(event)=>{
+    this.setState({username:event.target.value})
+  }
+  changeEmail=(event)=>{
+    this.setState({email:event.target.value})
+  }
+
+  changePassword=(event)=>{
+    this.setState({password:event.target.value})
+  }
+  changePassword2=(event)=>{
+    this.setState({password2:event.target.value})
+  }
+
+
+onSubmit= e=>{
+  const newUser={
+    username:this.state.username,
+    email:this.state.email,
+    password:this.state.password,
+    password2:this.state.password2
+  }
+  console.log(newUser);
+  axios.post("http://localhost:6000/api/users/register",newUser).then(data=>{
+    console.lof(data);
+  })
+};
+
+
 render(){
+  console.log(this.state.username)
+   const {error} =this.state
     return(
         <div>
         <div className="Card">
@@ -33,12 +75,15 @@ render(){
            </div>
            <MDBInput
              label='Your UserName'
+             onChange={this.changeUserName}
+             error={error.username}
              icon="user"
              group
              type='text'
              validate
              labelClass='text-dark font-weight-bold'
            />
+          
            <MDBInput
              label='Your Email'
              icon="envelope"

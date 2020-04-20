@@ -5,6 +5,7 @@ import { BrowserRouter as Router,Route,Link} from "react-router-dom"
 import Login from './components/login'
 import signup from './components/signup'
 import PlayerDetails from './components/playerdetails'
+import PlayerAccuracy from './components/playerAccuracy'
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import "bootstrap-css-only/css/bootstrap.min.css";
 import "mdbreact/dist/css/mdb.css";
@@ -18,6 +19,7 @@ render(){
        <Route  exact path="/login" component={Login} />
        <Route  exact path="/signup" component={signup} />
        <Route  exact path="/playerDetails" component={PlayerDetails}/>
+       <Route  exact path="/playerAccuracy" component={PlayerAccuracy}/> 
 
     </div>
     </Router> 

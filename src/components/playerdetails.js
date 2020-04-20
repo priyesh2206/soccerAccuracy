@@ -157,13 +157,13 @@ return(
                 {/* input nine end */}
                 <div className="display">
                 <div className="text-center py-4 mt-3 display ">
-                  <MDBBtn className="btn btn-outline-purple" type="submit">
+                  <MDBBtn className="btn btn-outline-purple" type="">
                     ADD Details
                     <MDBIcon far icon="paper-plane" className="ml-2" />
                   </MDBBtn>
                 </div>
                 <div className="text-center py-4 mt-3 display">
-                  <MDBBtn className="btn btn-outline-purple" type="submit">
+                  <MDBBtn className="btn btn-outline-purple" href="/playerAccuracy" type="submit">
                    Anlaysis
                     <MDBIcon far icon="paper-plane" className="ml-2" />
                   </MDBBtn>
@@ -180,9 +180,6 @@ return(
 
 
 }
-
-
-
 
 }
 export default PlayerDetails;
