@@ -24,4 +24,4 @@ const PlayerDetails = new moongoose.Schema({
     }]
 
 })
-module.exports = moongoose.model('PlayerDetail',PlayerDetails)
+module.exports = moongoose.model('PlayerDetail',PlayerDetails) 

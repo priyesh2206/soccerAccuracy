@@ -30,6 +30,8 @@ class Login extends React.Component{
      axios.post("http://localhost:6000/api/users/login",User).then((data)=>{
        if(data.data.success == true){
          console.log("User is LoggedIn")//need to imporve from here //
+         localStorage.setItem("isLoggedIn",true);
+         localStorage.setItem("User",User.username);
        }
      })
 

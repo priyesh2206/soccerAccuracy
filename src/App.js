@@ -9,7 +9,32 @@ import PlayerAccuracy from './components/playerAccuracy'
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import "bootstrap-css-only/css/bootstrap.min.css";
 import "mdbreact/dist/css/mdb.css";
+
+
+if(localStorage.getItem("isLoggedIn") == null){
+  localStorage.setItem("isLoggedIn",false)
+}
+
+const getState=()=>{
+  if(localStorage.getItem("isLoggedIn") == "false"){
+    return false;
+  }
+  else{
+    return true;
+  }
+}
+
+const initialState={
+  isUserLoggedIn:getState()
+}
+
+
 class App extends React.Component{
+  constructor(props){
+    super(props);
+    this.state = initialState
+
+  }
 
 render(){
   return(

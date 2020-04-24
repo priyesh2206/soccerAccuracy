@@ -1,5 +1,6 @@
 import React from 'react'
 import Navbars from "./navbar"
+import NavbarOne from "./navbar1"//navabr after login//
 import './dashboard.css'
 
 class DashBoard extends React.Component{
@@ -8,12 +9,9 @@ class DashBoard extends React.Component{
         return(
             <div>
              <Navbars/>
-             {/* <div id="container">
-                <img class = "img1" src={bg1}/>
-                <img src={bg2}/>
-                <img src={bg3}/>
-                <img src={bg4}/>
-            </div> */}
+             {/* <img src='assets/images/bg2.jpg' /> */}
+             
+             
             </div>
         )
     }
