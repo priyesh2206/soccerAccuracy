@@ -45,7 +45,6 @@ render(){
        <Route  exact path="/signup" component={signup} />
        <Route  exact path="/playerDetails" component={PlayerDetails}/>
        <Route  exact path="/playerAccuracy" component={PlayerAccuracy}/> 
-
     </div>
     </Router> 
   );
