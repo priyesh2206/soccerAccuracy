@@ -1,6 +1,7 @@
 import React from "react"
 import { MDBContainer, MDBRow, MDBCol, MDBBtn, MDBCard, MDBInput } from 'mdbreact';
 import axios from "axios";
+import {Link} from 'react-router-dom';
 
 class Signup extends React.Component{
 
@@ -29,7 +30,7 @@ class Signup extends React.Component{
   }
 
 
-  onSubmit= e=>{
+  onSubmit=e=>{
     const newUser={
       username:this.state.username,
       email:this.state.email,
@@ -37,7 +38,7 @@ class Signup extends React.Component{
       password2:this.state.password2
     }
     console.log(newUser);
-    axios.post("http://localhost:6000/api/users/register",newUser).then(data=>{
+    axios.post("http://localhost:5000/api/users/register",newUser).then(data=>{
       console.log(data);
       console.log("user Added Successfully!!");
     })
@@ -45,7 +46,7 @@ class Signup extends React.Component{
 
 
 render(){
-  console.log(this.state.username)
+  
   const {error} =this.state
   return(
   <div>
@@ -119,6 +120,7 @@ render(){
 
                     <MDBRow className='d-flex align-items-center mb-6'>
                         <div className='text-center mb-3 col-md-12'>
+                          <Link to='/login'>
                             <MDBBtn
                               color='dark'
                               rounded
@@ -128,6 +130,7 @@ render(){
                             >
                             SignUp
                             </MDBBtn>
+                            </Link>
                         </div>
                     </MDBRow>
                   

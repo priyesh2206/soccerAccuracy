@@ -9,7 +9,7 @@ const players = require('./routes/api/player')
 require('dotenv').config();
 
 const app = express();
-const port = process.env.PORT|| '6000';
+const port = process.env.PORT|| '5000';
 
 app.use(bodyparser.json());
 app.use(bodyparser.urlencoded({extended:true}));

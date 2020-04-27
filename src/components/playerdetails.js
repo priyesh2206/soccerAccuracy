@@ -6,19 +6,25 @@ import "react-datepicker/dist/react-datepicker.css";
 
 
 class PlayerDetails extends React.Component{
-    state = {
+  constructor(props){
+    super(props);
+    
+    this.state = {
         startDate:null
       };
-     
-      handleChange = date => {
-        this.setState({
-          startDate: date
-        });
-      };
 
+    }
+  onhandleChange = date => {
+      this.setState({
+        startDate: date
+      });
+    };
 
 render(){
+  console.log(this.props.isUserLoggedIn)
 return(
+  <div>
+    {this.props.isUserLoggedIn ?
     <div className="Card1 ">
          <MDBContainer>
       <MDBRow>
@@ -47,7 +53,7 @@ return(
                   htmlFor="defaultFormCardEmailEx"
                   className="g-text font-weight-light"
                 >
-                  <i class="fas fa-users"></i> &nbsp;Team Name 
+                  <i className="fas fa-users"></i> &nbsp;Team Name 
                 </label>
                 <input
                   type="text"
@@ -61,7 +67,7 @@ return(
                   htmlFor="defaultFormCardEmailEx"
                   className="dark-text font-weight-light"
                 >
-                 <i class="fas fa-calendar-week"></i>&nbsp; Match Date
+                 <i className="fas fa-calendar-week"></i>&nbsp; Match Date
                 </label>
                 <div>
                 <DatePicker
@@ -175,6 +181,8 @@ return(
         </MDBCol>
       </MDBRow>
     </MDBContainer>
+    </div>:null
+    }
     </div>
 )
 

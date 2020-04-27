@@ -2,6 +2,7 @@ import React from 'react'
 import { MDBContainer, MDBRow, MDBCol, MDBBtn, MDBCard, MDBInput } from 'mdbreact';
 import "./login.css";
 import axios from 'axios';
+import {Link} from 'react-router-dom'
 
 
 
@@ -14,6 +15,7 @@ class Login extends React.Component{
        username:'',
        password:''
      }
+     this.changeState = this.changeState.bind(this)
    }
 
    onChangeusername=(event)=>{
@@ -22,12 +24,13 @@ class Login extends React.Component{
    onChangepassword=(event)=>{
      this.setState({password:event.target.value})
    }
+   
    changeState(){
      const User = {
        username:this.state.username,
        password:this.state.password
      }
-     axios.post("http://localhost:6000/api/users/login",User).then((data)=>{
+     axios.post("http://localhost:5000/api/users/login",User).then((data)=>{
        if(data.data.success == true){
          console.log("User is LoggedIn")//need to imporve from here //
          localStorage.setItem("isLoggedIn",true);
@@ -40,6 +43,7 @@ class Login extends React.Component{
  render(){
   return(
     <div>
+      {this.state.loginOpen?(
       <div className="Card">
       <MDBContainer>
         <MDBRow>
@@ -89,16 +93,17 @@ class Login extends React.Component{
 
                      <MDBRow className='d-flex align-items-center mb-6'>
                       <div className='text-center mb-3 col-md-12'>
-                          <a href="/PlayerDetails">
+                        <Link to="/playerDetails">
                             <MDBBtn
                               color='dark'
                               rounded
                               type='button'
                               className='btn-block z-depth-1'
+                              onClick={this.changeState}
                             >
                             LogIn
                             </MDBBtn>
-                          </a>
+                        </Link>
                       </div>
 
                      </MDBRow>
@@ -116,7 +121,10 @@ class Login extends React.Component{
           </MDBCol>
         </MDBRow>
       </MDBContainer>          
-      </div>
+      </div>):(
+        null
+      )
+      }
     </div>
   )
  }
