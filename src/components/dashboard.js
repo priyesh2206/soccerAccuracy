@@ -2,6 +2,7 @@ import React from 'react'
 import Navbars from "./navbar"
 import NavbarOne from "./navbar1"//navabr after login//
 import './dashboard.css'
+import PlayerDetails from './playerdetails';
 
 class DashBoard extends React.Component{
     constructor(props){
@@ -10,7 +11,10 @@ class DashBoard extends React.Component{
      getComponent=()=>{
          if(localStorage.getItem("isLoggedIn")== 'true'){
             return(
-                <NavbarOne  makeMelogin={this.props.makeMelogin}/>
+                <div>
+                <NavbarOne />
+                <PlayerDetails/>
+                </div>
             )
          }
          else{

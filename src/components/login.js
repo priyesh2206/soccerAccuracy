@@ -13,7 +13,8 @@ class Login extends React.Component{
      this.state={
        loginOpen:true,
        username:'',
-       password:''
+       password:'',
+       InvalideUser:false
      }
      this.changeState = this.changeState.bind(this)
    }
@@ -30,11 +31,14 @@ class Login extends React.Component{
        username:this.state.username,
        password:this.state.password
      }
+
      axios.post("http://localhost:5000/api/users/login",User).then((data)=>{
+       console.log(data.data.message)
        if(data.data.success == true){
          console.log("User is LoggedIn")//need to imporve from here //
          localStorage.setItem("isLoggedIn",true);
          localStorage.setItem("User",User.username);
+         this.props.makeMelogin()
        }
      })
 

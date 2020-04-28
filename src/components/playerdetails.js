@@ -24,7 +24,7 @@ render(){
   console.log(this.props.isUserLoggedIn)
 return(
   <div>
-    {this.props.isUserLoggedIn ?
+    {this.props.isUserLoggedIn?
     <div className="Card1 ">
          <MDBContainer>
       <MDBRow>

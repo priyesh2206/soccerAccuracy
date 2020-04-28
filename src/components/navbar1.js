@@ -30,21 +30,19 @@ class NavabarOne extends React.Component{
                     className="d-inline-block align-top"
                     />
                     </Navbar.Brand>
-                    <Navbar.Brand href="/"><div className="heading">Football</div> </Navbar.Brand>
+                    <Navbar.Brand href="#"><div className="heading">Football</div> </Navbar.Brand>
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav className="mr-auto bar">
                     <i className ="fa fa-user-circle  logo"></i>{"   "}
                     <NavDropdown title={username} id="basic-nav-dropdown">
-                    <NavDropdown.Item href="#action/3.1">Add Details&nbsp;&nbsp;<i className="fa fa-user-plus"></i></NavDropdown.Item>
+                    <NavDropdown.Item href="/playerDetails">Add Details&nbsp;&nbsp;<i className="fa fa-user-plus"></i></NavDropdown.Item>
                     <NavDropdown.Divider/>
-                    <NavDropdown.Item href="#action/3.1"   onClick={this.logOut}>logout&nbsp;&nbsp;<i className="fa fa-sign-in-alt"></i></NavDropdown.Item>
+                    <NavDropdown.Item href="/" onClick={this.logOut}>logout&nbsp;&nbsp;<i className="fa fa-sign-in-alt"></i></NavDropdown.Item>
                     </NavDropdown>
                     </Nav>
                 </Navbar.Collapse>
                 </Navbar>
-                {/* need to n=be improve from here */}
-                
              </div>            
            </div>
        )

@@ -12,6 +12,7 @@ class Navbars extends React.Component{
 
     render(){
         return(
+            <div >
             <div>
                 <Navbar collapseOnSelect expand="xl" bg="dark" variant="dark" >
                     <Navbar.Brand href="/">
@@ -20,7 +21,7 @@ class Navbars extends React.Component{
                     className="d-inline-block align-top"
                     />
                     </Navbar.Brand>
-                <Navbar.Brand href="/"><div className="heading">Football</div> </Navbar.Brand>
+                <Navbar.Brand href="/"><div className="heading">Ancast</div> </Navbar.Brand>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav className="mr-auto bar">
@@ -29,7 +30,8 @@ class Navbars extends React.Component{
                     </Nav>
                 </Navbar.Collapse>
                 </Navbar>
-             </div>               
+             </div>  
+             </div>            
         )
       }
     }
