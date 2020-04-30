@@ -8,7 +8,9 @@ import PlayerDetails from './components/playerdetails'
 import PlayerAccuracy from './components/playerAccuracy'
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import "bootstrap-css-only/css/bootstrap.min.css";
+import 'react-toastify/dist/ReactToastify.min.css';
 import "mdbreact/dist/css/mdb.css";
+import {toast , ToastContainer } from 'react-toastify';
 
 
 if(localStorage.getItem("isLoggedIn") == null){
@@ -29,6 +31,7 @@ const initialState={
 }
 
 
+
 class App extends React.Component{
   constructor(props){
     super(props);
@@ -38,6 +41,7 @@ class App extends React.Component{
   makeMelogin=()=>{
     this.setState({isUserLoggedIn:getState()})
   }
+ 
 
 render(){
   return(

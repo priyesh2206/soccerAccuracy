@@ -24,7 +24,7 @@ class NavabarOne extends React.Component{
            <div>
                 <div>
                 <Navbar collapseOnSelect expand="xl" bg="dark" variant="dark" >
-                    <Navbar.Brand href="/">
+                    <Navbar.Brand >
                     <img src={football} alt="football" 
                     width="60" height="60"
                     className="d-inline-block align-top"

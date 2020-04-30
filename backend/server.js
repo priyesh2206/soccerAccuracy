@@ -1,6 +1,7 @@
 const express = require("express");
 const bodyparser = require("body-parser");
 const mongoose= require("mongoose");
+mongoose.Promise = global.Promise;
 const cors= require("cors");
 const passport = require("passport");
 const mongoURI = require('./config/keys');
@@ -16,12 +17,12 @@ app.use(bodyparser.urlencoded({extended:true}));
 
 
 
-mongoose.connect("mongodb+srv://Football_api:9EeGLHzyBtq36PHY@cluster0-gwo9r.mongodb.net/test?retryWrites=true&w=majority",{useNewUrlParser:true,useUnifiedTopology: true })
+mongoose.connect("mongodb://football_api:i3DNTy2g18WxCFO8@cluster0-shard-00-00-gwo9r.mongodb.net:27017,cluster0-shard-00-01-gwo9r.mongodb.net:27017,cluster0-shard-00-02-gwo9r.mongodb.net:27017/test?ssl=true&replicaSet=Cluster0-shard-0&authSource=admin&retryWrites=true&w=majority",{useNewUrlParser:true,useUnifiedTopology: true })
 .then(()=>{
     console.log("[Database] -connected to db :-)");
 
-}).catch(()=>{
-    console.log("[Database]-connection Failed");
+},(err)=>{
+    console.log(err);
 });
 
 app.use(cors());

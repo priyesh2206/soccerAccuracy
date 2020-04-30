@@ -2,7 +2,7 @@ import React from "react"
 import { MDBContainer, MDBRow, MDBCol, MDBBtn, MDBCard, MDBInput } from 'mdbreact';
 import axios from "axios";
 import {Link} from 'react-router-dom';
-
+import {toast} from 'react-toastify';
 class Signup extends React.Component{
 
   constructor(props){
@@ -39,9 +39,13 @@ class Signup extends React.Component{
     }
     console.log(newUser);
     axios.post("http://localhost:5000/api/users/register",newUser).then(data=>{
+        toast.success((data.data.message), {
+        position: toast.POSITION.TOP_CENTER,autoClose:false,
+      });
       console.log(data);
       console.log("user Added Successfully!!");
     })
+
   };
 
 

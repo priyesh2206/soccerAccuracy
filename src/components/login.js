@@ -1,11 +1,11 @@
 import React from 'react'
-import { MDBContainer, MDBRow, MDBCol, MDBBtn, MDBCard, MDBInput } from 'mdbreact';
+import { MDBContainer, MDBRow, MDBCol, MDBBtn, MDBCard, MDBInput, MDBTooltip} from 'mdbreact';
 import "./login.css";
 import axios from 'axios';
 import {Link} from 'react-router-dom'
+import { toast,ToastContainer } from 'react-toastify';
 
-
-
+toast.configure();
 class Login extends React.Component{
    constructor(props){
      super(props);
@@ -16,7 +16,7 @@ class Login extends React.Component{
        password:'',
        InvalideUser:false
      }
-     this.changeState = this.changeState.bind(this)
+     this.changeState = this.changeState.bind(this) 
    }
 
    onChangeusername=(event)=>{
@@ -25,7 +25,7 @@ class Login extends React.Component{
    onChangepassword=(event)=>{
      this.setState({password:event.target.value})
    }
-   
+
    changeState(){
      const User = {
        username:this.state.username,
@@ -33,21 +33,31 @@ class Login extends React.Component{
      }
 
      axios.post("http://localhost:5000/api/users/login",User).then((data)=>{
-       console.log(data.data.message)
        if(data.data.success == true){
+         toast.success(" Login Success!", {
+          position: toast.POSITION.TOP_CENTER,autoClose:false,
+        });
          console.log("User is LoggedIn")//need to imporve from here //
          localStorage.setItem("isLoggedIn",true);
          localStorage.setItem("User",User.username);
          this.props.makeMelogin()
        }
+       else{
+          toast.error((data.data.message), {
+          position: toast.POSITION.TOP_CENTER
+        });
+       }
      })
-
    }
+    
+   
+  
 
  render(){
   return(
     <div>
       {this.state.loginOpen?(
+        <div>
       <div className="Card">
       <MDBContainer>
         <MDBRow>
@@ -73,7 +83,6 @@ class Login extends React.Component{
                            </h3>
                         </div>
                       <div>
-
                       <MDBInput
                         label='Your Username'
                         onChange={this.onChangeusername}
@@ -108,6 +117,7 @@ class Login extends React.Component{
                             LogIn
                             </MDBBtn>
                         </Link>
+                        
                       </div>
 
                      </MDBRow>
@@ -124,8 +134,10 @@ class Login extends React.Component{
             </MDBCard>
           </MDBCol>
         </MDBRow>
-      </MDBContainer>          
-      </div>):(
+      </MDBContainer>    
+      </div>
+      </div>)
+      :(
         null
       )
       }

@@ -19,11 +19,22 @@ router.post("/register",(req,res)=>{
   console.log("[server]",req.body);
     const {error,isValid} = validatingregisterInput(req.body)
    if(!isValid){
-       return res.status(404).json(error);
+       if(error.username){
+        return res.json({message:"username is required"}).status(400);
+       }
+       if(error.email){
+        return res.json({message:"email is required"}).status(400);
+       }
+       if(error.password){
+        return res.json({message:"Password is required"}).status(400);
+       }
+       if(error.password2){
+        return res.json({message:"Re-Password is required"}).status(400);
+       }
    }
    Player.findOne({username:req.body.username}).then(user =>{
        if(user){
-           return res.status(400).json({username:"username is already exist!"})
+           return res.json({message:"username is already exist!"}).status(404)
        }
        else{
            const newplayer = new Player({
@@ -40,7 +51,7 @@ router.post("/register",(req,res)=>{
                 newplayer
                    .save()
                    .then(user => {
-                       return res.status(200).json({message:"player added successfully! :-)"})
+                       return res.json({message:"User  added successfully! :-)"}).status(200)
                    })
                    .catch(err => console.log(err));
             });
@@ -55,7 +66,7 @@ router.post("/login",(req,res) =>{
     console.log('[server]' ,req.body)
      const {error,isValid} = validatingLoginInput(req.body);
      if(!isValid){
-         return res.status(400).json(error);
+         return res.json({message:"User name is required"}).status(404);
      }
 
      const username = req.body.username;
@@ -63,7 +74,7 @@ router.post("/login",(req,res) =>{
      
      Player.findOne({username}).then(user =>{
          if(!user){
-             return res.json({message:" user not found"});
+             return res.json({message:"User Not Find ! Please Check Username !"});
          }
          bcrypt.compare(password,user.password).then(ismatch =>{
              if(ismatch){
@@ -84,7 +95,7 @@ router.post("/login",(req,res) =>{
                  );
              }
              else{
-                 res.json({message:"password is incorrect plz check !:-)"}).status(404)
+                 res.json({message:"Password Incorrect Please Check!"}).status(404)
              }
          });
     });
