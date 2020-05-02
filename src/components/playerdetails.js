@@ -16,7 +16,20 @@ class PlayerDetails extends React.Component{
     }
   onhandleChange = date => {
       this.setState({
-        startDate: date
+        startDate: date,
+        playername:'',
+        teamname:'',
+        date:'',
+        goalWon:'',
+        goalAttmp:'',
+        trackleWon:'',
+        trackleAttmp:'',
+        passesWon:'',
+        passesAttmp:'',
+        timestamp:''
+        
+
+
       });
     };
 
@@ -35,14 +48,14 @@ return(
                 <p className="h3 text-center py-4">Player Details <i className="fas fa-futbol"></i></p>
                {/* input one */}
                 <label
-                  htmlFor="defaultFormCardNameEx"
+                  htmlFor="playername"
                   className="black-text font-weight-light"
                 >
                  <i className="fa fa-user"></i>&nbsp; Player Name
                 </label>
                  <input
                   type="text"
-                  id="defaultFormCardNameEx"
+                  id="playername"
                   className="form-control"
 
                 />
@@ -50,21 +63,21 @@ return(
                 <br />
                 {/* input second */}
                 <label
-                  htmlFor="defaultFormCardEmailEx"
+                  htmlFor="teamname"
                   className="g-text font-weight-light"
                 >
                   <i className="fas fa-users"></i> &nbsp;Team Name 
                 </label>
                 <input
                   type="text"
-                  id="defaultFormCardEmailEx"
+                  id="teamname"
                   className="form-control"
                 />
                 {/* input second end */}
                 <br/>
                 {/* input threee */}
                 <label
-                  htmlFor="defaultFormCardEmailEx"
+                  htmlFor="data"
                   className="dark-text font-weight-light"
                 >
                  <i className="fas fa-calendar-week"></i>&nbsp; Match Date
@@ -80,84 +93,84 @@ return(
                 <br/>
                 {/* input four */}
                 <label
-                  htmlFor="defaultFormCardEmailEx"
+                  htmlFor="goalWon"
                   className="dark-text font-weight-light"
                 >
                 Goal-Scored!
                 </label>
                 <input
                   type="number"
-                  id="defaultFormCardEmailEx"
+                  id="goalWon"
                   className="form-control"
                 />
                 {/*input four end */}
                 <br/>
                 {/* input five  */}
                 <label
-                  htmlFor="defaultFormCardEmailEx"
+                  htmlFor="goalAttmp"
                   className="dark-text font-weight-light"
                 >
                 Goal-Attempted
                 </label>
                 <input
                   type="number"
-                  id="defaultFormCardEmailEx"
+                  id="goalAttmp"
                   className="form-control"
                 />
                 {/* input five end */}
                 <br/>
                 {/* input six  */}
                 <label
-                  htmlFor="defaultFormCardEmailEx"
+                  htmlFor="trackleWon"
                   className="dark-text font-weight-light"
                 >
                 Trackles-Won!
                 </label>
                 <input
                   type="number"
-                  id="defaultFormCardEmailEx"
+                  id="trackleWon"
                   className="form-control"
                 />
                 {/* input six end */}
                 <br/>
                 {/* input seven  */}
                 <label
-                  htmlFor="defaultFormCardEmailEx"
+                  htmlFor="trackleAttmp"
                   className="dark-text font-weight-light"
                 >
                 Trackles-Attempted
                 </label>
                 <input
                   type="number"
-                  id="defaultFormCardEmailEx"
+                  id="trackleAttmp"
                   className="form-control"
                 />
                 {/* input seven end */}
                 <br/>
                 {/* input eight  */}
                 <label
-                  htmlFor="defaultFormCardEmailEx"
+                  htmlFor="passesWon"
                   className="dark-text font-weight-light"
                 >
                 Passes-Won!
                 </label>
                 <input
                   type="number"
-                  id="defaultFormCardEmailEx"
+                  id="passesWon"
                   className="form-control"
                 />
                 {/* input eight end */}
                 <br/>
                 {/* input nine  */}
                 <label
-                  htmlFor="defaultFormCardEmailEx"
+                  htmlFor="passesAttmp"
                   className="dark-text font-weight-light"
                 >
                 Passes-Attempted
                 </label>
                 <input
                   type="number"
-                  id="defaultFormCardEmailEx"
+                  id="passesAttmp"
                   className="form-control"
                 />
                 {/* input nine end */}

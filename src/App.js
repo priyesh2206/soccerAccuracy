@@ -1,7 +1,7 @@
 import React from 'react'
 import './App.css'
 import DashBoard from './components/dashboard'
-import { BrowserRouter as Router,Route,Link} from "react-router-dom"
+import { BrowserRouter as Router,Route,Switch,Redirect, BrowserRouter} from "react-router-dom"
 import Login from './components/login'
 import Signup from './components/signup'
 import PlayerDetails from './components/playerdetails'
@@ -10,7 +10,7 @@ import "@fortawesome/fontawesome-free/css/all.min.css";
 import "bootstrap-css-only/css/bootstrap.min.css";
 import 'react-toastify/dist/ReactToastify.min.css';
 import "mdbreact/dist/css/mdb.css";
-import {toast , ToastContainer } from 'react-toastify';
+
 
 
 if(localStorage.getItem("isLoggedIn") == null){
@@ -45,7 +45,7 @@ class App extends React.Component{
 
 render(){
   return(
-    <Router>
+   <Router>
       <div>
        <Route  path="/" component={() => <DashBoard makeMelogin={this.makeMelogin}/> }/>
        <Route  exact path="/login" component={()=> <Login makeMelogin={this.makeMelogin}/>} />
@@ -53,7 +53,9 @@ render(){
        <Route  path="/playerDetails" component={() => <PlayerDetails makeMelogin={this.makeMelogin} isUserLoggedIn={this.state.isUserLoggedIn}/>}/>
        <Route  exact path="/playerAccuracy" component={PlayerAccuracy}/> 
     </div>
-    </Router> 
+   
+    </Router>
+ 
   );
 }
 

@@ -20,21 +20,21 @@ router.post("/register",(req,res)=>{
     const {error,isValid} = validatingregisterInput(req.body)
    if(!isValid){
        if(error.username){
-        return res.json({message:"username is required"}).status(400);
+        return res.json({message:"Username Is Required"}).status(400);
        }
        if(error.email){
-        return res.json({message:"email is required"}).status(400);
+        return res.json({message:"Email Is Required"}).status(400);
        }
        if(error.password){
-        return res.json({message:"Password is required"}).status(400);
+        return res.json({message:"Password Is Required"}).status(400);
        }
        if(error.password2){
-        return res.json({message:"Re-Password is required"}).status(400);
+        return res.json({message:"Re-Password Is Required"}).status(400);
        }
    }
    Player.findOne({username:req.body.username}).then(user =>{
        if(user){
-           return res.json({message:"username is already exist!"}).status(404)
+           return res.json({message:"username Is Already Exist!"}).status(404)
        }
        else{
            const newplayer = new Player({
@@ -51,7 +51,7 @@ router.post("/register",(req,res)=>{
                 newplayer
                    .save()
                    .then(user => {
-                       return res.json({message:"User  added successfully! :-)"}).status(200)
+                       return res.json({message:"User Added Successfully!"}).status(200)
                    })
                    .catch(err => console.log(err));
             });
@@ -66,7 +66,12 @@ router.post("/login",(req,res) =>{
     console.log('[server]' ,req.body)
      const {error,isValid} = validatingLoginInput(req.body);
      if(!isValid){
-         return res.json({message:"User name is required"}).status(404);
+        if(error.username){
+            return res.json({message:"Username Is  Required"}).status(400);
+           }
+           if(error.password){
+            return res.json({message:"Password  Is Required"}).status(400);
+           }
      }
 
      const username = req.body.username;
@@ -100,6 +105,22 @@ router.post("/login",(req,res) =>{
          });
     });
 });
+
+
+router.post("/playerDetail",(res,req) =>{
+
+// work freom here//
+
+
+})
+
+
+
+
+
+
+
+
 
 module.exports = router;
 

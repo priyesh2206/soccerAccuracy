@@ -28,8 +28,7 @@ class Signup extends React.Component{
   changePassword2=(event)=>{
     this.setState({password2:event.target.value})
   }
-
-
+  
   onSubmit=e=>{
     const newUser={
       username:this.state.username,
@@ -38,13 +37,11 @@ class Signup extends React.Component{
       password2:this.state.password2
     }
     console.log(newUser);
-    axios.post("http://localhost:5000/api/users/register",newUser).then(data=>{
-        toast.success((data.data.message), {
+    axios.post("http://localhost:5000/api/users/register",newUser).then((data)=>{
+      toast.info((data.data.message), {
         position: toast.POSITION.TOP_CENTER,autoClose:false,
       });
-      console.log(data);
-      console.log("user Added Successfully!!");
-    })
+    });
 
   };
 
