@@ -19,7 +19,7 @@ class PlayerDetails extends React.Component{
         startDate: date,
         playername:'',
         teamname:'',
-        date:'',
+        matchdate:'',
         goalWon:'',
         goalAttmp:'',
         trackleWon:'',
@@ -77,7 +77,7 @@ return(
                 <br/>
                 {/* input threee */}
                 <label
-                  htmlFor="data"
+                  htmlFor="matchdate"
                   className="dark-text font-weight-light"
                 >
                  <i className="fas fa-calendar-week"></i>&nbsp; Match Date

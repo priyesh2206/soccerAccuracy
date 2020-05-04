@@ -1,6 +1,6 @@
 import React from "react"
 import "./playerdetails.css"
-
+import {Spinner } from './Spinner';
 
 
 class PlayerAccuracy extends React.Component{
@@ -10,6 +10,7 @@ class PlayerAccuracy extends React.Component{
         <div>
             it conatain the card at the side which the player details and besider it contain thet drop down of various option::
             and display the other option
+            <Spinner/>
         </div>
     )
      }

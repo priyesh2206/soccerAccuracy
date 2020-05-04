@@ -2,8 +2,9 @@ import React from 'react'
 import { MDBContainer, MDBRow, MDBCol, MDBBtn, MDBCard, MDBInput, MDBTooltip} from 'mdbreact';
 import "./login.css";
 import axios from 'axios';
-import {Link,Redirect} from 'react-router-dom'
+import {Link} from 'react-router-dom'
 import { toast} from 'react-toastify';
+import {Spinner } from './Spinner';
 
 
 toast.configure();
@@ -15,7 +16,6 @@ class Login extends React.Component{
        loginOpen:true,
        username:'',
        password:'',
-       InvalideUser:false
      }
      this.changeState = this.changeState.bind(this) 
    }
@@ -32,7 +32,7 @@ class Login extends React.Component{
        username:this.state.username,
        password:this.state.password
      }
-
+ 
      axios.post("http://localhost:5000/api/users/login",User).then((data)=>{
        if(data.data.success == true){
          toast.success(" User Login Success!", {
@@ -44,16 +44,12 @@ class Login extends React.Component{
          this.props.makeMelogin()
        }
        else{
-          
           toast.error((data.data.message), {
           position: toast.POSITION.TOP_CENTER
         });
        }
      })
    }
-    
-   
-  
 
  render(){
   return(
@@ -119,7 +115,6 @@ class Login extends React.Component{
                             LogIn
                             </MDBBtn>
                         </Link>
-                        
                       </div>
 
                      </MDBRow>

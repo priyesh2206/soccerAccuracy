@@ -4,7 +4,7 @@ const moongoose = require('mongoose');
 const PlayerDetails = new moongoose.Schema({
     playername:{type:String,required:true},
     teamname:{type:String,required:true},
-    date:{type:Date,required:true},
+    matchdate:{type:Date,required:true},
     goalWon:{type:Number,required:true},
     goalAttmp:{type:Number,required:true},
     trackleWon:{type:Number,required:true},
@@ -13,7 +13,7 @@ const PlayerDetails = new moongoose.Schema({
     passesAttmp:{type:Number,required:true},
     timestamp:{type:Date ,default:Date.now},
     playerData:[{
-        date:{type:Date},
+        matchdate:{type:Date},
         goalWon:{type:Number,required:true},
         oalAttmp:{type:Number,required:true},
         trackleWon:{type:Number,required:true},

@@ -7,12 +7,12 @@ const jwt =require("jsonwebtoken");
 
 const validatingregisterInput = require("../../validators/register");
 const validatingLoginInput   = require("../../validators/login");
+const ValidatorsInputDetails = require("../../validators/playerdetails");
 
 
 
 const Player = require("../../model/player")
-
-
+const PlayerDetail = require('../../model/playerdetail')
 
 router.post("/register",(req,res)=>{
 
@@ -108,8 +108,93 @@ router.post("/login",(req,res) =>{
 
 
 router.post("/playerDetail",(res,req) =>{
+    const {error,isValid} = ValidatorsInputDetails(req.body)
+    if(!isValid){
+        if(error.playername){
+            return res.json({message:error.playername}).status(404)     
+         }
+         
+        if(error.teamname){
+            return res.json({message:error.teamname}).status(404)
+         }
 
-// work freom here//
+         if(error.matchdata){
+            return res.json({message:error.matchdata}).status(404)
+         }
+
+         if(error.goalWon){
+            return res.json({message:error.goalWon}).status(404)
+         }
+
+         if(error.goalAttmp){
+            return res.json({message:error.goalAttmp}).status(404)
+         }
+
+         if(error.trackleWon){
+            return res.json({message:error.trackleWon}).status(404)
+         }
+
+         if(error.trackleAttmp){
+            return res.json({message:error.trackleAttmp}).status(404)
+         }
+
+         if(error.passesWon){
+            return res.json({message:error.passesWon}).status(404)
+         }
+
+         if(error.passesAttmp){
+            return res.json({message:error.passesAttmp}).status(404)
+         }
+    }
+
+    PlayerDetail.findOne({playername:req.body.playername}).then(user =>{
+        if(user){
+            let newDate = new Date(req.body.matchdata);
+            let OldDate = new Date(user.matchdata);
+            if(OldDate < newDate)
+               { 
+                   PlayerDetail.update({playername:user.playername},{$push:{playerData:user}},
+                    function(err,send){
+                        if(err){
+                            console.log("ERROR"+err);
+                        }
+                        else{
+                              PlayerDetail.findOneAndUpdate(
+                                  {playername:user.playername},
+                                  req.body,
+                                  {upsert:true,new:true,runValidators:true}// need to improve from here//
+                              )
+                        
+                        }
+                   })
+   
+               }
+
+
+
+        }
+
+
+        else{
+            const PlayerDetails = new PlayerDetail ({
+                playername:req.body.playername,
+                teamname:req.body.teamname,
+                matchdata:req.body.matchdata,
+                goalWon:req.body.goalWon,
+                goalAttmp:req.body.goalAttmp,
+                trackleWon:req.body.trackleWon,
+                trackleAttmp:req.body.trackleAttmp,
+                passesWon:req.body.passesWon,
+                passesAttmp:req.body.passesAttmp
+            })
+
+            PlayerDetails.save().then((user =>{
+                res.json({message:" Details Added Successfully "}).status(200);
+            }))
+        }
+    })
+
+
 
 
 })
