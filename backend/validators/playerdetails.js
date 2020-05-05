@@ -1,63 +1,63 @@
 const Validators = require('validator');
-const Isempty = require('is-empty')
+const isEmpty = require('is-empty')
 
 
 module.exports = function  ValidatorsInputDetails(data){
     let error ={};
 
-data.playername = !Isempty(data.playername)? data.playername:'';
-data.teamname = !Isempty(data.teamname) ? data.teamname:'';
-data.matchdata = !Isempty(data.matchdata) ?data.matchdata:'';
-data.goalWon = !Isempty(data.goalWon) ? data.goalWon:'';
-data.goalAttmp=!Isempty(data.goalAttmp) ? data.goalAttmp:'';
-data.trackleWon = !Isempty(data.trackleWon) ? trackleWon:'';
-data.trackleAttmp = !Isempty(data.trackleAttmp) ? trackleAttmp:'';
-data.passesWon =!Isempty(data.passesWon) ? passesWon:'';
-data.passesAttmp = !Isempty(data.passesAttmp) ? passesAttmp:'';
+data.playername = !isEmpty(data.playername)? data.playername:'';
+data.teamname = !isEmpty(data.teamname) ? data.teamname:'';
+data.matchdate = !isEmpty(data.matchdate) ?data.matchdate:'';
+data.goalWon = !isEmpty(data.goalWon) ? data.goalWon:'';
+data.goalAttmp=!isEmpty(data.goalAttmp) ? data.goalAttmp:'';
+data.tackleWon = !isEmpty(data.tackleWon) ? data.tackleWon:'';
+data.tackleAttmp = !isEmpty(data.tackleAttmp) ? data.tackleAttmp:'';
+data.passesWon =!isEmpty(data.passesWon) ? data.passesWon:'';
+data.passesAttmp = !isEmpty(data.passesAttmp) ? data.passesAttmp:'';
 
-
-if(Validators.Isempty(data.playername)){
+//erors in validations
+if(Validators.isEmpty(data.playername)){
     error.playername = "Player Name Is Required";
 }
- if(Validators.Isempty(data.teamname)){
+ if(Validators.isEmpty(data.teamname)){
      error.teamname="Team Name Is Required ";
  }
-if(Validators.Isempty(data.matchdata)){
-    error.matchdata="Date Of Match Is Required"
+if(Validators.isEmpty(data.matchdate)){
+    error.matchdate="Date Of Match Is Required"
 }
 
-if(Validators.Isempty(goalWon)){
+if(Validators.isEmpty(data.goalWon)){
     error.goalWon = "Details Are Insufficient to Analysis "
 }
 
-if(Validators.Isempty(goalAttmp)){
+if(Validators.isEmpty(data.goalAttmp)){
     error.goalAttmp = "Details Are Insufficient to Analysis "
 }
 
-if(Validators.Isempty(trackleWon)){
-    error.trackleWon = "Details Are Insufficient to Analysis "
+if(Validators.isEmpty(data.ackleWon)){
+    error.tackleWon = "Details Are Insufficient to Analysis "
 
 }
 
-if(Validators.Isempty(trackleAttmp)){
-    error.trackleAttmp = "Details Are Insufficient to Analysis "
+if(Validators.isEmpty(data.tackleAttmp)){
+    error.tackleAttmp = "Details Are Insufficient to Analysis "
 }
 
-if(Validators.Isempty(trackleAttmp)){
-    error.trackleAttmp = "Details Are Insufficient to Analysis "
+if(Validators.isEmpty(data.tackleAttmp)){
+    error.tackleAttmp = "Details Are Insufficient to Analysis "
 }
 
-if(Validators.Isempty(passesWon)){
+if(Validators.isEmpty(data.passesWon)){
     error.passesWon = "Details Are Insufficient to Analysis "
 }
 
-if(Validators.Isempty(passesAttmp)){
+if(Validators.isEmpty(data.passesAttmp)){
     error.passesAttmp = "Details Are Insufficient to Analysis "
 }
 
 return{
     error,
-    isValid:Isempty(error)
+    isValid:isEmpty(error)
 }
 
 

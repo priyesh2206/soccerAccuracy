@@ -27,7 +27,7 @@ class Login extends React.Component{
      this.setState({password:event.target.value})
    }
 
-   changeState(){
+   changeState(event){
      const User = {
        username:this.state.username,
        password:this.state.password
@@ -47,6 +47,7 @@ class Login extends React.Component{
           toast.error((data.data.message), {
           position: toast.POSITION.TOP_CENTER
         });
+        event.preventDefault()
        }
      })
    }

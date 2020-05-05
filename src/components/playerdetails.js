@@ -2,6 +2,7 @@ import  React from 'react';
 import { MDBContainer, MDBRow, MDBCol, MDBBtn, MDBCard, MDBCardBody, MDBIcon } from 'mdbreact';
 import './playerdetails.css';
 import DatePicker from "react-datepicker";
+import axios from 'axios';
 import "react-datepicker/dist/react-datepicker.css";
 
 
@@ -10,28 +11,60 @@ class PlayerDetails extends React.Component{
     super(props);
     
     this.state = {
-        startDate:null
-      };
-
-    }
-  onhandleChange = date => {
-      this.setState({
-        startDate: date,
+        startDate:null,
         playername:'',
         teamname:'',
-        matchdate:'',
         goalWon:'',
         goalAttmp:'',
-        trackleWon:'',
-        trackleAttmp:'',
+        tackleWon:'',
+        tackleAttmp:'',
         passesWon:'',
         passesAttmp:'',
         timestamp:''
-        
-
-
-      });
+      };
+     this.handleInputChange = this.handleInputChange.bind(this);
+     this.onSubmit = this.onSubmit.bind(this);
+    }
+  handleChangeDate = date => {
+      this.setState({startDate: date});
     };
+
+  handleInputChange(event){
+    const target = event.target;
+    const value = target.value;
+    const name = target.name;
+
+    this.setState({
+      [name]:value
+    })
+  }
+  
+  onSubmit(){
+    const newplayerDetails = {
+      playername:this.state.playername,
+      teamname:this.state.teamname,
+      matchdate:this.state.startDate,
+      goalWon:this.state.goalWon,
+      goalAttmp:this.state.goalAttmp,
+      tackleWon:this.state.tackleWon,
+      tackleAttmp:this.state.tackleAttmp,
+      passesWon:this.state.passesWon,
+      passesAttmp:this.state.passesAttmp,
+    }
+    console.log(newplayerDetails);
+    axios.post("http://localhost:5000/api/users/playerDetail",newplayerDetails).then(data=>{
+      console.log(data);
+      if(data.ok){
+        console.log("party time ")
+      }
+     else{
+       console.log("error")
+     }
+    });
+  }
+  
+
+
 
 render(){
   console.log(this.props.isUserLoggedIn)
@@ -56,7 +89,10 @@ return(
                  <input
                   type="text"
                   id="playername"
+                  name="playername"
+                  value={this.state.playername}
                   className="form-control"
+                  onChange={this.handleInputChange}
 
                 />
                 {/* input one end */}
@@ -72,6 +108,9 @@ return(
                   type="text"
                   id="teamname"
                   className="form-control"
+                  name="teamname"
+                  value={this.state.teamname}
+                  onChange={this.handleInputChange}
                 />
                 {/* input second end */}
                 <br/>
@@ -85,7 +124,7 @@ return(
                 <div>
                 <DatePicker
                   selected={this.state.startDate}
-                  onChange={this.handleChange}
+                  onChange={this.handleChangeDate}
                 />
 
                 </div>
@@ -102,6 +141,9 @@ return(
                   type="number"
                   id="goalWon"
                   className="form-control"
+                  name="goalWon"
+                  value={this.state.goalWon}
+                  onChange={this.handleInputChange}
                 />
                 {/*input four end */}
                 <br/>
@@ -116,34 +158,43 @@ return(
                   type="number"
                   id="goalAttmp"
                   className="form-control"
+                  name="goalAttmp"
+                  value={this.state.goalAttmp}
+                  onChange={this.handleInputChange}
                 />
                 {/* input five end */}
                 <br/>
                 {/* input six  */}
                 <label
-                  htmlFor="trackleWon"
+                  htmlFor="tackleWon"
                   className="dark-text font-weight-light"
                 >
-                Trackles-Won!
+                Tackles-Won!
                 </label>
                 <input
                   type="number"
-                  id="trackleWon"
+                  id="tackleWon"
                   className="form-control"
+                  name="tackleWon"
+                  value={this.state.tackleWon}
+                  onChange={this.handleInputChange}
                 />
                 {/* input six end */}
                 <br/>
                 {/* input seven  */}
                 <label
-                  htmlFor="trackleAttmp"
+                  htmlFor="tackleAttmp"
                   className="dark-text font-weight-light"
                 >
-                Trackles-Attempted
+                Tackles-Attempted
                 </label>
                 <input
                   type="number"
-                  id="trackleAttmp"
+                  id="tackleAttmp"
                   className="form-control"
+                  name="tackleAttmp"
+                  value={this.state.tackleAttmp}
+                  onChange={this.handleInputChange}
                 />
                 {/* input seven end */}
                 <br/>
@@ -158,6 +209,9 @@ return(
                   type="number"
                   id="passesWon"
                   className="form-control"
+                  name="passesWon"
+                  value={this.state.passesWon}
+                  onChange={this.handleInputChange}
                 />
                 {/* input eight end */}
                 <br/>
@@ -172,11 +226,14 @@ return(
                   type="number"
                   id="passesAttmp"
                   className="form-control"
+                  name="passesAttmp"
+                  value={this.state.passesAttmp}
+                  onChange={this.handleInputChange}
                 />
                 {/* input nine end */}
                 <div className="display">
                 <div className="text-center py-4 mt-3 display ">
-                  <MDBBtn className="btn btn-outline-purple" type="">
+                  <MDBBtn className="btn btn-outline-purple" type="" onClick={this.onSubmit}>
                     ADD Details&nbsp;&nbsp;
                     <i className="fa fa-user-plus"></i>
                   </MDBBtn>

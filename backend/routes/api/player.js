@@ -107,8 +107,10 @@ router.post("/login",(req,res) =>{
 });
 
 
-router.post("/playerDetail",(res,req) =>{
+router.post("/playerDetail",(req,res) =>{
+    console.log('[server]' ,req.body)
     const {error,isValid} = ValidatorsInputDetails(req.body)
+
     if(!isValid){
         if(error.playername){
             return res.json({message:error.playername}).status(404)     
@@ -118,8 +120,8 @@ router.post("/playerDetail",(res,req) =>{
             return res.json({message:error.teamname}).status(404)
          }
 
-         if(error.matchdata){
-            return res.json({message:error.matchdata}).status(404)
+         if(error.matchdate){
+            return res.json({message:error.matchdate}).status(404)
          }
 
          if(error.goalWon){
@@ -130,12 +132,12 @@ router.post("/playerDetail",(res,req) =>{
             return res.json({message:error.goalAttmp}).status(404)
          }
 
-         if(error.trackleWon){
-            return res.json({message:error.trackleWon}).status(404)
+         if(error.tackleWon){
+            return res.json({message:error.tackleWon}).status(404)
          }
 
-         if(error.trackleAttmp){
-            return res.json({message:error.trackleAttmp}).status(404)
+         if(error.tackleAttmp){
+            return res.json({message:error.tackleAttmp}).status(404)
          }
 
          if(error.passesWon){
@@ -149,55 +151,61 @@ router.post("/playerDetail",(res,req) =>{
 
     PlayerDetail.findOne({playername:req.body.playername}).then(user =>{
         if(user){
-            let newDate = new Date(req.body.matchdata);
-            let OldDate = new Date(user.matchdata);
-            if(OldDate < newDate)
-               { 
-                   PlayerDetail.update({playername:user.playername},{$push:{playerData:user}},
-                    function(err,send){
-                        if(err){
-                            console.log("ERROR"+err);
+            let newDate = new Date(req.body.matchdate);
+            let OldDate = new Date(user.matchdate);
+                if(OldDate != newDate)
+                   { 
+                       PlayerDetail.update({playername:user.playername},{$push:{playerData:user}},
+                        function(err,send){
+                            if(err){
+                                console.log("ERROR"+err);
+                            }
+                            else{
+                                  PlayerDetail.findOneAndUpdate(
+                                      {playername:user.playername},
+                                      req.body,
+                                      {upsert:true,new:true,runValidators:true},
+                                      function (err,update){
+                                          if(err){
+                                              console.log("ERROR "+err);
+                                          }
+                                          else{
+                                              return res.json(update)//chang message 
+                                          }
+                                      })
+                               }
+                      })
+                   }
+                   else{
+                        PlayerDetail.findOneAndReplace({playername:req.body.playername,matchdate:req.body.matchdate},req.body, 
+                         {upsert:true,new:true,runValidators:true},function(err,doc){
+                             if(err){
+                                 console.log("ERROR in Replacing the doc");
+                             }
+                             else{
+                                 return res.json(doc);//chang message 
+                             }
+                         })
                         }
-                        else{
-                              PlayerDetail.findOneAndUpdate(
-                                  {playername:user.playername},
-                                  req.body,
-                                  {upsert:true,new:true,runValidators:true}// need to improve from here//
-                              )
-                        
-                        }
-                   })
-   
-               }
-
-
-
         }
-
-
         else{
-            const PlayerDetails = new PlayerDetail ({
-                playername:req.body.playername,
-                teamname:req.body.teamname,
-                matchdata:req.body.matchdata,
-                goalWon:req.body.goalWon,
-                goalAttmp:req.body.goalAttmp,
-                trackleWon:req.body.trackleWon,
-                trackleAttmp:req.body.trackleAttmp,
-                passesWon:req.body.passesWon,
-                passesAttmp:req.body.passesAttmp
-            })
-
-            PlayerDetails.save().then((user =>{
-                res.json({message:" Details Added Successfully "}).status(200);
-            }))
+             const PlayerDetails = new PlayerDetail ({
+                 playername:req.body.playername,
+                 teamname:req.body.teamname,
+                 matchdata:req.body.matchdata,
+                 goalWon:req.body.goalWon,
+                 goalAttmp:req.body.goalAttmp,
+                 tackleWon:req.body.tackleWon,
+                 tackleAttmp:req.body.tackleAttmp,
+                 passesWon:req.body.passesWon,
+                 passesAttmp:req.body.passesAttmp
+             });    
+             PlayerDetails.save().then((user =>{
+                 res.status(200).json(user);//change message 
+             }))
         }
-    })
-
-
-
-
-})
+    });
+});
 
 
 
