@@ -4,7 +4,11 @@ import './playerdetails.css';
 import DatePicker from "react-datepicker";
 import axios from 'axios';
 import "react-datepicker/dist/react-datepicker.css";
+import { toast} from 'react-toastify';
 
+
+
+toast.configure();
 
 class PlayerDetails extends React.Component{
   constructor(props){
@@ -24,6 +28,7 @@ class PlayerDetails extends React.Component{
       };
      this.handleInputChange = this.handleInputChange.bind(this);
      this.onSubmit = this.onSubmit.bind(this);
+     this.onResetForm = this.onResetForm.bind(this);
     }
   handleChangeDate = date => {
       this.setState({startDate: date});
@@ -38,7 +43,21 @@ class PlayerDetails extends React.Component{
       [name]:value
     })
   }
-  
+
+  onResetForm(){
+    this.setState({...this.state,
+      startDate:null,
+      playername:'',
+      teamname:'',
+      goalWon:'',
+      goalAttmp:'',
+      tackleWon:'',
+      tackleAttmp:'',
+      passesWon:'',
+      passesAttmp:'',
+      timestamp:''})
+  }
+
   onSubmit(){
     const newplayerDetails = {
       playername:this.state.playername,
@@ -54,13 +73,11 @@ class PlayerDetails extends React.Component{
     console.log(newplayerDetails);
     axios.post("http://localhost:5000/api/users/playerDetail",newplayerDetails).then(data=>{
       console.log(data);
-      if(data.ok){
-        console.log("party time ")
-      }
-     else{
-       console.log("error")
-     }
+      toast.success((data.data.message), {
+        position: toast.POSITION.TOP_CENTER
+      });
     });
+    this.onResetForm();
   }
   
 
@@ -93,7 +110,7 @@ return(
                   value={this.state.playername}
                   className="form-control"
                   onChange={this.handleInputChange}
-
+                 
                 />
                 {/* input one end */}
                 <br />

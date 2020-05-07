@@ -153,9 +153,11 @@ router.post("/playerDetail",(req,res) =>{
         if(user){
             let newDate = new Date(req.body.matchdate);
             let OldDate = new Date(user.matchdate);
-                if(OldDate != newDate)
+            console.log(newDate);
+            console.log(OldDate);
+               if(OldDate != newDate)
                    { 
-                       PlayerDetail.update({playername:user.playername},{$push:{playerData:user}},
+                       PlayerDetail.updateOne({playername:user.playername},{$push:{playerData:user}},
                         function(err,send){
                             if(err){
                                 console.log("ERROR"+err);
@@ -170,20 +172,20 @@ router.post("/playerDetail",(req,res) =>{
                                               console.log("ERROR "+err);
                                           }
                                           else{
-                                              return res.json(update)//chang message 
+                                              return res.json({message:"Details Updated"})//chang message 
                                           }
                                       })
                                }
                       })
                    }
                    else{
-                        PlayerDetail.findOneAndReplace({playername:req.body.playername,matchdate:req.body.matchdate},req.body, 
+                        PlayerDetail.findAndModify({playername:req.body.playername},req.body, 
                          {upsert:true,new:true,runValidators:true},function(err,doc){
                              if(err){
                                  console.log("ERROR in Replacing the doc");
                              }
                              else{
-                                 return res.json(doc);//chang message 
+                                 return res.json({message:"DETIALS MODIFYED"});//chang message 
                              }
                          })
                         }
@@ -192,7 +194,7 @@ router.post("/playerDetail",(req,res) =>{
              const PlayerDetails = new PlayerDetail ({
                  playername:req.body.playername,
                  teamname:req.body.teamname,
-                 matchdata:req.body.matchdata,
+                 matchdate:req.body.matchdate,
                  goalWon:req.body.goalWon,
                  goalAttmp:req.body.goalAttmp,
                  tackleWon:req.body.tackleWon,
@@ -201,7 +203,7 @@ router.post("/playerDetail",(req,res) =>{
                  passesAttmp:req.body.passesAttmp
              });    
              PlayerDetails.save().then((user =>{
-                 res.status(200).json(user);//change message 
+                 res.status(200).json({message:"DETAILS ADDED SUCCESSFULLY"});//change message 
              }))
         }
     });

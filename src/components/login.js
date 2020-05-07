@@ -4,7 +4,7 @@ import "./login.css";
 import axios from 'axios';
 import {Link} from 'react-router-dom'
 import { toast} from 'react-toastify';
-import {Spinner } from './Spinner';
+
 
 
 toast.configure();
