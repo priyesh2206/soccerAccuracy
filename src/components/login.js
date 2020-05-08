@@ -4,7 +4,7 @@ import "./login.css";
 import axios from 'axios';
 import {Link} from 'react-router-dom'
 import { toast} from 'react-toastify';
-
+import SliderImage from './slider';
 
 
 toast.configure();
@@ -16,6 +16,7 @@ class Login extends React.Component{
        loginOpen:true,
        username:'',
        password:'',
+       isopen:false
      }
      this.changeState = this.changeState.bind(this) 
    }
@@ -57,6 +58,7 @@ class Login extends React.Component{
     <div>
       {this.state.loginOpen?(
         <div>
+          <SliderImage onLogin={this.state.isopen}/>
       <div className="Card">
       <MDBContainer>
         <MDBRow>
