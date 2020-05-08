@@ -1,10 +1,14 @@
 import React from  'react';
-import { MDBCarousel, MDBCarouselInner, MDBCarouselItem, MDBView, MDBContainer } from
-"mdbreact";
+import { MDBCarousel, MDBCarouselInner, MDBCarouselItem, MDBView, MDBContainer } from "mdbreact";
 
 const SliderImage =(props)=>{
-    console.log(props.onLogin)
-    if(props.onLogin){
+    console.log(window.location.href)
+    if(window.location.href === "http://localhost:3000/login" || window.location.href === "http://localhost:3000/signup"){
+        return(
+            <div></div>
+        )
+        }
+        else{
         return(
                         <div className="row">   
                          <MDBContainer>
@@ -50,13 +54,6 @@ const SliderImage =(props)=>{
                         </div>
 
 )
-    }
-    else{
-        return(
-            <div>
-                Hello
-            </div>
-        )
     }
 }
 

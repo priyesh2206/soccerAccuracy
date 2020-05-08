@@ -58,7 +58,6 @@ class Login extends React.Component{
     <div>
       {this.state.loginOpen?(
         <div>
-          <SliderImage onLogin={this.state.isopen}/>
       <div className="Card">
       <MDBContainer>
         <MDBRow>

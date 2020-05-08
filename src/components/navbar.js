@@ -13,7 +13,7 @@ class Navbars extends React.Component{
         }
     }
     LoginHit=()=>{
-        this.setState({isopen:false})
+        this.setState({isopen:!this.state.isopen})
     }
 
     render(){
@@ -31,13 +31,13 @@ class Navbars extends React.Component{
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav className="mr-auto bar">
-                    <Nav.Link href="/login" onClick={()=>this.LoginHit()}>Login</Nav.Link>
-                    <Nav.Link href="/signup">SignUp </Nav.Link>
+                    <Nav.Link href="/login">Login</Nav.Link>
+                    <Nav.Link href="/signup" >SignUp </Nav.Link>
                     </Nav>
                 </Navbar.Collapse>
                 </Navbar>
              </div> 
-             <SliderImage onLogin={this.state.isopen}/> 
+             <SliderImage /> 
              </div>            
 
         )
