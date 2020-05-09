@@ -1,0 +1,18 @@
+.row-header{
+    margin:0px auto;
+    padding:0px auto;
+}
+
+.row-content {
+    margin:0px auto;
+    padding: 50px 0px 50px 0px;
+    border-bottom: 1px ridge;
+    min-height:400px;
+}
+
+.jumbotron{
+    padding:50px 30px 50px 30px !important;
+    margin:0px 0px 2px 0px !important;
+    background-color:#222831 !important  ;
+    color:rgb(247, 247, 240);
+}

@@ -17,6 +17,7 @@
 }
 
 
-.Navbar-dark{
-  background-color:#c70039;
+.navbar-dark{
+  background-color:#eb0647f1 !important;
+  color:black !important;
 }

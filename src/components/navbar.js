@@ -8,19 +8,14 @@ import "./navbar.css";
 class Navbars extends React.Component{
     constructor(props){
         super(props);
-        this.state={
-            isopen:true
-        }
-    }
-    LoginHit=()=>{
-        this.setState({isopen:!this.state.isopen})
+    
     }
 
     render(){
         return(
             <div>
             <div>
-                <Navbar collapseOnSelect expand="xl" bg="dark" variant="dark" >
+                <Navbar collapseOnSelect expand="md" variant="light" bg="light"  >
                     <Navbar.Brand href="/">
                     <img src={football} alt="football" 
                     width="60" height="60"
@@ -31,15 +26,14 @@ class Navbars extends React.Component{
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav className="mr-auto bar">
-                    <Nav.Link href="/login">Login</Nav.Link>
+                    <Nav.Link href="/login" className="nav-link">Login</Nav.Link>
                     <Nav.Link href="/signup" >SignUp </Nav.Link>
                     </Nav>
                 </Navbar.Collapse>
                 </Navbar>
              </div> 
              <SliderImage /> 
-             </div>            
-
+             </div>
         )
       }
     }
