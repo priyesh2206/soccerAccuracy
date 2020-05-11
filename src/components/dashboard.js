@@ -3,7 +3,7 @@ import Navbars from "./navbar"
 import NavbarOne from "./navbar1"//navabr after login//
 import './dashboard.css'
 import PlayerDetails from './playerdetails';
-import {Jumbotron,Container} from 'react-bootstrap'
+
 
 class DashBoard extends React.Component{
     constructor(props){
