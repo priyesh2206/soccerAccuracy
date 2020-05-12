@@ -1,10 +1,11 @@
 import  React from 'react';
 import { MDBContainer, MDBRow, MDBCol, MDBBtn, MDBCard, MDBCardBody, MDBIcon } from 'mdbreact';
-import './playerdetails.css';
 import DatePicker from "react-datepicker";
-import axios from 'axios';
-import "react-datepicker/dist/react-datepicker.css";
 import { toast} from 'react-toastify';
+import axios from 'axios';
+import './playerdetails.css';
+import "react-datepicker/dist/react-datepicker.css";
+
 
 
 
@@ -256,7 +257,7 @@ return(
                   </MDBBtn>
                 </div>
                 <div className="text-center py-4 mt-3 display">
-                  <MDBBtn className="btn btn-outline-purple" href="/playerAccuracy" type="submit">
+                  <MDBBtn className="btn btn-outline-purple" href="/AnlysisDash" type="submit">
                    Anlaysis&nbsp;&nbsp;
                    <i className="fa fa-diagnoses"></i>
                   </MDBBtn>

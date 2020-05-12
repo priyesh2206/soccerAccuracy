@@ -4,7 +4,6 @@ const mongoose= require("mongoose");
 mongoose.Promise = global.Promise;
 const cors= require("cors");
 const passport = require("passport");
-const mongoURI = require('./config/keys');
 const players = require('./routes/api/player')
 
 require('dotenv').config();

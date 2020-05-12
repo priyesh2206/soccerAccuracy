@@ -1,10 +1,9 @@
 import React from 'react'
-import { MDBContainer, MDBRow, MDBCol, MDBBtn, MDBCard, MDBInput, MDBTooltip} from 'mdbreact';
+import { MDBContainer, MDBRow, MDBCol, MDBBtn, MDBCard, MDBInput} from 'mdbreact';
 import "./login.css";
 import axios from 'axios';
 import {Link} from 'react-router-dom'
 import { toast} from 'react-toastify';
-import SliderImage from './slider';
 
 
 toast.configure();

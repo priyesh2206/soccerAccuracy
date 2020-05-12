@@ -5,7 +5,7 @@ import { BrowserRouter as Router,Route,Switch,Redirect, BrowserRouter} from "rea
 import Login from './components/login'
 import Signup from './components/signup'
 import PlayerDetails from './components/playerdetails'
-import PlayerAccuracy from './components/playerAccuracy'
+import AnlysisDashboard from './components/analysisDashboard'
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import "bootstrap-css-only/css/bootstrap.min.css";
 import 'react-toastify/dist/ReactToastify.min.css';
@@ -51,7 +51,7 @@ render(){
        <Route  exact path="/login" component={()=> <Login makeMelogin={this.makeMelogin}/>} />
        <Route  exact path="/signup" component={()=> <Signup makeMelogin={this.makeMelogin}/> }  />
        <Route  path="/playerDetails" component={() => <PlayerDetails makeMelogin={this.makeMelogin} isUserLoggedIn={this.state.isUserLoggedIn}/>}/>
-       <Route  exact path="/playerAccuracy" component={PlayerAccuracy}/> 
+       <Route  exact path="/AnlysisDash" component={AnlysisDashboard}/> 
     </div>
    
     </Router>
