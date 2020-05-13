@@ -34,6 +34,7 @@
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.3.0",
     "react-toastify": "^5.5.0",
+    "reactstrap": "^5.0.0",
     "validator": "^12.1.0"
   },
   "scripts": {

@@ -1,5 +1,7 @@
 import React from "react"
 import {Row,Col,ListGroup,Tab,} from 'react-bootstrap'
+import AYA from './analysis compoments/AYA';
+import CWO from './analysis compoments/CWO';
 import "./analysisDashboard.css"
 
 
@@ -48,9 +50,10 @@ class AnlysisDashboard extends React.Component{
                       <Col sm={8}>
                         <Tab.Content>
                           <Tab.Pane eventKey="#AYA">
+                            <AYA/>
                           </Tab.Pane>
                           <Tab.Pane eventKey="#CWO">
-
+                            <CWO/>
                           </Tab.Pane>
                           <Tab.Pane eventKey="#MVD">
 

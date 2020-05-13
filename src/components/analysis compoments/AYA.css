@@ -1,0 +1,25 @@
+.CardBody{
+    width:25rem;
+    height:33rem;
+    margin-top:5rem;
+    margin-left: 22rem;
+}
+.center{
+    text-align:center !important;
+     margin-left:7rem !important;
+     margin-top: 2rem !important;
+
+}
+.Cardtext{
+    text-align: center !important;
+}
+.inputText{
+    color: black;
+}
+@media screen and (max-width: 800px) {
+    .CardBody{
+        width: 100%; /* The width is 100%, when the viewport is 800px or smaller */
+        margin-left: 2%;
+        margin-top: 2rem;
+       }
+   }
