@@ -18,8 +18,8 @@
 }
 @media screen and (max-width: 800px) {
     .CardBody{
-        width: 100%; /* The width is 100%, when the viewport is 800px or smaller */
-        margin-left: 2%;
+       /* The width is 100%, when the viewport is 800px or smaller */
+        margin-left:10%;
         margin-top: 2rem;
        }
    }

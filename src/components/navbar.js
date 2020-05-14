@@ -6,11 +6,6 @@ import SliderImage  from './slider';
 import "./navbar.css";
 
 class Navbars extends React.Component{
-    constructor(props){
-        super(props);
-    
-    }
-
     render(){
         return(
             <div>

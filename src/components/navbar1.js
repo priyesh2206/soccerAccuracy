@@ -1,17 +1,12 @@
 import React from 'react';
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
-import PlayerDetails from './playerdetails';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import football from './something.png'
 import "./navbar1.css"
 
 
 class NavabarOne extends React.Component{
-   constructor(props){
-       super(props)
-       
-   }
    logOut=()=>{
        localStorage.setItem('isLoggedIn',false);
        localStorage.setItem('User',null)

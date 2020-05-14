@@ -1,7 +1,7 @@
 import React from 'react'
 import './App.css'
 import DashBoard from './components/dashboard'
-import { BrowserRouter as Router,Route,Switch,Redirect, BrowserRouter} from "react-router-dom"
+import { BrowserRouter as Router,Route} from "react-router-dom"
 import Login from './components/login'
 import Signup from './components/signup'
 import PlayerDetails from './components/playerdetails'
@@ -18,7 +18,7 @@ if(localStorage.getItem("isLoggedIn") == null){
 }
 
 const getState=()=>{
-  if(localStorage.getItem("isLoggedIn") == "false"){
+  if(localStorage.getItem("isLoggedIn") === "false"){
     return false;
   }
   else{

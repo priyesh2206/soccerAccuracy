@@ -34,7 +34,7 @@ class Login extends React.Component{
      }
  
      axios.post("http://localhost:5000/api/users/login",User).then((data)=>{
-       if(data.data.success == true){
+       if(data.data.success === true){
          toast.success(" User Login Success!", {
           position: toast.POSITION.TOP_CENTER,
         });

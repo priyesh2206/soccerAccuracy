@@ -69,7 +69,7 @@ render(){
                    <div className='text-center'>
                      <h3 className='text-dark mb-5 mt-4 font-weight-bold'>
                        <strong>Sign</strong>
-                       <a className='purple-text font-weight-bold'>
+                       <a  className='purple-text font-weight-bold'>
                          <strong>Up</strong>
                        </a>
                      </h3>

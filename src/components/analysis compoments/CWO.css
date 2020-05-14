@@ -1,0 +1,68 @@
+/* .carddeck{
+    width: 50rem;
+    border: 2px solid red;
+
+} */
+
+.CardBodyCWO{
+    width:25rem;
+    height:32rem;
+    margin-top:5rem;
+    margin-left: 7rem;
+}
+
+
+.CardBodyCWO1{
+    width:25rem;
+    height:32rem;
+    margin-top:5rem;
+    margin-left:15rem;
+}
+.vs{
+    width:50px;
+    height: 50px;
+    margin-top:-20rem;
+    margin-left: 35rem;
+
+}
+.centerCWO{
+    text-align:center !important;
+     margin-left:7rem !important;
+     margin-top: 2rem !important;
+
+}
+.CardtextCWO{
+    text-align: center !important;
+}
+.inputTextCWO{
+    color: black;
+}
+.vstext{
+    font-weight: 200px;
+}
+.CWOButt{
+    margin-top:18rem;
+    margin-left:32rem;
+}
+
+
+@media screen and (max-width: 800px) {
+    .CardBodyCWO{
+       /* The width is 100%, when the viewport is 800px or smaller */
+        margin-left: 10%;
+        margin-top: 2rem;
+       }
+    .CardBodyCWO1{
+        margin-top: 10rem;
+        margin-left: 10%;
+    }
+    .vs{
+        margin-top: -38rem;
+        margin-left: 14rem;
+    }
+    .CWOButt{
+        margin-top:35rem;
+        margin-left:35%;
+    }
+    
+   }

@@ -6,11 +6,8 @@ import PlayerDetails from './playerdetails';
 
 
 class DashBoard extends React.Component{
-    constructor(props){
-        super(props);
-    }
      getComponent=()=>{
-         if(localStorage.getItem("isLoggedIn")== 'true'){
+         if(localStorage.getItem("isLoggedIn")=== 'true'){
             return(
                 <div>
                 <NavbarOne />
