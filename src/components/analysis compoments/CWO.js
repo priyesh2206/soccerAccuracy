@@ -40,7 +40,7 @@ class CWO extends React.Component{
                             <Form>
                                   <FormGroup>
                                      <Label htmlFor="playername1" className="inputTextCWO"><i className="fa fa-user"></i>&nbsp; Player Name</Label>
-                                          <Input typr="text" id="=playername1"  name="playername1" placeholder="Player Name 1" />
+                                          <Input typr="text" id="playername1"  name="playername1" placeholder="Player Name 1" />
                                  </FormGroup>
                                  <FormGroup>
                                      <Label htmlFor="matchdate1" className="inputTextCWO"><i className="fas fa-calendar-week"></i>&nbsp;Match Date - </Label>
@@ -68,7 +68,7 @@ class CWO extends React.Component{
                               <Form>
                                 <FormGroup>
                                     <Label htmlFor="playername2" className="inputTextCWO"><i className="fa fa-user"></i>&nbsp; Player Name</Label>
-                                         <Input typr="text" id="=playername2"  name="playername2" placeholder="Player Name 2" />
+                                         <Input typr="text" id="playername2"  name="playername2" placeholder="Player Name 2" />
                                 </FormGroup>
                                 <FormGroup>
                                     <Label htmlFor="matchdate2" className="inputTextCWO"><i className="fas fa-calendar-week"></i>&nbsp;Match Date - </Label>

@@ -1,23 +1,34 @@
-.CardBody{
+.CardBodyMVD{
     width:25rem;
-    height:36rem;
-    margin-top:3rem;
+    height:41rem;
+    margin-top:3.45rem;
     margin-left: 22rem;
 }
-.center{
+.centerMVD{
     text-align:center !important;
      margin-left:7rem !important;
      margin-top: 2rem !important;
 
 }
-.Cardtext{
+.CardtextMVD{
     text-align: center !important;
+    font-weight: 250px;;
 }
-.inputText{
+.inputTextMVD{
     color: black;
 }
+.AlertMVD{
+    text-align: center;
+    font-size: 15px;
+
+}
+.Alert1MVD{
+    text-align: center;
+    font-size: 12px;
+    color: red;
+}
 @media screen and (max-width: 800px) {
-    .CardBody{
+    .CardBodyMVD{
        /* The width is 100%, when the viewport is 800px or smaller */
         margin-left:10%;
         margin-top: 2rem;

@@ -26,13 +26,15 @@ handleChangeDate = date =>{
            <Card.Img variant="top" src="assets/images/AYA.png" />
            <Card.Body>
                   <Card.Title className="Cardtext">Analysis Your Accuracy !</Card.Title>
+                  <br></br>
            <Card.Text>
                 <div>
                     <Form>
                           <FormGroup>
                              <Label htmlFor="playername" className="inputText"><i className="fa fa-user"></i>&nbsp; Player Name</Label>
-                                  <Input typr="text" id="=playername"  name="playername" placeholder="Player Name" />
+                                  <Input typr="text" id="playername"  name="playername" placeholder="Player Name" />
                          </FormGroup>
+                         <br></br>
                          <FormGroup>
                              <Label htmlFor="matchdate" className="inputText"><i className="fas fa-calendar-week"></i>&nbsp;Match Date - </Label>
                                 &nbsp;&nbsp;
@@ -45,7 +47,7 @@ handleChangeDate = date =>{
                     </Form>
                </div>
           </Card.Text>
-                <Button variant="dark" className="center">GO Analysis</Button>
+                <Button variant="dark" className="center" href="/AYATab">GO Analysis</Button>
                   </Card.Body>
         </Card>
      </div>

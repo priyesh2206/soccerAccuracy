@@ -1,11 +1,12 @@
-import React from 'react'
-import './App.css'
-import DashBoard from './components/dashboard'
-import { BrowserRouter as Router,Route} from "react-router-dom"
-import Login from './components/login'
-import Signup from './components/signup'
-import PlayerDetails from './components/playerdetails'
-import AnlysisDashboard from './components/analysisDashboard'
+import React from 'react';
+import './App.css';
+import DashBoard from './components/dashboard';
+import { BrowserRouter as Router,Route} from "react-router-dom";
+import Login from './components/login';
+import Signup from './components/signup';
+import PlayerDetails from './components/playerdetails';
+import AnlysisDashboard from './components/analysisDashboard';
+import AYATab from './components/TabsComponents/AYATab';
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import "bootstrap-css-only/css/bootstrap.min.css";
 import 'react-toastify/dist/ReactToastify.min.css';
@@ -52,6 +53,7 @@ render(){
        <Route  exact path="/signup" component={()=> <Signup makeMelogin={this.makeMelogin}/> }  />
        <Route  path="/playerDetails" component={() => <PlayerDetails makeMelogin={this.makeMelogin} isUserLoggedIn={this.state.isUserLoggedIn}/>}/>
        <Route  exact path="/AnlysisDash" component={AnlysisDashboard}/> 
+       <Route  exact path="/AYATab" component={AYATab}/>
     </div>
    
     </Router>

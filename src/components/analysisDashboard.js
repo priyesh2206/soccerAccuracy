@@ -2,6 +2,9 @@ import React from "react"
 import {Row,Col,ListGroup,Tab,} from 'react-bootstrap'
 import AYA from './analysis compoments/AYA';
 import CWO from './analysis compoments/CWO';
+import MVD from './analysis compoments/MVD';
+import WVD from './analysis compoments/WVD';
+import CWI from './analysis compoments/CWI';
 import "./analysisDashboard.css"
 
 
@@ -39,10 +42,10 @@ class AnlysisDashboard extends React.Component{
                               *It give weekly  bases view of Accuarcy. if the data is available regular manner <br></br>like day1 day2 day3 and So on..
                             </p>
                     </ListGroup.Item>
-                    <ListGroup.Item action href="#CWD">
-                           <h4>Compare with itself</h4>
+                    <ListGroup.Item action href="#CWI">
+                           <h4>Compare itself</h4>
                            <p>
-                              *It compare the Accuarcy with our own data of different dates ."Every day is not same" <br></br>it sort of SomeDay&nbsp;Vs&nbsp;AthoreDay comparsion
+                              *It compare the Accuarcy with our own data of different dates ."Every day is not same" <br></br>it sort of SomeDay&nbsp;Vs&nbsp;Another Day comparsion
                             </p>
                     </ListGroup.Item>
                 </ListGroup>
@@ -56,14 +59,13 @@ class AnlysisDashboard extends React.Component{
                             <CWO/>
                           </Tab.Pane>
                           <Tab.Pane eventKey="#MVD">
-
+                             <MVD/>
                           </Tab.Pane>
                           <Tab.Pane eventKey="#WVD">
-
+                             <WVD/>
                           </Tab.Pane>
-
-                          <Tab.Pane eventKey="#CWD">
-
+                          <Tab.Pane eventKey="#CWI">
+                            <CWI/>
                           </Tab.Pane>
                         </Tab.Content>
               </Col>

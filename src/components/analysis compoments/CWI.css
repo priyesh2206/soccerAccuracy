@@ -1,23 +1,25 @@
-.CardBody{
+.CardBodyCWI{
     width:25rem;
-    height:36rem;
-    margin-top:3rem;
+    height:40rem;
+    margin-top:2rem;
     margin-left: 22rem;
 }
-.center{
+.centerCWI{
     text-align:center !important;
      margin-left:7rem !important;
      margin-top: 2rem !important;
 
 }
-.Cardtext{
+.CardtextCWI{
     text-align: center !important;
+    font-weight: 250px;;
 }
-.inputText{
+.inputTextCWI{
     color: black;
 }
+
 @media screen and (max-width: 800px) {
-    .CardBody{
+    .CardBodyCWI{
        /* The width is 100%, when the viewport is 800px or smaller */
         margin-left:10%;
         margin-top: 2rem;
