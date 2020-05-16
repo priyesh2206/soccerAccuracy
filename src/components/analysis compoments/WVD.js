@@ -45,7 +45,7 @@ class WVD extends React.Component{
               </div>
               <p className="Alert1WVD">*If regular Data not available then it gives Random 07-days data*</p>
              </Card.Text>
-             <Button variant="dark" className="centerWVD">Show Data</Button>
+             <Button variant="dark" className="centerWVD" href="/WVDTab">Show Data</Button>
          </Card.Body>
          </Card>
      </div>

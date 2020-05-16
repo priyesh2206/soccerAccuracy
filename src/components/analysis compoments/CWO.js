@@ -90,7 +90,7 @@ class CWO extends React.Component{
              <h1 className="vstextS"><strong>Vs</strong></h1>
          </div>
          <div className="CWOButt">
-        <Button variant="dark">Go Compare</Button>
+        <Button variant="dark" href="/CWOTab">Go Compare</Button>
         </div>
  </div>
 

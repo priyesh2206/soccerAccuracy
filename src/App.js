@@ -1,16 +1,25 @@
 import React from 'react';
-import './App.css';
-import DashBoard from './components/dashboard';
 import { BrowserRouter as Router,Route} from "react-router-dom";
-import Login from './components/login';
-import Signup from './components/signup';
-import PlayerDetails from './components/playerdetails';
-import AnlysisDashboard from './components/analysisDashboard';
-import AYATab from './components/TabsComponents/AYATab';
-import "@fortawesome/fontawesome-free/css/all.min.css";
+
+
+import './App.css';
+import "mdbreact/dist/css/mdb.css";
 import "bootstrap-css-only/css/bootstrap.min.css";
 import 'react-toastify/dist/ReactToastify.min.css';
-import "mdbreact/dist/css/mdb.css";
+import "@fortawesome/fontawesome-free/css/all.min.css";
+
+import Login from './components/login';
+import Signup from './components/signup';
+import DashBoard from './components/dashboard';
+import PlayerDetails from './components/playerdetails';
+import AYATab from './components/TabsComponents/AYATab';
+import CWOTab from './components/TabsComponents/CWOTab';
+import MVDTab from './components/TabsComponents/MVDTab';
+import WVDTab from './components/TabsComponents/WVDTab';
+import CWITab from './components/TabsComponents/CWITab';
+import AnlysisDashboard from './components/analysisDashboard';
+
+
 
 
 
@@ -48,12 +57,17 @@ render(){
   return(
    <Router>
       <div>
-       <Route  path="/" component={() => <DashBoard makeMelogin={this.makeMelogin}/> }/>
-       <Route  exact path="/login" component={()=> <Login makeMelogin={this.makeMelogin}/>} />
-       <Route  exact path="/signup" component={()=> <Signup makeMelogin={this.makeMelogin}/> }  />
-       <Route  path="/playerDetails" component={() => <PlayerDetails makeMelogin={this.makeMelogin} isUserLoggedIn={this.state.isUserLoggedIn}/>}/>
-       <Route  exact path="/AnlysisDash" component={AnlysisDashboard}/> 
-       <Route  exact path="/AYATab" component={AYATab}/>
+       <Route  path="/"                     component={() => <DashBoard makeMelogin={this.makeMelogin}/> }/>
+       <Route  path="/playerDetails"        component={() => <PlayerDetails makeMelogin={this.makeMelogin} isUserLoggedIn={this.state.isUserLoggedIn}/>}/>
+       <Route  exact path="/login"          component={()=> <Login makeMelogin={this.makeMelogin}/>} />
+       <Route  exact path="/signup"         component={()=> <Signup makeMelogin={this.makeMelogin}/> }  />
+       <Route  exact path="/AnalysisDash"   component={AnlysisDashboard}/> 
+       <Route  exact path="/AYATab"         component={AYATab}/>
+       <Route  exact path="/CWOTab"         component={CWOTab}/>     
+       <Route  exact path="/MVDTab"         component={MVDTab}/>
+       <Route  exact path="/WVDTab"         component={WVDTab}/>
+       <Route  exact path="/CWITab"         component={CWITab}/>
+
     </div>
    
     </Router>

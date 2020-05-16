@@ -60,7 +60,7 @@ render(){
                 </Form>
                 </div>
                 </Card.Text>
-         <Button variant="dark" className="centerCWI">Go Compare</Button>
+         <Button variant="dark" className="centerCWI" href="/CWITab">Go Compare</Button>
          </Card.Body>
          </Card>
     </div>

@@ -257,7 +257,7 @@ return(
                   </MDBBtn>
                 </div>
                 <div className="text-center py-4 mt-3 display">
-                  <MDBBtn className="btn btn-outline-purple" href="/AnlysisDash" type="submit">
+                  <MDBBtn className="btn btn-outline-purple" href="/AnalysisDash" type="submit">
                    Anlaysis&nbsp;&nbsp;
                    <i className="fa fa-diagnoses"></i>
                   </MDBBtn>

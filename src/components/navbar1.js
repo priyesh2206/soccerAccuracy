@@ -32,6 +32,7 @@ class NavabarOne extends React.Component{
                     <i className ="fa fa-user-circle  logo"></i>{"   "}
                     <NavDropdown title={username} id="basic-nav-dropdown">
                     <NavDropdown.Item href="/playerDetails">Add Details&nbsp;&nbsp;<i className="fa fa-user-plus"></i></NavDropdown.Item>
+                    <NavDropdown.Item href="/AnalysisDash">Analysis&nbsp;&nbsp;<i className="fa fa-diagnoses"></i></NavDropdown.Item>
                     <NavDropdown.Divider/>
                     <NavDropdown.Item href="/login" onClick={this.logOut}>logout&nbsp;&nbsp;<i className="fa fa-sign-in-alt"></i></NavDropdown.Item>
                     </NavDropdown>

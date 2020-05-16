@@ -45,7 +45,7 @@ class MVD extends React.Component{
                  </div>
                  <p className="Alert1MVD">*If regular Data not available then it gives Random 30-days data*</p>
                 </Card.Text>
-                <Button variant="dark" className="centerMVD">Show Data</Button>
+                <Button variant="dark" className="centerMVD" href="/MVDTab">Show Data</Button>
             </Card.Body>
             </Card>
         </div>
