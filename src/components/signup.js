@@ -3,6 +3,7 @@ import { MDBContainer, MDBRow, MDBCol, MDBBtn, MDBCard, MDBInput } from 'mdbreac
 import axios from "axios";
 import {Link} from 'react-router-dom';
 import {toast} from 'react-toastify';
+import { isFuture } from "date-fns";
 class Signup extends React.Component{
 
   constructor(props){
@@ -38,9 +39,17 @@ class Signup extends React.Component{
     }
     console.log(newUser);
     axios.post("http://localhost:5000/api/users/register",newUser).then((data)=>{
-      toast.info((data.data.message), {
-        position: toast.POSITION.TOP_CENTER,autoClose:false,
-      });
+      if(data.data.success === true){
+        toast.success((data.data.message), {
+          position: toast.POSITION.TOP_CENTER,
+        });
+      }
+      else{
+        toast.error((data.data.message), {
+          position: toast.POSITION.TOP_CENTER
+        });
+      }
+    
     });
 
   };

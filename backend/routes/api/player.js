@@ -51,7 +51,7 @@ router.post("/register",(req,res)=>{
                 newplayer
                    .save()
                    .then(user => {
-                       return res.json({message:"User Added Successfully!"}).status(200)
+                       return res.json({success:true,message:"User Added Successfully!"}).status(200)
                    })
                    .catch(err => console.log(err));
             });
@@ -172,7 +172,7 @@ router.post("/playerDetail",(req,res) =>{
                                               console.log("ERROR "+err);
                                           }
                                           else{
-                                              return res.json({message:"Details Updated"})//chang message 
+                                              return res.json({message:"Details Updated"})
                                           }
                                       })
                                }
@@ -185,7 +185,7 @@ router.post("/playerDetail",(req,res) =>{
                                  console.log("ERROR in Replacing the doc");
                              }
                              else{
-                                 return res.json({message:"DETIALS MODIFYED"});//chang message 
+                                 return res.json({message:"DETIALS MODIFYED"});
                              }
                          })
                         }
@@ -209,8 +209,28 @@ router.post("/playerDetail",(req,res) =>{
     });
 });
 
-
-
+//improve here
+router.get('/:playername/:matchdate',(req,res,next)=>{
+    PlayerDetail.find({playername:req.params.playername})
+    .then((PN)=>{
+        if(PN != null){
+                res.statusCode=200;
+                res.setHeader('Content-Type','application/json')
+                s=req.params.matchdate;
+                if((PN[0].playerData[2].matchdate) === s){
+                    res.json("One")
+                }
+                else{
+                    res.json('He;llo')
+                }
+                
+        }
+        else{
+            res.statusCode=404;
+            res.json({message:'player not found'});
+        }
+    })
+})
 
 
 
