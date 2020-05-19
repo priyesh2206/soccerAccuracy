@@ -5,6 +5,10 @@
     
 
 }
+.InputTEXT{
+    color:white !important;
+
+}
 
 @media screen and (max-width: 800px) {
     .Card{

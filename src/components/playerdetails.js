@@ -74,9 +74,17 @@ class PlayerDetails extends React.Component{
     console.log(newplayerDetails);
     axios.post("http://localhost:5000/api/users/playerDetail",newplayerDetails).then(data=>{
       console.log(data);
-      toast.success((data.data.message), {
-        position: toast.POSITION.TOP_CENTER
-      });
+      if(data.data.success == true){
+        toast.success((data.data.message), {
+          position: toast.POSITION.TOP_CENTER
+        });
+      }
+      else{
+        toast.error((data.data.message), {
+          position: toast.POSITION.TOP_CENTER
+        });
+      }
+     
     });
     this.onResetForm();
   }

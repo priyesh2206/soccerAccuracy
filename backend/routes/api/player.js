@@ -155,15 +155,27 @@ router.post("/playerDetail",(req,res) =>{
             let OldDate = new Date(user.matchdate);
             console.log(newDate);
             console.log(OldDate);
-               if(OldDate != newDate)
+            if(OldDate == newDate){
+                PlayerDetail.findOneAndUpdate({playername:req.body.playername},{$set:req.body}, 
+                 {upsert:true,new:true,runValidators:true},function(err,doc){
+                     if(err){
+                         console.log("ERROR in Replacing the doc");
+                     }
+                     else{
+                         return res.json({success:true,message:"DETIALS MODIFYED"});
+                     }
+                 })
+                }
+
+               else if(OldDate != newDate)
                    { 
-                       PlayerDetail.updateOne({playername:user.playername},{$push:{playerData:user}},
+                       PlayerDetail.updateOne({playername:user.playername},{$push:{playerData:user}}, //it push the current datab in playerData Array//
                         function(err,send){
                             if(err){
                                 console.log("ERROR"+err);
                             }
                             else{
-                                  PlayerDetail.findOneAndUpdate(
+                                  PlayerDetail.findOneAndUpdate(     //it update the current data with new one//
                                       {playername:user.playername},
                                       req.body,
                                       {upsert:true,new:true,runValidators:true},
@@ -172,23 +184,13 @@ router.post("/playerDetail",(req,res) =>{
                                               console.log("ERROR "+err);
                                           }
                                           else{
-                                              return res.json({message:"Details Updated"})
+                                              return res.json({success:true,message:"Details Updated"})
                                           }
                                       })
-                               }
+                                }
                       })
                    }
-                   else{
-                        PlayerDetail.findAndModify({playername:req.body.playername},req.body, 
-                         {upsert:true,new:true,runValidators:true},function(err,doc){
-                             if(err){
-                                 console.log("ERROR in Replacing the doc");
-                             }
-                             else{
-                                 return res.json({message:"DETIALS MODIFYED"});
-                             }
-                         })
-                        }
+                   
         }
         else{
              const PlayerDetails = new PlayerDetail ({
@@ -203,7 +205,8 @@ router.post("/playerDetail",(req,res) =>{
                  passesAttmp:req.body.passesAttmp
              });    
              PlayerDetails.save().then((user =>{
-                 res.status(200).json({message:"DETAILS ADDED SUCCESSFULLY"});//change message 
+                 res.statusCode = 200;
+                 res.json({success:true,message:"DETAILS ADDED SUCCESSFULLY"});
              }))
         }
     });

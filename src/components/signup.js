@@ -68,7 +68,7 @@ render(){
                     className='card-image '
                     style={{
                       backgroundImage:
-                        'url(https://i.pinimg.com/originals/4f/8a/18/4f8a18a2a6f9a3291bee46c24ea9ec5d.jpg)',
+                        'url(assets/images/login.jpg)',
                       width: '25rem',
                       backgroundRepeat:'no-repeat',
                       backgroundSize: '111%'  
@@ -76,7 +76,7 @@ render(){
                   >
                <div className='text-white rgba-blue-slight py-5 px-5 z-depth-4'>
                    <div className='text-center'>
-                     <h3 className='text-dark mb-5 mt-4 font-weight-bold'>
+                     <h3 className='text-white mb-5 mt-4 font-weight-bold'>
                        <strong>Sign</strong>
                        <a  className='purple-text font-weight-bold'>
                          <strong>Up</strong>
@@ -84,7 +84,7 @@ render(){
                      </h3>
                    </div>
                   
-                   <MDBInput
+                   <MDBInput className="InputTEXT"
                      label='Your UserName'
                      onChange={this.changeUserName}
                      error={error.username}
@@ -92,10 +92,10 @@ render(){
                      group
                      type='text'
                      validate
-                     labelClass='text-dark font-weight-bold'
+                     labelClass='text-white font-weight-bold'
                    />
 
-                   <MDBInput
+                   <MDBInput className="InputTEXT"
                      label='Your Email'
                      onChange={this.changeEmail}
                      error={error.email}
@@ -103,10 +103,10 @@ render(){
                      group
                      type='email'
                      validate
-                     labelClass='text-dark font-weight-bold'
+                     labelClass='text-white font-weight-bold'
                    />
 
-                    <MDBInput
+                    <MDBInput className="InputTEXT"
                     label='Your Password'
                     onChange={this.changePassword}
                     error={error.password}
@@ -114,10 +114,10 @@ render(){
                     group
                     type='password'
                     validate
-                    labelClass='text-dark font-weight-bold'
+                    labelClass='text-white font-weight-bold'
                     /> 
 
-                    <MDBInput
+                    <MDBInput className="InputTEXT"
                     label='Re-Enter password'
                     onChange={this.changePassword2}
                     error={error.password2}
@@ -125,7 +125,7 @@ render(){
                     group
                     type='password'
                     validate
-                    labelClass='text-dark font-weight-bold'
+                    labelClass='text-white font-weight-bold'
                     />
 
                     <MDBRow className='d-flex align-items-center mb-6'>
@@ -147,7 +147,7 @@ render(){
                     <MDBCol md='10'>
                           <p className='font-medium white-text d-flex justify-content-end'>
                               Have an account?&nbsp;&nbsp;
-                              <a href="/login"className='black-text ml-54 font-weight-bold'>
+                              <a href="/login"className='purple-text ml-54 font-weight-bold'>
                               LogIn
                               </a>
                           </p>
