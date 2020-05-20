@@ -151,49 +151,80 @@ router.post("/playerDetail",(req,res) =>{
 
     PlayerDetail.findOne({playername:req.body.playername}).then(user =>{
         if(user){
-            let newDate = new Date(req.body.matchdate);
-            let OldDate = new Date(user.matchdate);
+            var newDate = req.body.matchdate;
+            var OldDate = user.matchdate;
             console.log(newDate);
             console.log(OldDate);
-            if(OldDate == newDate){
-                PlayerDetail.findOneAndUpdate({playername:req.body.playername},{$set:req.body}, 
-                 {upsert:true,new:true,runValidators:true},function(err,doc){
-                     if(err){
-                         console.log("ERROR in Replacing the doc");
+            if(OldDate == newDate)
+            {
+                PlayerDetail.updateOne({playername:req.body.playername},{$set:req.body}, 
+                     {upsert:true,new:true,runValidators:true},
+                     function(err,doc){
+                     if(err)
+                     {
+                      var err = new Error("Error in modifying Existing Details")
+                      err.statusCode = 401;
+                      res.json(err);
                      }
-                     else{
-                         return res.json({success:true,message:"DETIALS MODIFYED"});
+                     else
+                     {  res.statusCode = 200;
+                        res.json({success:true,message:"DETIALS MODIFYED"});
                      }
-                 })
-                }
-
-               else if(OldDate != newDate)
-                   { 
-                       PlayerDetail.updateOne({playername:user.playername},{$push:{playerData:user}}, //it push the current datab in playerData Array//
-                        function(err,send){
-                            if(err){
-                                console.log("ERROR"+err);
+                     });
+            }
+            else if(OldDate != newDate)
+            {   
+                // for(var i=(user.playerData.length -1);i>0;i--)
+                // { console.log("i am inside for")
+                //      if(playerData[i].matchdate === req.body.matchdate)
+                //      {
+                //          PlayerDetail.updateOne({playerData:playerData[i]._id},{$set:req.body}, 
+                //              {upsert:true,new:true,runValidators:true},
+                //              function(err,doc){
+                //              if(err)
+                //              {
+                //               var err = new Error("Error in modifying Existing Details")
+                //               err.statusCode = 401;
+                //               res.json(err);
+                //              }
+                //              else
+                //              {  res.statusCode = 200;
+                //                 res.json({success:true,message:"DETIALS "});
+                //              }
+                //              });
+                //      }
+                //  }
+                PlayerDetail.updateOne({playername:user.playername},{$push:{playerData:user}}, //it push the current datab in playerData Array//
+                    function(err,send){
+                        if(err)
+                        {
+                            var err = new Error("Error in replacing Detials");
+                            err.statusCode = 401;
+                            res.json(err);
+                        }
+                        else
+                        { //it update the current data with new one//
+                           PlayerDetail.findOneAndUpdate({playername:user.playername},req.body,
+                            {upsert:true,new:true,runValidators:true},
+                            function (err,update){
+                            if(err)
+                            {
+                                var err = new Error("ERROR in Updating the Details")
+                                res.statusCode =200;
+                                res.json(err);
                             }
-                            else{
-                                  PlayerDetail.findOneAndUpdate(     //it update the current data with new one//
-                                      {playername:user.playername},
-                                      req.body,
-                                      {upsert:true,new:true,runValidators:true},
-                                      function (err,update){
-                                          if(err){
-                                              console.log("ERROR "+err);
-                                          }
-                                          else{
-                                              return res.json({success:true,message:"Details Updated"})
-                                          }
-                                      })
-                                }
-                      })
-                   }
-                   
+                            else
+                            {    res.statusCode = 200;
+                                 res.json({success:true,message:"Details Updated"})
+                            }
+                          });
+                        }
+                    });
+            }
         }
-        else{
-             const PlayerDetails = new PlayerDetail ({
+        else
+        {
+            const PlayerDetails = new PlayerDetail ({
                  playername:req.body.playername,
                  teamname:req.body.teamname,
                  matchdate:req.body.matchdate,

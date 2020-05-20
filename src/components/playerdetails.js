@@ -33,6 +33,7 @@ class PlayerDetails extends React.Component{
     }
   handleChangeDate = date => {
       this.setState({startDate: date});
+     
     };
 
   handleInputChange(event){
