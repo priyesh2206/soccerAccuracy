@@ -174,26 +174,6 @@ router.post("/playerDetail",(req,res) =>{
             }
             else if(OldDate != newDate)
             {   
-                // for(var i=(user.playerData.length -1);i>0;i--)
-                // { console.log("i am inside for")
-                //      if(playerData[i].matchdate === req.body.matchdate)
-                //      {
-                //          PlayerDetail.updateOne({playerData:playerData[i]._id},{$set:req.body}, 
-                //              {upsert:true,new:true,runValidators:true},
-                //              function(err,doc){
-                //              if(err)
-                //              {
-                //               var err = new Error("Error in modifying Existing Details")
-                //               err.statusCode = 401;
-                //               res.json(err);
-                //              }
-                //              else
-                //              {  res.statusCode = 200;
-                //                 res.json({success:true,message:"DETIALS "});
-                //              }
-                //              });
-                //      }
-                //  }
                 PlayerDetail.updateOne({playername:user.playername},{$push:{playerData:user}}, //it push the current datab in playerData Array//
                     function(err,send){
                         if(err)
@@ -221,7 +201,7 @@ router.post("/playerDetail",(req,res) =>{
                         }
                     });
             }
-        }
+}
         else
         {
             const PlayerDetails = new PlayerDetail ({
@@ -243,31 +223,44 @@ router.post("/playerDetail",(req,res) =>{
     });
 });
 
-//improve here
+
 router.get('/:playername/:matchdate',(req,res,next)=>{
-    PlayerDetail.find({playername:req.params.playername})
-    .then((PN)=>{
-        if(PN != null){
-                res.statusCode=200;
-                res.setHeader('Content-Type','application/json')
-                s=req.params.matchdate;
-                if((PN[0].playerData[2].matchdate) === s){
-                    res.json("One")
+    PlayerDetail.findOne({playername:req.params.playername})
+    .then((user)=>{
+
+        if(user !=null)
+        {
+            if(user.matchdate === req.params.matchdate)
+            {
+                res.statusCode = 200;
+                res.setHeader("Content-Type",'application/json')
+                return res.json(user)
+
+            }
+            
+            const h = user.playerData.length;
+            for(var i =h-1;i>=0;i--)
+            {
+                if(user.playerData[i].matchdate === req.params.matchdate)
+                {   
+                    res.statusCode = 200;
+                    return res.json(user.playerData[i])
                 }
-                else{
-                    res.json('He;llo')
+                else
+                {  
+                    res.statusCode = 404;
+                    return res.json("Not Found Data of given match date");
                 }
-                
+
+            }
         }
-        else{
-            res.statusCode=404;
-            res.json({message:'player not found'});
+        else
+        {   res.statusCode = 404;
+            res.json("User not found");
         }
+       
+        });
     })
-})
-
-
-
 
 
 

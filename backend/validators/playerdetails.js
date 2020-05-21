@@ -36,7 +36,6 @@ if(Validators.isEmpty(data.goalAttmp)){
 
 if(Validators.isEmpty(data.tackleWon)){
     error.tackleWon = "Details Are Insufficient to Analysis "
-
 }
 
 if(Validators.isEmpty(data.tackleAttmp)){

@@ -9,14 +9,14 @@ class AYA extends React.Component{
  constructor(props){
      super(props);
      this.state={
-        startDate:null
+        startDate:null,
+        playername:''
      }
  }
 
 handleChangeDate = date =>{
     this.setState({startDate:date});
 }
-
 
 
  render(){

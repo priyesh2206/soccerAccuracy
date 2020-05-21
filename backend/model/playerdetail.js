@@ -11,7 +11,6 @@ const PlayerDetails = new moongoose.Schema({
     tackleAttmp:{type:Number,required:true},
     passesWon:{type:Number,required:true},
     passesAttmp:{type:Number,required:true},
-    timestamp:{type:Date ,default:Date.now},
     playerData:[{
         matchdate:{type:String,required:true},
         goalWon:{type:Number,required:true},
@@ -23,5 +22,5 @@ const PlayerDetails = new moongoose.Schema({
         timestamp:{type:Date ,default:Date.now},
     }]
 
-})
+},{timestamps:true})
 module.exports = moongoose.model('PlayerDetail',PlayerDetails) 
