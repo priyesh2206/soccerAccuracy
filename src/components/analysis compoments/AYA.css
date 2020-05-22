@@ -16,6 +16,10 @@
 .inputText{
     color: black;
 }
+
+.error{
+    color:red !important;
+}
 @media screen and (max-width: 800px) {
     .CardBody{
        /* The width is 100%, when the viewport is 800px or smaller */

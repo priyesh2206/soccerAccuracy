@@ -11,12 +11,25 @@ class WVD extends React.Component{
     constructor(props){
         super(props);
         this.state ={
-            startDate:null
+            startDate:null,
+            playername:''
         }
     }
- handleChangeDate = date =>{
+
+onhandleChangeDate = date =>{
      this.setState({startDate:date});
+}
+
+onhandlePlayerName=(event)=>{
+    this.setState({playername:event.target.value});
  }
+
+ onhandleSubmit=()=>{
+     localStorage.setItem('WVDplayername',this.state.playername);
+     localStorage.setItem('WVDmatchdate',this.state.startDate)
+ }
+
+
  render(){
      return(
         <div>
@@ -30,7 +43,7 @@ class WVD extends React.Component{
                <Form>
                   <FormGroup>
                       <Label htmlFor="playername" className="inputTextWVD"><i className="fa fa-user"></i>&nbsp; Player Name</Label>
-                      <Input typr="text" id="playername"  name="playername" placeholder="Player Name" />
+                      <Input typr="text" id="playername"  name="playername" placeholder="Player Name" onChange={this.onhandlePlayerName}/>
                   </FormGroup>
                   <FormGroup>
                       <Label htmlFor="matchdate" className="inputText"><i className="fas fa-calendar-week"></i>&nbsp;Match Date - </Label>
@@ -38,14 +51,14 @@ class WVD extends React.Component{
                            <DatePicker
                             placeholderText="MM/DD/YYYY"
                             selected={this.state.startDate}
-                            onChange={this.handleChangeDate}
+                            onChange={this.onhandleChangeDate}
                       />        
                   </FormGroup>
                </Form>
               </div>
               <p className="Alert1WVD">*If regular Data not available then it gives Random 07-days data*</p>
              </Card.Text>
-             <Button variant="dark" className="centerWVD" href="/WVDTab">Show Data</Button>
+             <Button variant="dark" className="centerWVD" href="/WVDTab" onClick={this.onhandleSubmit}>Show Data</Button>
          </Card.Body>
          </Card>
      </div>

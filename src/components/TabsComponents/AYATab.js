@@ -11,8 +11,13 @@ class AYATab extends React.Component{
 
 
     render(){
+        const name = localStorage.getItem('AYAplayername');
+        const matchdate = localStorage.getItem('AYAmatchdate')
         return(
-        <div> HERE THE  ANLYSIS OF PLAYER IS DISPLAY</div>
+            <div>
+        <div>{name}</div>
+        <div>{matchdate}</div>
+        </div>
         );
     }
 }

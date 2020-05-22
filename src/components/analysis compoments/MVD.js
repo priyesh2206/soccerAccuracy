@@ -9,13 +9,25 @@ class MVD extends React.Component{
   constructor(props){
       super(props);
       this.state={
-          StartDate:null
+          StartDate:null,
+          playername:''
       }
   }
-  handleChangeDate = date =>{
-     this.setState({StartDate:date});
- }
 
+onhandleChangeDate = date =>{
+     this.setState({StartDate:date});
+ 
+}
+
+onhandlePlayerName=(event)=>{
+    this.setState({playername:event.target.value});
+}
+
+onhandleSubmit=()=>{
+    localStorage.setItem('MVDplayername',this.state.playername);
+    localStorage.setItem('MVDmatchdate',this.state.StartDate);
+}
+ 
 
  render(){
      return(
@@ -30,7 +42,7 @@ class MVD extends React.Component{
                   <Form>
                      <FormGroup>
                          <Label htmlFor="playername" className="inputTextMVD"><i className="fa fa-user"></i>&nbsp; Player Name</Label>
-                         <Input typr="text" id="playername"  name="playername" placeholder="Player Name" />
+                         <Input typr="text" id="playername"  name="playername" placeholder="Player Name" onChange={this.onhandlePlayerName} />
                      </FormGroup>
                      <FormGroup>
                          <Label htmlFor="matchdate" className="inputText"><i className="fas fa-calendar-week"></i>&nbsp;Match Date - </Label>
@@ -38,14 +50,14 @@ class MVD extends React.Component{
                               <DatePicker
                                placeholderText="MM/DD/YYYY"
                                selected={this.state.StartDate}
-                               onChange={this.handleChangeDate}
+                               onChange={this.onhandleChangeDate}
                              />        
                      </FormGroup>
                   </Form>
                  </div>
                  <p className="Alert1MVD">*If regular Data not available then it gives Random 30-days data*</p>
                 </Card.Text>
-                <Button variant="dark" className="centerMVD" href="/MVDTab">Show Data</Button>
+                <Button variant="dark" className="centerMVD" href="/MVDTab" onClick={this.onhandleSubmit} >Show Data</Button>
             </Card.Body>
             </Card>
         </div>

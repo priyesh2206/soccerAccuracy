@@ -13,17 +13,37 @@ class CWO extends React.Component{
  super(props);
  this.state={
     startDateP1:null,
-    startDateP2:null
+    startDateP2:null,
+    playername1:'',
+    playername2:''
 
  }
 }
  
- handleChangeDatep1 = date=>{
+onhandleChangeDatep1 = date=>{
     this.setState({startDateP1:date})
- }
- handleChangeDatep2 = date=>{
+}
+
+onhandleChangeDatep2 = date=>{
     this.setState({startDateP2:date})
- }
+}
+
+onhandlePlayerName1=(event)=>{
+   this.setState({playername1:event.target.value});
+}
+
+onhandlePlayername2=(event)=>{
+   this.setState({playername2:event.target.value});
+}
+
+onhandleSubmit=()=>{
+  localStorage.setItem('CWOplayername1',this.state.playername1);   
+  localStorage.setItem('CWOmatchdateP1',this.state.startDateP1);
+  localStorage.setItem('CWOplayername2',this.state.playername2);
+  localStorage.setItem('CWOmatchdateP2',this.state.startDateP2);
+
+}
+
  render(){
 
     return(
@@ -40,7 +60,7 @@ class CWO extends React.Component{
                             <Form>
                                   <FormGroup>
                                      <Label htmlFor="playername1" className="inputTextCWO"><i className="fa fa-user"></i>&nbsp; Player Name</Label>
-                                          <Input typr="text" id="playername1"  name="playername1" placeholder="Player Name 1" />
+                                          <Input typr="text" id="playername1"  name="playername1" placeholder="Player Name 1"  onChange={this.onhandlePlayerName1}/>
                                  </FormGroup>
                                  <FormGroup>
                                      <Label htmlFor="matchdate1" className="inputTextCWO"><i className="fas fa-calendar-week"></i>&nbsp;Match Date - </Label>
@@ -48,7 +68,7 @@ class CWO extends React.Component{
                                           <DatePicker
                                            placeholderText="MM/DD/YYYY"
                                            selected={this.state.startDateP1}
-                                           onChange={this.handleChangeDatep1}
+                                           onChange={this.onhandleChangeDatep1}
                                          />        
                                  </FormGroup>
                             </Form>
@@ -68,7 +88,7 @@ class CWO extends React.Component{
                               <Form>
                                 <FormGroup>
                                     <Label htmlFor="playername2" className="inputTextCWO"><i className="fa fa-user"></i>&nbsp; Player Name</Label>
-                                         <Input typr="text" id="playername2"  name="playername2" placeholder="Player Name 2" />
+                                         <Input typr="text" id="playername2"  name="playername2" placeholder="Player Name 2" onChange={this.onhandlePlayername2}/>
                                 </FormGroup>
                                 <FormGroup>
                                     <Label htmlFor="matchdate2" className="inputTextCWO"><i className="fas fa-calendar-week"></i>&nbsp;Match Date - </Label>
@@ -76,7 +96,7 @@ class CWO extends React.Component{
                                          <DatePicker
                                           placeholderText="MM/DD/YYYY"
                                           selected={this.state.startDateP2}
-                                          onChange={this.handleChangeDatep2}
+                                          onChange={this.onhandleChangeDatep2}
                                         />        
                                 </FormGroup>
                               </Form>
@@ -90,7 +110,7 @@ class CWO extends React.Component{
              <h1 className="vstextS"><strong>Vs</strong></h1>
          </div>
          <div className="CWOButt">
-        <Button variant="dark" href="/CWOTab">Go Compare</Button>
+        <Button variant="dark" href="/CWOTab" onClick={this.onhandleSubmit}>Go Compare</Button>
         </div>
  </div>
 

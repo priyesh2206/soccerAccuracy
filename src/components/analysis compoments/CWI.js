@@ -12,15 +12,26 @@ class CWI extends React.Component{
         super(props);
         this.state={
             startDateD1:null,
-            startDateD2:null
+            startDateD2:null,
+            playername:'',
         }
     }
-    handleChangeDateD1 = date=>{
+    onhandleChangeDateD1 = date=>{
         this.setState({startDateD1:date});
     }
 
-    handleChangeDateD2 = date=>{
+    onhandleChangeDateD2 = date=>{
         this.setState({startDateD2:date});
+    }
+
+    onhandlePlayerName=(event)=>{
+        this.setState({playername:event.target.value});
+    }
+
+    onhandleSubmit=()=>{
+        localStorage.setItem('CWIplayername',this.state.playername);
+        localStorage.setItem('CWImatchdateD1',this.state.startDateD1);
+        localStorage.setItem('CWImatchdateD2',this.state.startDateD2);
     }
 
 render(){
@@ -36,7 +47,7 @@ render(){
                 <Form>
                     <FormGroup>
                         <Label htmlFor="playername" className="inputTextCWI"><i className="fa fa-user"></i>&nbsp; Player Name</Label>
-                        <Input typr="text" id="playername"  name="playername" placeholder="Player Name" />
+                        <Input typr="text" id="playername"  name="playername" placeholder="Player Name"  onChange={this.onhandlePlayerName}/>
                     </FormGroup>
                     <FormGroup>
                         <Label htmlFor="matchdate1" className="inputTextCWI"><i className="fas fa-calendar-week"></i>&nbsp;Match Date Day-1 - </Label>
@@ -44,7 +55,7 @@ render(){
                              <DatePicker
                               placeholderText="MM/DD/YYYY"
                               selected={this.state.startDateD1}
-                              onChange={this.handleChangeDateD1}
+                              onChange={this.onhandleChangeDateD1}
                         />        
                     </FormGroup>
                     <br></br>
@@ -54,13 +65,13 @@ render(){
                              <DatePicker
                               placeholderText="MM/DD/YYYY"
                               selected={this.state.startDateD2}
-                              onChange={this.handleChangeDateD2}
+                              onChange={this.onhandleChangeDateD2}
                         />        
                     </FormGroup>
                 </Form>
                 </div>
                 </Card.Text>
-         <Button variant="dark" className="centerCWI" href="/CWITab">Go Compare</Button>
+         <Button variant="dark" className="centerCWI" href="/CWITab" onClick={this.onhandleSubmit} >Go Compare</Button>
          </Card.Body>
          </Card>
     </div>
