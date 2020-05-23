@@ -1,8 +1,38 @@
 .CardBodyAYATab{
     width:30rem;
     height:36rem;
-    margin-left: 1rem;
+    margin-left:1rem;
+    margin-top: 5rem;
+
+ 
 }
 .tabs{
-    margin-left: 5rem ;
+    margin-left: 6rem ;
+    margin-top: 5rem;
+    border:2px red solid;
 }
+
+.Header{
+    text-align: center;
+    
+}
+
+.breadAYA{
+   margin-top: 3rem;
+   margin-left:2rem;
+}
+
+
+@media screen and (max-width: 800px) {
+     .CardBodyAYATab{
+       /* The width is 100%, when the viewport is 800px or smaller  */
+        margin-left:2rem;
+        margin-top: 2rem; 
+    } 
+    .tabs{
+        margin-left:2rem ;
+        margin-top: 5rem;
+        border:2px red solid;
+    }
+    
+   }

@@ -4,7 +4,7 @@ import {ListGroup,Tab,Breadcrumb,Nav,Card} from 'react-bootstrap'
 import './AYATab.css';
 
 // improve from here 
-const Tabs= (props)=>{
+const Tabs= (props) =>{
      return (
          <div className ="tabs" >
              <h1>HELLo</h1>
@@ -29,7 +29,7 @@ class AYATab extends React.Component{
              <div classname="col-10 md-col-5 m-1"> 
              <Col  md={4}>
                 <Row md={4}>
-                    <Breadcrumb>
+                    <Breadcrumb  className="breadAYA">
                        <Breadcrumb.Item href ="/AnalysisDash" >Dashboard</Breadcrumb.Item>
                        <Breadcrumb.Item active>AYA TAB</Breadcrumb.Item>
                     </Breadcrumb>
@@ -42,10 +42,12 @@ class AYATab extends React.Component{
              <Row>
                  <Col sm={3}>
                          <Card  border="dark" className="CardBodyAYATab">
+                         <Card.Header><h5 className="Header">Player Details</h5></Card.Header>
                          <Card.Body >
                             <Card.Title>{name}</Card.Title>
                              <Card.Subtitle>Card Subtitle</Card.Subtitle>
                              <Card.Text>
+                                 
                             User details,{matchdate}
                              </Card.Text>
                          </Card.Body>
