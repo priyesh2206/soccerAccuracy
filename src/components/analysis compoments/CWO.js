@@ -15,8 +15,11 @@ class CWO extends React.Component{
     startDateP1:null,
     startDateP2:null,
     playername1:'',
-    playername2:''
-
+    playername2:'',
+    touched:{
+        playername1:'',
+        playername2:''
+    }
  }
 }
  
@@ -44,8 +47,28 @@ onhandleSubmit=()=>{
 
 }
 
- render(){
+handleBlur=(field)=>(evt)=>{
+    this.setState({touched:{...this.state.touched,[field]:true}})
+}
 
+validate(playername1,playername2){
+    const err ={
+        playername1:'',
+        playername2:''        
+    }
+
+    if(this.state.touched.playername1 && playername1.length < 2){
+        err.playername1 = "The Playername Field Should Not Be Empty"
+    }
+    
+    if(this.state.touched.playername2 && playername2.length < 2){
+        err.playername2 = "The Playername Field Should Not Be Empty"
+    }
+    return err;
+}
+
+ render(){
+    const err  = this.validate(this.state.playername1,this.state.playername2)
     return(
         <div>
             <CardColumns>
@@ -60,7 +83,13 @@ onhandleSubmit=()=>{
                             <Form>
                                   <FormGroup>
                                      <Label htmlFor="playername1" className="inputTextCWO"><i className="fa fa-user"></i>&nbsp; Player Name</Label>
-                                          <Input typr="text" id="playername1"  name="playername1" placeholder="Player Name 1"  onChange={this.onhandlePlayerName1}/>
+                                          <Input typr="text" id="playername1"  name="playername1" placeholder="Player Name 1"  
+                                          onChange={this.onhandlePlayerName1}
+                                          valid = {err.playername1 == ''}
+                                          invalid = {err.playername1 != ''}
+                                          onBlur={this.handleBlur('playername1')}
+                                          />
+                                          <p className="error">{err.playername1}</p>
                                  </FormGroup>
                                  <FormGroup>
                                      <Label htmlFor="matchdate1" className="inputTextCWO"><i className="fas fa-calendar-week"></i>&nbsp;Match Date - </Label>
@@ -88,7 +117,13 @@ onhandleSubmit=()=>{
                               <Form>
                                 <FormGroup>
                                     <Label htmlFor="playername2" className="inputTextCWO"><i className="fa fa-user"></i>&nbsp; Player Name</Label>
-                                         <Input typr="text" id="playername2"  name="playername2" placeholder="Player Name 2" onChange={this.onhandlePlayername2}/>
+                                         <Input typr="text" id="playername2"  name="playername2" placeholder="Player Name 2"
+                                          onChange={this.onhandlePlayername2}
+                                          valid={err.playername2 == ''}
+                                          invalid={err.playername2 != ''}
+                                          onBlur={this.handleBlur('playername2')}
+                                          />
+                                          <p className="error">{err.playername2}</p>
                                 </FormGroup>
                                 <FormGroup>
                                     <Label htmlFor="matchdate2" className="inputTextCWO"><i className="fas fa-calendar-week"></i>&nbsp;Match Date - </Label>

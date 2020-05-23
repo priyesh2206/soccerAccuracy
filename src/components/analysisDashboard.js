@@ -14,7 +14,7 @@ class AnlysisDashboard extends React.Component{
 
     return(
       <div className="resize">
-        <Tab.Container id="list-group-tabs-example" defaultActiveKey="#link1">
+        <Tab.Container defaultActiveKey="#link1">
             <Row>
              <Col sm={4}>
                 <ListGroup>

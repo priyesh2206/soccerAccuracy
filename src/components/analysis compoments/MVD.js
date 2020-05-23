@@ -10,7 +10,10 @@ class MVD extends React.Component{
       super(props);
       this.state={
           StartDate:null,
-          playername:''
+          playername:'',
+          touched:{
+              playername:false
+          }
       }
   }
 
@@ -27,9 +30,24 @@ onhandleSubmit=()=>{
     localStorage.setItem('MVDplayername',this.state.playername);
     localStorage.setItem('MVDmatchdate',this.state.StartDate);
 }
+
+handleBlur=(field)=>(evt)=>{
+    this.setState({touched:{...this.state.touched,[field]:true}})
+}
+
+validate(playername){
+    const err = {
+        playername:''
+    }
+    if(this.state.touched.playername && playername.length < 2){
+        err.playername = "The Playername Field Should Not Be Empty"
+    }
+    return err;
+}
  
 
  render(){
+     const err = this.validate(this.state.playername)
      return(
         <div>
            <Card  border="dark" className="CardBodyMVD">
@@ -42,7 +60,13 @@ onhandleSubmit=()=>{
                   <Form>
                      <FormGroup>
                          <Label htmlFor="playername" className="inputTextMVD"><i className="fa fa-user"></i>&nbsp; Player Name</Label>
-                         <Input typr="text" id="playername"  name="playername" placeholder="Player Name" onChange={this.onhandlePlayerName} />
+                         <Input typr="text" id="playername"  name="playername" placeholder="Player Name" 
+                         onChange={this.onhandlePlayerName} 
+                         valid={err.playername == ''}
+                         invalid={err.playername != ''}
+                         onBlur={this.handleBlur('playername')}
+                         />
+                         <p className="error">{err.playername}</p>
                      </FormGroup>
                      <FormGroup>
                          <Label htmlFor="matchdate" className="inputText"><i className="fas fa-calendar-week"></i>&nbsp;Match Date - </Label>

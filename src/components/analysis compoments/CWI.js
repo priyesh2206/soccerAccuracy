@@ -14,6 +14,9 @@ class CWI extends React.Component{
             startDateD1:null,
             startDateD2:null,
             playername:'',
+            touched:{
+                playername:false
+            }
         }
     }
     onhandleChangeDateD1 = date=>{
@@ -34,7 +37,25 @@ class CWI extends React.Component{
         localStorage.setItem('CWImatchdateD2',this.state.startDateD2);
     }
 
+    handleBlur=(field)=>(evt)=>{
+        this.setState({touched:{...this.state.touched,[field]:true}});
+    }
+
+    validate(playername){
+        const err = {
+            playername:'',
+        }
+
+        if(this.state.touched.playername && playername.length < 1){
+           err.playername = "The Playername Field Should Not Be Empty"
+        }
+        return err;
+    }
+
+
+
 render(){
+    const err = this.validate(this.state.playername);
     return(
     <div>
         <Card  border="dark" className="CardBodyCWI">
@@ -47,7 +68,13 @@ render(){
                 <Form>
                     <FormGroup>
                         <Label htmlFor="playername" className="inputTextCWI"><i className="fa fa-user"></i>&nbsp; Player Name</Label>
-                        <Input typr="text" id="playername"  name="playername" placeholder="Player Name"  onChange={this.onhandlePlayerName}/>
+                        <Input typr="text" id="playername"  name="playername" placeholder="Player Name"  
+                        onChange={this.onhandlePlayerName}
+                        valid={err.playername == ''}
+                        invalid={err.playername!=''}
+                        onBlur={this.handleBlur('playername')}                        
+                        />
+                        <p className="error">{err.playername}</p>
                     </FormGroup>
                     <FormGroup>
                         <Label htmlFor="matchdate1" className="inputTextCWI"><i className="fas fa-calendar-week"></i>&nbsp;Match Date Day-1 - </Label>
