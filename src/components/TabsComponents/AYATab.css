@@ -9,7 +9,7 @@
 .tabs{
     margin-left: 6rem ;
     margin-top: 5rem;
-    border:2px red solid;
+
 }
 
 .Header{
@@ -20,6 +20,23 @@
 .breadAYA{
    margin-top: 3rem;
    margin-left:2rem;
+}
+
+.tittle{
+    text-align: center;
+    font-family: 'Times New Roman', Times, serif;
+    font-size:40px !important;
+}
+.subtittle{
+    text-align: center;
+    font-family: 'Times New Roman', Times, serif;
+    font-size:25px !important;
+    color: grey;
+
+}
+.AccordionGoal{
+   margin-top: 25px;
+
 }
 
 
