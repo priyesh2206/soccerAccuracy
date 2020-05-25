@@ -3,25 +3,36 @@ import{Col,Row} from 'reactstrap';
 import {Tab,Breadcrumb,Card,Accordion,Button,Dropdown,DropdownButton} from 'react-bootstrap'
 import './AYATab.css';
 
-// improve from here 
-const Tabs = (props) =>{
-     return (
-         <div className="tabs">
-            <DropdownButton  title="Accuarcy!"> 
-            <Dropdown.Item eventKey="1">Goals Accuarcy</Dropdown.Item>
-            <Dropdown.Divider />
-            <Dropdown.Item eventKey="2">Tackles Accuarcy </Dropdown.Item>
-            <Dropdown.Divider />
-            <Dropdown.Item eventKey="3">Passes Accuarcy</Dropdown.Item>
-            </DropdownButton>
-            <p>In this all Accuarcy will shown in the on graph </p>
-            <br></br>
-            <p>The dropdown will contain all the inividual Accuarcy</p>
-         </div>
-      
-     )
-}
 
+const DropDownTabs = (props) =>{
+     return (
+        <div className="tabs">
+            <Tab.Container  defaultActiveKey="allAccuarcy">
+                <DropdownButton  title="Accuarcy!"> 
+                <Dropdown.Item action eventKey="gAccuarcy">Goals Accuarcy</Dropdown.Item>
+                <Dropdown.Divider />
+                <Dropdown.Item eventKey="tAccuarcy">Tackles Accuarcy </Dropdown.Item>
+                <Dropdown.Divider />
+                <Dropdown.Item eventKey="pAccuarcy">Passes Accuarcy</Dropdown.Item>
+                </DropdownButton>
+                <Tab.Content>
+                    <Tab.Pane eventKey="allAccuarcy">
+                        <h4>In this all Accuarcy will shown in the on graph </h4>
+                    </Tab.Pane>
+                    <Tab.Pane eventKey="gAccuarcy">
+                        <h1>Goal Accuarcy</h1>
+                    </Tab.Pane>
+                    <Tab.Pane eventKey="tAccuarcy">
+                        <h1>Tackle Accuarcy</h1>
+                    </Tab.Pane>
+                    <Tab.Pane eventKey="pAccuarcy">
+                        <h1>passes Accuarcy</h1>
+                    </Tab.Pane>
+                </Tab.Content>
+            </Tab.Container>
+        </div>
+     );
+}
 
 
 class AYATab extends React.Component{
@@ -29,7 +40,14 @@ class AYATab extends React.Component{
         super(props);
     }
 
-
+    // componentDidMount(){
+    //     const isLoggedIn = localStorage.getItem('isLoggedIn')
+    //     if(isLoggedIn){
+    //      fetch(`http://localhost:5000/api/users/${localStorage.getItem('playername')}/${localStorage.getItem('matchdate')}}`).then(resp=>{
+    //          console.log(resp);
+    //      })
+    //     }
+    // }
 
     render(){
         const name = localStorage.getItem('AYAplayername');
@@ -124,7 +142,7 @@ class AYATab extends React.Component{
                 <Col sm={8}>
                     <Tab.Content>
                         <Tab.Pane eventKey="userCard">
-                           <Tabs/>
+                           <DropDownTabs/>
                         </Tab.Pane>
                     </Tab.Content>
                 </Col>
