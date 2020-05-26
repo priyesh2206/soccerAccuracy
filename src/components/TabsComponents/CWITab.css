@@ -1,0 +1,63 @@
+.CardBodyCWITab{
+    width:30rem;
+    height:36rem;
+    margin-left:1rem;
+    margin-top: 5rem;
+
+ 
+}
+.tabsCWI{
+    margin-left: 6rem ;
+    margin-top: 5rem;
+  
+
+}
+
+.Header{
+    text-align: center;
+    
+}
+
+.breadCWI{
+   margin-top: 3rem;
+   margin-left:2rem;
+}
+
+.tittleCWI{
+    text-align: center;
+    font-family: 'Times New Roman', Times, serif;
+    font-size:40px !important;
+}
+.subtittleCWI{
+    text-align: center;
+    font-family: 'Times New Roman', Times, serif;
+    font-size:25px !important;
+    color: grey;
+
+}
+.AccordionGoalCWI{
+   margin-top: 25px;
+
+}
+
+.MDateCWI{
+    color:black;
+    font-size: 15px;
+    font-weight: 20px;
+    text-align: center;
+ }
+ 
+
+
+@media screen and (max-width: 800px) {
+     .CardBodyAYATab{
+       /* The width is 100%, when the viewport is 800px or smaller  */
+        margin-left:2rem;
+        margin-top: 2rem; 
+    } 
+    .tabsCWI{
+        margin-left:2rem ;
+        margin-top: 5rem;
+    }
+    
+   }

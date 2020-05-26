@@ -6,7 +6,7 @@ import './AYATab.css';
 
 const DropDownTabs = (props) =>{
      return (
-        <div className="tabs">
+        <div className="tabsAYA">
             <Tab.Container  defaultActiveKey="allAccuarcy">
                 <DropdownButton  title="Accuarcy!"> 
                 <Dropdown.Item action eventKey="gAccuarcy">Goals Accuarcy</Dropdown.Item>
@@ -70,14 +70,14 @@ class AYATab extends React.Component{
              <Row>
                 <Col sm={3}>
                     <Card  border="dark" className="CardBodyAYATab">
-                    <Card.Header><h5 className="Header">Player Details{' '}<i class="fas fa-scroll"></i></h5></Card.Header>
+                    <Card.Header><h5 className="HeaderAYA">Player Details{' '}<i class="fas fa-scroll"></i></h5></Card.Header>
                     <Card.Body >
-                    <Card.Title className="tittle">{name}</Card.Title>
-                    <Card.Subtitle className="subtittle">India</Card.Subtitle>  
+                    <Card.Title className="tittleAYA">{name}</Card.Title>
+                    <Card.Subtitle className="subtittleAYA">India</Card.Subtitle>  
                     <Card.Text>
-
+                    <p className="MDateAYA">Match Date:-{matchdate}</p>
                         {/* -----------------------------------ACCORDION GOALS-------------------------------------------------------*/}
-                                <Accordion className ="AccordionGoal">
+                                <Accordion className ="AccordionGoalAYA">
                                     <Card>
                                     <Card.Header>
                                     <Accordion.Toggle as={Button} variant="green" eventKey="0">
@@ -97,7 +97,7 @@ class AYATab extends React.Component{
 
                         {/* -----------------------------------ACCORDION Tackles-----------------------------------------------------*/}
 
-                                <Accordion className ="AccordionGoal">
+                                <Accordion className ="AccordionGoalAYA">
                                     <Card>
                                     <Card.Header>
                                     <Accordion.Toggle as={Button} variant="green" eventKey="0">
@@ -116,7 +116,7 @@ class AYATab extends React.Component{
                         {/* -----------------------------------END-------------------------------------------------------------------*/}
                         {/* -----------------------------------ACCORDION Tackles-----------------------------------------------------*/}
 
-                                <Accordion className ="AccordionGoal">
+                                <Accordion className ="AccordionGoalAYA">
                                     <Card>
                                     <Card.Header>
                                     <Accordion.Toggle as={Button} variant="green" eventKey="0">
