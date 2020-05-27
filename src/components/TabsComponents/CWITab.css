@@ -1,6 +1,6 @@
 .CardBodyCWITab{
     width:30rem;
-    height:36rem;
+    height:40rem;
     margin-left:1rem;
     margin-top: 5rem;
 
@@ -13,7 +13,7 @@
 
 }
 
-.Header{
+.HeaderCWI{
     text-align: center;
     
 }
@@ -50,7 +50,7 @@
 
 
 @media screen and (max-width: 800px) {
-     .CardBodyAYATab{
+     .CardBodyCWITab{
        /* The width is 100%, when the viewport is 800px or smaller  */
         margin-left:2rem;
         margin-top: 2rem; 

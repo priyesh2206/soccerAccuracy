@@ -38,16 +38,44 @@ const DropDownTabs = (props) =>{
 class AYATab extends React.Component{
     constructor(props){
         super(props);
+        this.state = {
+            goalWon:'',
+            goalAttmp:'',
+            tackleWon:'',
+            tackleAttmp:'',
+            passesWon:'',
+            passesAttmp:''
+        }
+
     }
 
-    // componentDidMount(){
-    //     const isLoggedIn = localStorage.getItem('isLoggedIn')
-    //     if(isLoggedIn){
-    //      fetch(`http://localhost:5000/api/users/${localStorage.getItem('playername')}/${localStorage.getItem('matchdate')}}`).then(resp=>{
-    //          console.log(resp);
-    //      })
-    //     }
-    // }
+    getFormattedDate=(date)=>{
+        var year = date.getFullYear();
+      
+        var month = (1 + date.getMonth()).toString();
+        month = month.length > 1 ? month : '0' + month;
+      
+        var day = date.getDate().toString();
+        day = day.length > 1 ? day : '0' + day;
+        
+        return  day + '-' + month + '-' + year;
+      }
+  
+  
+    componentDidMount(){
+        const isLoggedIn = localStorage.getItem('isLoggedIn')
+        if(isLoggedIn){
+            const date = new Date(localStorage.getItem('AYAmatchdate'))
+            const finalDate = this.getFormattedDate(date); 
+            console.log(finalDate)
+         fetch(`http://localhost:5000/api/users/${localStorage.getItem('AYAplayername')}/${finalDate}`).then(data=>{
+             return data.json()
+         }).then(data=>{
+              console.log(data)
+              this.setState({goalWon:data.goalWon})
+         })
+        }
+    }
 
     render(){
         const name = localStorage.getItem('AYAplayername');
@@ -86,7 +114,7 @@ class AYATab extends React.Component{
                                     </Card.Header>
                                     <Accordion.Collapse eventKey="0">
                                     <Card.Body>
-                                        GOALS WONS:5<br></br>
+                                        GOALS WONS:{this.state.goalWon}<br></br>
                                         <br></br>
                                         GOALS ATTMP:6
                                     </Card.Body>

@@ -1,0 +1,60 @@
+.CardBodyMVDTab{
+    width:30rem;
+    height:40rem;
+    margin-left:1rem;
+    margin-top: 5rem;
+
+ 
+}
+.tabsMVD{
+    margin-left: 6rem ;
+    margin-top: 5rem;
+
+}
+
+.HeaderMVD{
+    text-align: center;
+    
+}
+
+.breadMVD{
+   margin-top: 3rem;
+   margin-left:2rem;
+}
+
+.tittleMVD{
+    text-align: center;
+    font-family: 'Times New Roman', Times, serif;
+    font-size:40px !important;
+}
+.subtittleMVD{
+    text-align: center;
+    font-family: 'Times New Roman', Times, serif;
+    font-size:25px !important;
+    color: grey;
+
+}
+.AccordionGoalMVD{
+   margin-top: 25px;
+
+}
+
+.MDateMVD{
+   color:black;
+   font-size: 15px;
+   font-weight: 20px;
+   text-align: center;
+}
+
+@media screen and (max-width: 800px) {
+     .CardBodyMVDTab{
+       /* The width is 100%, when the viewport is 800px or smaller  */
+        margin-left:2rem;
+        margin-top: 2rem; 
+    } 
+    .tabsMVD{
+        margin-left:2rem ;
+        margin-top: 5rem;
+    }
+    
+   }

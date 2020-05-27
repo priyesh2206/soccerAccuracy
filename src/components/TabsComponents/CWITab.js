@@ -98,7 +98,7 @@ class CWITab extends React.Component{
         <Row>
            <Col sm={3}>
                <Card  border="dark" className="CardBodyCWITab">
-               <Card.Header><h5 className="Header">Player Details {' '}<i class="fas fa-scroll"></i></h5></Card.Header>
+               <Card.Header><h5 className="HeaderCWI">Player Details {' '}<i class="fas fa-scroll"></i></h5></Card.Header>
                <Card.Body >
                <Card.Title className="tittleCWI">{name}</Card.Title>
                <Card.Subtitle className="subtittleCWI">India</Card.Subtitle>  
@@ -193,7 +193,7 @@ class CWITab extends React.Component{
            </Col>
            <Col sm={3}>
                <Card  border="dark" className="CardBodyCWITab">
-               <Card.Header><h5 className="Header">Player Details {' '}<i class="fas fa-scroll"></i></h5></Card.Header>
+               <Card.Header><h5 className="HeaderCWI">Player Details {' '}<i class="fas fa-scroll"></i></h5></Card.Header>
                <Card.Body >
                <Card.Title className="tittleCWI">{name}</Card.Title>
                <Card.Subtitle className="subtittleCWI">India</Card.Subtitle>  

@@ -1,0 +1,60 @@
+.CardBodyWVDTab{
+    width:30rem;
+    height:40rem;
+    margin-left:1rem;
+    margin-top: 5rem;
+
+ 
+}
+.tabsWVD{
+    margin-left: 6rem ;
+    margin-top: 5rem;
+
+}
+
+.HeaderWVD{
+    text-align: center;
+    
+}
+
+.breadWVD{
+   margin-top: 3rem;
+   margin-left:2rem;
+}
+
+.tittleWVD{
+    text-align: center;
+    font-family: 'Times New Roman', Times, serif;
+    font-size:40px !important;
+}
+.subtittleWVD{
+    text-align: center;
+    font-family: 'Times New Roman', Times, serif;
+    font-size:25px !important;
+    color: grey;
+
+}
+.AccordionGoalWVD{
+   margin-top: 25px;
+
+}
+
+.MDateWVD{
+   color:black;
+   font-size: 15px;
+   font-weight: 20px;
+   text-align: center;
+}
+
+@media screen and (max-width: 800px) {
+     .CardBodyWVDTab{
+       /* The width is 100%, when the viewport is 800px or smaller  */
+        margin-left:2rem;
+        margin-top: 2rem; 
+    } 
+    .tabsWVD{
+        margin-left:2rem ;
+        margin-top: 5rem;
+    }
+    
+   }

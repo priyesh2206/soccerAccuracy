@@ -31,6 +31,20 @@ class PlayerDetails extends React.Component{
      this.onSubmit = this.onSubmit.bind(this);
      this.onResetForm = this.onResetForm.bind(this);
     }
+
+    getFormattedDate=(date)=>{
+      var year = date.getFullYear();
+    
+      var month = (1 + date.getMonth()).toString();
+      month = month.length > 1 ? month : '0' + month;
+    
+      var day = date.getDate().toString();
+      day = day.length > 1 ? day : '0' + day;
+      
+      return  day + '-' + month + '-' + year;
+    }
+
+
   handleChangeDate = date => {
       this.setState({startDate: date});
      
@@ -61,10 +75,12 @@ class PlayerDetails extends React.Component{
   }
 
   onSubmit(){
+    const date = this.state.startDate;
+    const finalADate = this.getFormattedDate(date); 
     const newplayerDetails = {
       playername:this.state.playername,
       teamname:this.state.teamname,
-      matchdate:this.state.startDate,
+      matchdate:finalADate,
       goalWon:this.state.goalWon,
       goalAttmp:this.state.goalAttmp,
       tackleWon:this.state.tackleWon,
