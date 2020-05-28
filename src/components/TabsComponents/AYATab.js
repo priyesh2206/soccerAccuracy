@@ -39,6 +39,7 @@ class AYATab extends React.Component{
     constructor(props){
         super(props);
         this.state = {
+            teamname:'',
             goalWon:'',
             goalAttmp:'',
             tackleWon:'',
@@ -72,7 +73,12 @@ class AYATab extends React.Component{
              return data.json()
          }).then(data=>{
               console.log(data)
-              this.setState({goalWon:data.goalWon})
+              this.setState({
+                            teamname:data.teamname,
+                            goalWon:data.goalWon,goalAttmp:data.goalAttmp,
+                            tackleWon:data.tackleWon,tackleAttmp:data.tackleAttmp,
+                            passesWon:data.passesWon,passesAttmp:data.passesAttmp
+                          })
          })
         }
     }
@@ -101,7 +107,7 @@ class AYATab extends React.Component{
                     <Card.Header><h5 className="HeaderAYA">Player Details{' '}<i class="fas fa-scroll"></i></h5></Card.Header>
                     <Card.Body >
                     <Card.Title className="tittleAYA">{name}</Card.Title>
-                    <Card.Subtitle className="subtittleAYA">India</Card.Subtitle>  
+                    <Card.Subtitle className="subtittleAYA">{this.state.teamname}</Card.Subtitle>  
                     <Card.Text>
                     <p className="MDateAYA">Match Date:-{matchdate}</p>
                         {/* -----------------------------------ACCORDION GOALS-------------------------------------------------------*/}
@@ -113,10 +119,10 @@ class AYATab extends React.Component{
                                     </Accordion.Toggle>
                                     </Card.Header>
                                     <Accordion.Collapse eventKey="0">
-                                    <Card.Body>
-                                        GOALS WONS:{this.state.goalWon}<br></br>
+                                    <Card.Body className="AccBody">
+                                        GOALS WONS :&nbsp;&nbsp;{this.state.goalWon}<br></br>
                                         <br></br>
-                                        GOALS ATTMP:6
+                                        GOALS ATTEMPTED:&nbsp;&nbsp;{this.state.goalAttmp}
                                     </Card.Body>
                                     </Accordion.Collapse>
                                     </Card>
@@ -129,14 +135,14 @@ class AYATab extends React.Component{
                                     <Card>
                                     <Card.Header>
                                     <Accordion.Toggle as={Button} variant="green" eventKey="0">
-                                        Tackles&nbsp;<i class="fas fa-running"></i>
+                                        TACKLES&nbsp;<i class="fas fa-running"></i>
                                     </Accordion.Toggle>
                                     </Card.Header>
                                     <Accordion.Collapse eventKey="0">
-                                    <Card.Body>
-                                        Tackles WONS:5<br></br>
+                                    <Card.Body className="AccBody">
+                                        TACKLES WONS :&nbsp;&nbsp;{this.state.tackleWon}<br></br>
                                         <br></br>
-                                        Tackles ATTMP:6
+                                        TACKLES ATTEMPTED:&nbsp;&nbsp;{this.state.tackleAttmp}
                                     </Card.Body>
                                     </Accordion.Collapse>
                                     </Card>
@@ -152,10 +158,10 @@ class AYATab extends React.Component{
                                     </Accordion.Toggle>
                                     </Card.Header>
                                     <Accordion.Collapse eventKey="0">
-                                    <Card.Body>
-                                        Passes WONS:5<br></br>
+                                    <Card.Body className="AccBody">
+                                        PASSES WONS:&nbsp;&nbsp;{this.state.passesWon}<br></br>
                                         <br></br>
-                                        passes ATTMP:6
+                                        PASSES ATTEMPTED :&nbsp;&nbsp;{this.state.passesAttmp}
                                     </Card.Body>
                                     </Accordion.Collapse>
                                     </Card>

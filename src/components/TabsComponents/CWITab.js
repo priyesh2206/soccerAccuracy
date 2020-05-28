@@ -74,7 +74,76 @@ const DropDownTabs2 = (props) =>{
 class CWITab extends React.Component{
   constructor(props){
       super(props);
+      this.state = {
+          teamname:'',
+          goalWonD1:'',
+          goalAttmpD1:'',
+          tackleWonD1:'',
+          tackleAttmpD1:'',
+          passesWonD1:'',
+          passesAttmpD1:'',
+          goalWonD2:'',
+          goalAttmpD2:'',
+          tackleWonD2:'',
+          tackleAttmpD2:'',
+          passesWonD2:'',
+          passesAttmpD2:'',
+
+      }
+
   }
+
+
+  getFormattedDate=(date)=>{
+    var year = date.getFullYear();
+  
+    var month = (1 + date.getMonth()).toString();
+    month = month.length > 1 ? month : '0' + month;
+  
+    var day = date.getDate().toString();
+    day = day.length > 1 ? day : '0' + day;
+    
+    return  day + '-' + month + '-' + year;
+  }
+
+ componentDidMount(){
+
+    const isLoggedIn = localStorage.getItem('isLoggedIn')
+    if(isLoggedIn){
+        const date1 = new Date(localStorage.getItem('CWImatchdateD1'))
+        const date2 = new Date(localStorage.getItem('CWImatchdateD2'))
+        const finalDate1 = this.getFormattedDate(date1); 
+        const finaldate2 = this.getFormattedDate(date2); 
+        //fetcht the detail of player one date 
+     fetch(`http://localhost:5000/api/users/${localStorage.getItem('CWIplayername')}/${finalDate1}`).then(data=>{
+         return data.json()
+     }).then(data=>{
+            console.log(data)
+            this.setState({
+                        teamname:data.teamname,
+                        goalWonD1:data.goalWon,goalAttmpD1:data.goalAttmp,
+                        tackleWonD1:data.tackleWon,tackleAttmpD1:data.tackleAttmp,
+                        passesWonD1:data.passesWon,passesAttmpD1:data.passesAttmp
+                      })
+            //fetcht the detail of player another date 
+            return  fetch(`http://localhost:5000/api/users/${localStorage.getItem('CWIplayername')}/${finaldate2}`).then(data=>{
+                          return data.json()
+                    }).then(data=>{
+                        console.log(data)
+                        this.setState({
+                                goalWonD2:data.goalWon,goalAttmpD2:data.goalAttmp,
+                                tackleWonD2:data.tackleWon,tackleAttmpD2:data.tackleAttmp,
+                                passesWonD2:data.passesWon,passesAttmpD2:data.passesAttmp
+                               })
+                    })
+            })
+        }
+    }
+
+
+
+
+
 
   render(){
     const name=localStorage.getItem('CWIplayername')
@@ -101,7 +170,7 @@ class CWITab extends React.Component{
                <Card.Header><h5 className="HeaderCWI">Player Details {' '}<i class="fas fa-scroll"></i></h5></Card.Header>
                <Card.Body >
                <Card.Title className="tittleCWI">{name}</Card.Title>
-               <Card.Subtitle className="subtittleCWI">India</Card.Subtitle>  
+               <Card.Subtitle className="subtittleCWI">{this.state.teamname}</Card.Subtitle>  
                <Card.Text>
                 <p className="MDateCWI">MatchDate:{m1}</p>
 
@@ -114,10 +183,10 @@ class CWITab extends React.Component{
                                </Accordion.Toggle>
                                </Card.Header>
                                <Accordion.Collapse eventKey="0">
-                               <Card.Body>
-                                   GOALS WONS:5<br></br>
+                               <Card.Body className="AccBody">
+                                   GOALS WONS :&nbsp;&nbsp;{this.state.goalWonD1}<br></br>
                                    <br></br>
-                                   GOALS ATTMP:6
+                                   GOALS ATTEMPTED :&nbsp;&nbsp;{this.state.goalAttmpD1}
                                </Card.Body>
                                </Accordion.Collapse>
                                </Card>
@@ -134,10 +203,10 @@ class CWITab extends React.Component{
                                </Accordion.Toggle>
                                </Card.Header>
                                <Accordion.Collapse eventKey="0">
-                               <Card.Body>
-                                   Tackles WONS:5<br></br>
+                               <Card.Body className="AccBody">
+                                   TACKLES WONS :&nbsp;&nbsp;{this.state.tackleWonD1}<br></br>
                                    <br></br>
-                                   Tackles ATTMP:6
+                                   TACKLES ATTEMPTED :&nbsp;&nbsp;{this.state.tackleAttmpD1}
                                </Card.Body>
                                </Accordion.Collapse>
                                </Card>
@@ -153,10 +222,10 @@ class CWITab extends React.Component{
                                </Accordion.Toggle>
                                </Card.Header>
                                <Accordion.Collapse eventKey="0">
-                               <Card.Body>
-                                   Passes WONS:5<br></br>
+                               <Card.Body className="AccBody">
+                                   PASSES WONS :&nbsp;&nbsp;{this.state.passesWonD1}<br></br>
                                    <br></br>
-                                   passes ATTMP:6
+                                   PASSES ATTEMPTED :&nbsp;&nbsp;{this.state.passesAttmpD1}
                                </Card.Body>
                                </Accordion.Collapse>
                                </Card>
@@ -196,7 +265,7 @@ class CWITab extends React.Component{
                <Card.Header><h5 className="HeaderCWI">Player Details {' '}<i class="fas fa-scroll"></i></h5></Card.Header>
                <Card.Body >
                <Card.Title className="tittleCWI">{name}</Card.Title>
-               <Card.Subtitle className="subtittleCWI">India</Card.Subtitle>  
+               <Card.Subtitle className="subtittleCWI">{this.state.teamname}</Card.Subtitle>  
                <Card.Text>
                <p className="MDateCWI">MatchDate:{m2}</p>
 
@@ -209,10 +278,10 @@ class CWITab extends React.Component{
                                </Accordion.Toggle>
                                </Card.Header>
                                <Accordion.Collapse eventKey="0">
-                               <Card.Body>
-                                   GOALS WONS:5<br></br>
+                               <Card.Body className="AccBody">
+                                   GOALS WONS : &nbsp;&nbsp;{this.state.goalWonD2}<br></br>
                                    <br></br>
-                                   GOALS ATTMP:6
+                                   GOALS ATTEMPTED :&nbsp;&nbsp;{this.state.goalAttmpD2}
                                </Card.Body>
                                </Accordion.Collapse>
                                </Card>
@@ -229,10 +298,10 @@ class CWITab extends React.Component{
                                </Accordion.Toggle>
                                </Card.Header>
                                <Accordion.Collapse eventKey="0">
-                               <Card.Body>
-                                   Tackles WONS:5<br></br>
+                               <Card.Body className="AccBody">
+                                   TACKLES WONS:&nbsp;&nbsp;{this.state.tackleWonD2}<br></br>
                                    <br></br>
-                                   Tackles ATTMP:6
+                                   TACKLES ATTEMPTED:&nbsp;&nbsp;{this.state.tackleAttmpD2}
                                </Card.Body>
                                </Accordion.Collapse>
                                </Card>
@@ -248,10 +317,10 @@ class CWITab extends React.Component{
                                </Accordion.Toggle>
                                </Card.Header>
                                <Accordion.Collapse eventKey="0">
-                               <Card.Body>
-                                   Passes WONS:5<br></br>
+                               <Card.Body className="AccBody">
+                                   PASSES WONS :&nbsp;&nbsp;{this.state.passesWonD2}<br></br>
                                    <br></br>
-                                   passes ATTMP:6
+                                   PASSES ATTEMPTED:&nbsp;&nbsp;{this.state.passesAttmpD2}
                                </Card.Body>
                                </Accordion.Collapse>
                                </Card>

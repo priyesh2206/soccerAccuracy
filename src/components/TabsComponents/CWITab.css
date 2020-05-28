@@ -47,7 +47,13 @@
     text-align: center;
  }
  
-
+ .AccBody{
+    color:black;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 15px;
+    font-weight: 25px !important;
+    text-align: center;
+ }
 
 @media screen and (max-width: 800px) {
      .CardBodyCWITab{
