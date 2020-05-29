@@ -76,7 +76,71 @@ const DropDownTabs1 = (props) =>{
 class CWOTab extends React.Component{
     constructor(props){
         super(props);
+
+        this.state = {
+            teamnamep1:'',
+            goalWonP1:'',
+            goalAttmpP1:'',
+            tackleWonP1:'',
+            tackleAttmpP1:'',
+            passesWonP1:'',
+            passesAttmpP1:'',
+            teamnameP2:'',
+            goalWonP2:'',
+            goalAttmpP2:'',
+            tackleWonP2:'',
+            tackleAttmpP2:'',
+            passesWonP2:'',
+            passesAttmpP2:'',
+
+        }
     }
+
+    getFormattedDate=(date)=>{
+        var year = date.getFullYear();
+      
+        var month = (1 + date.getMonth()).toString();
+        month = month.length > 1 ? month : '0' + month;
+      
+        var day = date.getDate().toString();
+        day = day.length > 1 ? day : '0' + day;
+        
+        return  day + '-' + month + '-' + year;
+      }
+    
+     componentDidMount(){
+    
+        const isLoggedIn = localStorage.getItem('isLoggedIn')
+        if(isLoggedIn){
+            const date1 = new Date(localStorage.getItem('CWOmatchdateP1'))
+            const date2 = new Date(localStorage.getItem('CWOmatchdateP2'))
+            const finalDateP1 = this.getFormattedDate(date1); 
+            const finaldateP2 = this.getFormattedDate(date2); 
+            //fetcht the detail of player one date 
+         fetch(`http://localhost:5000/api/users/${localStorage.getItem('CWOplayername1')}/${finalDateP1}`).then(data=>{
+             return data.json()
+         }).then(data=>{
+                console.log(data)
+                this.setState({
+                            teamnameP1:data.teamname,
+                            goalWonP1:data.goalWon,goalAttmpP1:data.goalAttmp,
+                            tackleWonP1:data.tackleWon,tackleAttmpP1:data.tackleAttmp,
+                            passesWonP1:data.passesWon,passesAttmpP1:data.passesAttmp
+                          })
+                //fetcht the detail of player another date 
+                return  fetch(`http://localhost:5000/api/users/${localStorage.getItem('CWOplayername2')}/${finaldateP2}`).then(data=>{
+                              return data.json()
+                        }).then(data=>{
+                            console.log(data)
+                            this.setState({
+                                    goalWonP2:data.goalWon,goalAttmpP2:data.goalAttmp,
+                                    tackleWonP2:data.tackleWon,tackleAttmpP2:data.tackleAttmp,
+                                    passesWonP2:data.passesWon,passesAttmpP2:data.passesAttmp
+                                   })
+                        })
+                })
+            }
+        }
 
     render(){
 
@@ -105,7 +169,7 @@ class CWOTab extends React.Component{
                    <Card.Header><h5 className="HeaderCWO">Player Details {' '}<i class="fas fa-scroll"></i></h5></Card.Header>
                    <Card.Body >
                    <Card.Title className="tittleCWO">{name1}</Card.Title>
-                   <Card.Subtitle className="subtittleCWO">India</Card.Subtitle>  
+                   <Card.Subtitle className="subtittleCWO">{this.state.teamnameP1}</Card.Subtitle>  
                    <Card.Text>
                     <p className="MDateCWO">MatchDate:{m1}</p>
     
@@ -118,10 +182,10 @@ class CWOTab extends React.Component{
                                    </Accordion.Toggle>
                                    </Card.Header>
                                    <Accordion.Collapse eventKey="0">
-                                   <Card.Body>
-                                       GOALS WONS:5<br></br>
+                                   <Card.Body className="AccBody">
+                                       GOALS WONS:&nbsp;&nbsp;{this.state.goalWonP1}<br></br>
                                        <br></br>
-                                       GOALS ATTMP:6
+                                       GOALS ATTEMPTED:&nbsp;&nbsp;{this.state.goalAttmpP1}
                                    </Card.Body>
                                    </Accordion.Collapse>
                                    </Card>
@@ -138,10 +202,10 @@ class CWOTab extends React.Component{
                                    </Accordion.Toggle>
                                    </Card.Header>
                                    <Accordion.Collapse eventKey="0">
-                                   <Card.Body>
-                                       Tackles WONS:5<br></br>
+                                   <Card.Body className="AccBody">
+                                       TACKLES WONS:&nbsp;&nbsp;{this.state.tackleWonP1}<br></br>
                                        <br></br>
-                                       Tackles ATTMP:6
+                                       TACKLES ATTEMPTED:&nbsp;&nbsp;{this.state.tackleAttmpP1}
                                    </Card.Body>
                                    </Accordion.Collapse>
                                    </Card>
@@ -153,14 +217,14 @@ class CWOTab extends React.Component{
                                    <Card>
                                    <Card.Header>
                                    <Accordion.Toggle as={Button} variant="green" eventKey="0">
-                                       Passes&nbsp;<i class="fas fa-people-carry"></i>
+                                       PASSES&nbsp;<i class="fas fa-people-carry"></i>
                                    </Accordion.Toggle>
                                    </Card.Header>
                                    <Accordion.Collapse eventKey="0">
-                                   <Card.Body>
-                                       Passes WONS:5<br></br>
+                                   <Card.Body className="AccBody">
+                                       PASSES WONS:&nbsp;&nbsp;{this.state.passesWonP1}<br></br>
                                        <br></br>
-                                       passes ATTMP:6
+                                       PASSES ATTEMPTED:&nbsp;&nbsp;{this.state.passesAttmpP1}
                                    </Card.Body>
                                    </Accordion.Collapse>
                                    </Card>
@@ -200,7 +264,7 @@ class CWOTab extends React.Component{
                    <Card.Header><h5 className="HeaderCWO">Player Details {' '}<i class="fas fa-scroll"></i></h5></Card.Header>
                    <Card.Body >
                    <Card.Title className="tittleCWO">{name2}</Card.Title>
-                   <Card.Subtitle className="subtittleCWO">India</Card.Subtitle>  
+                   <Card.Subtitle className="subtittleCWO">{this.state.teamnameP2}</Card.Subtitle>  
                    <Card.Text>
                    <p className="MDateCWO">MatchDate:{m2}</p>
     
@@ -213,10 +277,10 @@ class CWOTab extends React.Component{
                                    </Accordion.Toggle>
                                    </Card.Header>
                                    <Accordion.Collapse eventKey="0">
-                                   <Card.Body>
-                                       GOALS WONS:5<br></br>
+                                   <Card.Body className="AccBody">
+                                       GOALS WONS:&nbsp;&nbsp;{this.state.goalWonP2}<br></br>
                                        <br></br>
-                                       GOALS ATTMP:6
+                                       GOALS ATTEMPTED:&nbsp;&nbsp;{this.state.goalAttmpP2}
                                    </Card.Body>
                                    </Accordion.Collapse>
                                    </Card>
@@ -233,10 +297,10 @@ class CWOTab extends React.Component{
                                    </Accordion.Toggle>
                                    </Card.Header>
                                    <Accordion.Collapse eventKey="0">
-                                   <Card.Body>
-                                       Tackles WONS:5<br></br>
+                                   <Card.Body className="AccBody">
+                                       TACKLES WONS:&nbsp;&nbsp;{this.state.tackleWonP2}<br></br>
                                        <br></br>
-                                       Tackles ATTMP:6
+                                       TACKLES ATTEMPTED:&nbsp;&nbsp;{this.state.tackleAttmpP2}
                                    </Card.Body>
                                    </Accordion.Collapse>
                                    </Card>
@@ -252,10 +316,10 @@ class CWOTab extends React.Component{
                                    </Accordion.Toggle>
                                    </Card.Header>
                                    <Accordion.Collapse eventKey="0">
-                                   <Card.Body>
-                                       Passes WONS:5<br></br>
+                                   <Card.Body className="AccBody">
+                                       PASSES WONS:&nbsp;&nbsp;{this.state.passesWonP2}<br></br>
                                        <br></br>
-                                       passes ATTMP:6
+                                       PASSES ATTEMPTED:&nbsp;&nbsp;{this.state.passesAttmpP2}
                                    </Card.Body>
                                    </Accordion.Collapse>
                                    </Card>

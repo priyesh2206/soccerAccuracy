@@ -140,11 +140,6 @@ class CWITab extends React.Component{
         }
     }
 
-
-
-
-
-
   render(){
     const name=localStorage.getItem('CWIplayername')
     const m1=localStorage.getItem('CWImatchdateD1')
