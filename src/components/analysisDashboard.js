@@ -19,33 +19,33 @@ class AnlysisDashboard extends React.Component{
              <Col sm={4}>
                 <ListGroup>
                     <ListGroup.Item action href="#AYA">
-                            <h4>Analysis Your Accuarcy!</h4>
+                            <h4>Analysis Your Accuracy!</h4>
                             <p>
-                              *It provide the analysis of yourself on on bases of the data you enter <br></br>like goal Accuarcy,tackles Accuarcy *
+                              *It provide the analysis of yourself on on bases of the data you enter <br></br>like goal Accuracy,tackles Accuracy *
                             </p>
                     </ListGroup.Item>
                     <ListGroup.Item action href="#CWO">
                             <h4>Compare With Other Players</h4>
                             <p>
-                              *It Compare your Accuarcy with other Player that your wish to compare <br></br>it sort of one&nbsp;Vs&nbsp;One comparsion
+                              *It Compare your Accuracy with other Player that your wish to compare <br></br>it sort of one&nbsp;Vs&nbsp;One comparsion
                             </p>
                     </ListGroup.Item>
                     <ListGroup.Item action href="#MVD">
                     <h4>Montly View</h4>
                             <p>
-                              *It give Montly bases view of Accuarcy. if the data is available regular manner <br></br>like week1 week2 week3 and So on..
+                              *It give Montly bases view of Accuracy. if the data is available regular manner <br></br>like week1 week2 week3 and So on..
                             </p>
                     </ListGroup.Item>
                     <ListGroup.Item action href="#WVD">
-                           <h4>Weekly Accuarcy</h4>
+                           <h4>Weekly Accuracy</h4>
                            <p>
-                              *It give weekly  bases view of Accuarcy. if the data is available regular manner <br></br>like day1 day2 day3 and So on..
+                              *It give weekly  bases view of Accuracy. if the data is available regular manner <br></br>like day1 day2 day3 and So on..
                             </p>
                     </ListGroup.Item>
                     <ListGroup.Item action href="#CWI">
                            <h4>Compare itself</h4>
                            <p>
-                              *It compare the Accuarcy with our own data of different dates ."Every day is not same" <br></br>it sort of SomeDay&nbsp;Vs&nbsp;Another Day comparsion
+                              *It compare the Accuracy with our own data of different dates ."Every day is not same" <br></br>it sort of SomeDay&nbsp;Vs&nbsp;Another Day comparsion
                             </p>
                     </ListGroup.Item>
                 </ListGroup>

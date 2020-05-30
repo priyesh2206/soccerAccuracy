@@ -8,26 +8,26 @@ const DropDownTabs1 = (props) =>{
   return (
     <div>
      <div className="tabsCWI">
-         <Tab.Container  defaultActiveKey="allAccuarcy">
-             <DropdownButton  title="Accuarcy!"> 
-             <Dropdown.Item action eventKey="gAccuarcy">Goals Accuarcy</Dropdown.Item>
+         <Tab.Container  defaultActiveKey="Accuracy">
+             <DropdownButton  title="Accuracy!"> 
+             <Dropdown.Item action eventKey="gAccuracy">Goals Accuracy</Dropdown.Item>
              <Dropdown.Divider />
-             <Dropdown.Item eventKey="tAccuarcy">Tackles Accuarcy </Dropdown.Item>
+             <Dropdown.Item eventKey="tAccuracy">Tackles Accuracy </Dropdown.Item>
              <Dropdown.Divider />
-             <Dropdown.Item eventKey="pAccuarcy">Passes Accuarcy</Dropdown.Item>
+             <Dropdown.Item eventKey="pAccuracy">Passes Accuracy</Dropdown.Item>
              </DropdownButton>
              <Tab.Content>
-                 <Tab.Pane eventKey="allAccuarcy">
-                     <h4>In this all Accuarcy will shown in the on graph </h4>
+                 <Tab.Pane eventKey="allAccuracy">
+                     <h4>In this all Accuracy will shown in the on graph </h4>
                  </Tab.Pane>
-                 <Tab.Pane eventKey="gAccuarcy">
-                     <h1>Goal Accuarcy</h1>
+                 <Tab.Pane eventKey="gAccuracy">
+                     <h1>Goal Accuracy</h1>
                  </Tab.Pane>
-                 <Tab.Pane eventKey="tAccuarcy">
-                     <h1>Tackle Accuarcy</h1>
+                 <Tab.Pane eventKey="tAccuracy">
+                     <h1>Tackle Accuracy</h1>
                  </Tab.Pane>
-                 <Tab.Pane eventKey="pAccuarcy">
-                     <h1>passes Accuarcy</h1>
+                 <Tab.Pane eventKey="pAccuracy">
+                     <h1>passes Accuracy</h1>
                  </Tab.Pane>
              </Tab.Content>
          </Tab.Container>
@@ -42,26 +42,26 @@ const DropDownTabs2 = (props) =>{
   return (
     <div>
      <div className="tabsCWI">
-         <Tab.Container  defaultActiveKey="allAccuarcy">
-             <DropdownButton  title="Accuarcy!"> 
-             <Dropdown.Item action eventKey="gAccuarcy">Goals Accuarcy</Dropdown.Item>
+         <Tab.Container  defaultActiveKey="allAccuracy">
+             <DropdownButton  title="Accuracy!"> 
+             <Dropdown.Item action eventKey="gAccuracy">Goals Accuracy</Dropdown.Item>
              <Dropdown.Divider />
-             <Dropdown.Item eventKey="tAccuarcy">Tackles Accuarcy </Dropdown.Item>
+             <Dropdown.Item eventKey="tAccuracy">Tackles Accuracy </Dropdown.Item>
              <Dropdown.Divider />
-             <Dropdown.Item eventKey="pAccuarcy">Passes Accuarcy</Dropdown.Item>
+             <Dropdown.Item eventKey="pAccuracy">Passes Accuracy</Dropdown.Item>
              </DropdownButton>
              <Tab.Content>
-                 <Tab.Pane eventKey="allAccuarcy">
-                     <h4>In this  Accuarcy compare will shown in the on graph </h4>
+                 <Tab.Pane eventKey="allAccuracy">
+                     <h4>In this  Accuracy compare will shown in the on graph </h4>
                  </Tab.Pane>
-                 <Tab.Pane eventKey="gAccuarcy">
-                     <h1>Goal Accuarcy D-2</h1>
+                 <Tab.Pane eventKey="gAccuracy">
+                     <h1>Goal Accuracy D-2</h1>
                  </Tab.Pane>
-                 <Tab.Pane eventKey="tAccuarcy">
-                     <h1>Tackle Accuarcy D-2</h1>
+                 <Tab.Pane eventKey="tAccuracy">
+                     <h1>Tackle Accuracy D-2</h1>
                  </Tab.Pane>
-                 <Tab.Pane eventKey="pAccuarcy">
-                     <h1>passes Accuarcy D-2</h1>
+                 <Tab.Pane eventKey="pAccuracy">
+                     <h1>passes Accuracy D-2</h1>
                  </Tab.Pane>
              </Tab.Content>
          </Tab.Container>
