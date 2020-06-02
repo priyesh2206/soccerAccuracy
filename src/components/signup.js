@@ -3,7 +3,6 @@ import { MDBContainer, MDBRow, MDBCol, MDBBtn, MDBCard, MDBInput } from 'mdbreac
 import axios from "axios";
 import {Link} from 'react-router-dom';
 import {toast} from 'react-toastify';
-import { isFuture } from "date-fns";
 class Signup extends React.Component{
 
   constructor(props){

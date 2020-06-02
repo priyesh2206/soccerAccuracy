@@ -1,5 +1,5 @@
 import React from 'react';
-import {Card,Button,CardDeck,CardColumns} from 'react-bootstrap';
+import {Card,Button,CardColumns} from 'react-bootstrap';
 import {Form,FormGroup,Label,Input} from 'reactstrap';
 import DatePicker from "react-datepicker";
 import './CWO.css';
@@ -85,8 +85,8 @@ validate(playername1,playername2){
                                      <Label htmlFor="playername1" className="inputTextCWO"><i className="fa fa-user"></i>&nbsp; Player Name</Label>
                                           <Input typr="text" id="playername1"  name="playername1" placeholder="Player Name 1"  
                                           onChange={this.onhandlePlayerName1}
-                                          valid = {err.playername1 == ''}
-                                          invalid = {err.playername1 != ''}
+                                          valid = {err.playername1 === ''}
+                                          invalid = {err.playername1 !== ''}
                                           onBlur={this.handleBlur('playername1')}
                                           />
                                           <p className="error">{err.playername1}</p>
@@ -119,8 +119,8 @@ validate(playername1,playername2){
                                     <Label htmlFor="playername2" className="inputTextCWO"><i className="fa fa-user"></i>&nbsp; Player Name</Label>
                                          <Input typr="text" id="playername2"  name="playername2" placeholder="Player Name 2"
                                           onChange={this.onhandlePlayername2}
-                                          valid={err.playername2 == ''}
-                                          invalid={err.playername2 != ''}
+                                          valid={err.playername2 === ''}
+                                          invalid={err.playername2 !== ''}
                                           onBlur={this.handleBlur('playername2')}
                                           />
                                           <p className="error">{err.playername2}</p>

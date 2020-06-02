@@ -62,8 +62,8 @@ validate(playername){
                          <Label htmlFor="playername" className="inputTextMVD"><i className="fa fa-user"></i>&nbsp; Player Name</Label>
                          <Input typr="text" id="playername"  name="playername" placeholder="Player Name" 
                          onChange={this.onhandlePlayerName} 
-                         valid={err.playername == ''}
-                         invalid={err.playername != ''}
+                         valid={err.playername === ''}
+                         invalid={err.playername !== ''}
                          onBlur={this.handleBlur('playername')}
                          />
                          <p className="error">{err.playername}</p>
