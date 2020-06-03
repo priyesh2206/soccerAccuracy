@@ -2,6 +2,36 @@ import React from 'react';
 import{Col,Row} from 'reactstrap';
 import {Tab,Breadcrumb,Card,Accordion,Button,Dropdown,DropdownButton} from 'react-bootstrap'
 import './AYATab.css';
+import {Line} from 'react-chartjs-2'
+
+const Graph = (props) =>{
+  return(
+      <div>
+      <Line 
+      options={{
+          responsive:true,
+      
+      }}
+      data = {{
+          labels:["10","20","30","40","50","60","70","80","90","100"],
+          datasets:[
+          {
+              label:"Goal Accuracy",
+              backgroundColor:"rgba(255,0,255,0.75)",
+              data:[props.goals]
+          },
+           {
+               label:"Tackles Accuracy",
+               backgroundColor:"rgba(255,255,15,0.75)",
+               data:[props.tackels]
+          }
+        ]
+      }}  
+      />
+      </div>
+  )
+}
+
 
 
 const DropDownTabs = (props) =>{
@@ -9,6 +39,8 @@ const DropDownTabs = (props) =>{
         <div className="tabsAYA">
             <Tab.Container  defaultActiveKey="allAccuracy">
                 <DropdownButton  title="Accuracy!"> 
+                <Dropdown.Item action eventKey="allAccuracy">All Accuracy</Dropdown.Item>
+                <Dropdown.Divider />
                 <Dropdown.Item action eventKey="gAccuracy">Goals Accuracy</Dropdown.Item>
                 <Dropdown.Divider />
                 <Dropdown.Item eventKey="tAccuracy">Tackles Accuracy </Dropdown.Item>
@@ -17,7 +49,7 @@ const DropDownTabs = (props) =>{
                 </DropdownButton>
                 <Tab.Content>
                     <Tab.Pane eventKey="allAccuracy">
-                        <h4>In this all Accuracy will shown in the on graph </h4>
+                      <Graph goals = {props.Goal} tackels = {props.Tackles}/>
                     </Tab.Pane>
                     <Tab.Pane eventKey="gAccuracy">
                         <h1>Goal Accuracy</h1>
@@ -46,7 +78,9 @@ class AYATab extends React.Component{
             tackleAttmp:'',
             passesWon:'',
             passesAttmp:'',
-            GoalAccuracy:''
+            GoalAccuracy:'',
+            TackleAccuracy:'',
+            PassesAccuracy:'', 
         }
    
     }
@@ -73,25 +107,26 @@ class AYATab extends React.Component{
          fetch(`http://localhost:5000/api/users/${localStorage.getItem('AYAplayername')}/${finalDate}`).then(data=>{
              return data.json()
          }).then(data=>{
-              console.log(data)
+            //   console.log(data)
               this.setState({
                             teamname:data.teamname,
                             goalWon:data.goalWon,goalAttmp:data.goalAttmp,
                             tackleWon:data.tackleWon,tackleAttmp:data.tackleAttmp,
                             passesWon:data.passesWon,passesAttmp:data.passesAttmp
                           })
+               const gw  = this.state.goalWon;
+               const gA =  this.state.goalAttmp;
+               const GoalAcc =  (gw/gA)*100;
+               const tw = this.state.tackleWon;
+               const tA  = this.state.tackleAttmp;
+               const TacklesAcc = (tw/tA)*100;
+               const pw = this.state.passesWon;
+               const pA = this.state.passesWon;
+               const PassesAcc = (pw/pA)*100;
+               this.setState({GoalAccuracy:GoalAcc,TackleAccuracy:TacklesAcc,PassesAccuracy:PassesAcc});
          })
         }
     }
-
-    // Accuracy=()=>{
-    //    const GoalW = this.state.goalWon;
-    //    const GoalAtt = this.state.goalAttmp;
-    //    const accuracy = (GoalW/GoalAtt)*100;
-    //    this.setState({GoalAccuracy:accuracy});
-    //    console.log(this.state.GoalAccuracy)
-       
-    // }
 
     render(){
         const name = localStorage.getItem('AYAplayername');
@@ -186,7 +221,7 @@ class AYATab extends React.Component{
                 <Col sm={8}>
                     <Tab.Content>
                         <Tab.Pane eventKey="userCard">
-                           <DropDownTabs/>
+                           <DropDownTabs  Goal= {this.state.GoalAccuracy} Tackles = {this.state.TackleAccuracy}/>
                         </Tab.Pane>
                     </Tab.Content>
                 </Col>
