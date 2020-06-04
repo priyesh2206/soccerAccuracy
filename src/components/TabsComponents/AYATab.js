@@ -4,27 +4,53 @@ import {Tab,Breadcrumb,Card,Accordion,Button,Dropdown,DropdownButton} from 'reac
 import './AYATab.css';
 import {Line} from 'react-chartjs-2'
 
+
 const Graph = (props) =>{
+    console.log(props)
+
+
   return(
       <div>
       <Line 
       options={{
           responsive:true,
-      
+
       }}
+
       data = {{
-          labels:["10","20","30","40","50","60","70","80","90","100"],
+          labels:[0, 2, 4, 6, 8,10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52, 54, 56, 58, 60, 62, 64,66, 68, 70, 72, 74, 76, 78, 80, 82, 84, 86, 88, 90, 92,94, 96, 98, 100],
           datasets:[
           {
               label:"Goal Accuracy",
-              backgroundColor:"rgba(255,0,255,0.75)",
-              data:[props.goals]
+              backgroundColor:"rgba(255,0,255,0.45)",
+              fill: false,
+              borderColor: '#d63447',
+              data:[{x:0,y:0},{
+                x:props.goals,
+                y: props.goals
+            }]
           },
            {
                label:"Tackles Accuracy",
-               backgroundColor:"rgba(255,255,15,0.75)",
-               data:[props.tackels]
-          }
+               backgroundColor:"rgba(255,255,55,0.65)",
+               fill: false,
+               borderColor: '#5fdde5',
+               data:[{x:0,y:0},{
+                x: props.tackles,
+                y: props.tackles
+               }]
+            },
+            {
+                label:"Pass Accuracy",
+                backgroundColor:"rgba(255,25,55,0.75)",
+                fill:false,
+                borderColor: '#5c2a9d',
+                data:[{x:0,y:0},{
+                 x: props.passes,
+                 y: props.passes
+             }
+        
+        ]}
         ]
       }}  
       />
@@ -49,7 +75,7 @@ const DropDownTabs = (props) =>{
                 </DropdownButton>
                 <Tab.Content>
                     <Tab.Pane eventKey="allAccuracy">
-                      <Graph goals = {props.Goal} tackels = {props.Tackles}/>
+                      <Graph goals = {props.Goal} tackles = {props.Tackles} passes={props.Passes}/>
                     </Tab.Pane>
                     <Tab.Pane eventKey="gAccuracy">
                         <h1>Goal Accuracy</h1>
@@ -107,7 +133,7 @@ class AYATab extends React.Component{
          fetch(`http://localhost:5000/api/users/${localStorage.getItem('AYAplayername')}/${finalDate}`).then(data=>{
              return data.json()
          }).then(data=>{
-            //   console.log(data)
+            console.log(data)
               this.setState({
                             teamname:data.teamname,
                             goalWon:data.goalWon,goalAttmp:data.goalAttmp,
@@ -121,8 +147,8 @@ class AYATab extends React.Component{
                const tA  = this.state.tackleAttmp;
                const TacklesAcc = (tw/tA)*100;
                const pw = this.state.passesWon;
-               const pA = this.state.passesWon;
-               const PassesAcc = (pw/pA)*100;
+               const pA = this.state.passesAttmp;
+               const PassesAcc = Math.round((pw/pA)*100);
                this.setState({GoalAccuracy:GoalAcc,TackleAccuracy:TacklesAcc,PassesAccuracy:PassesAcc});
          })
         }
@@ -221,7 +247,7 @@ class AYATab extends React.Component{
                 <Col sm={8}>
                     <Tab.Content>
                         <Tab.Pane eventKey="userCard">
-                           <DropDownTabs  Goal= {this.state.GoalAccuracy} Tackles = {this.state.TackleAccuracy}/>
+                           <DropDownTabs  Goal= {this.state.GoalAccuracy} Tackles = {this.state.TackleAccuracy}  Passes={this.state.PassesAccuracy}/>
                         </Tab.Pane>
                     </Tab.Content>
                 </Col>
