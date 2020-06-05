@@ -48,9 +48,28 @@
 .AccBody{
    color:black;
    font-family: 'Times New Roman', Times, serif;
-   font-size: 15px;
+   font-size: 20px;
    font-weight: 25px !important;
    text-align: center;
+}
+.Accbodyinner1{
+    color:#d63447;
+    font-weight: 25px;;
+}
+
+.Accbodyinner2{
+    color:#f3c623;
+    font-weight: 25px;;
+}
+
+.Accbodyinner3{
+    color:#5c2a9d;
+    font-weight: 25px;;
+}
+
+.GoalGraph{
+    text-align: center;
+    margin-left: -90px;
 }
 
 @media screen and (max-width: 800px) {

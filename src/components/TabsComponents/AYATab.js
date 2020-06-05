@@ -2,9 +2,9 @@ import React from 'react';
 import{Col,Row} from 'reactstrap';
 import {Tab,Breadcrumb,Card,Accordion,Button,Dropdown,DropdownButton} from 'react-bootstrap'
 import './AYATab.css';
-import {Line} from 'react-chartjs-2'
+import {Line,Doughnut} from 'react-chartjs-2'
 
-
+//////////////////////////////////////////////////// All ACCURACY GRAPH/////////////////////////////////////////////////////////////////////////////////
 const Graph = (props) =>{
     console.log(props)
 
@@ -34,7 +34,7 @@ const Graph = (props) =>{
                label:"Tackles Accuracy",
                backgroundColor:"rgba(255,255,55,0.65)",
                fill: false,
-               borderColor: '#5fdde5',
+               borderColor: '#f3c623',
                data:[{x:0,y:0},{
                 x: props.tackles,
                 y: props.tackles
@@ -58,6 +58,145 @@ const Graph = (props) =>{
   )
 }
 
+//////////////////////////////////////////////////// Goal ACCURACY GRAPH/////////////////////////////////////////////////////////////////////////////////
+
+const GoalGraph=(props)=>{
+    
+    const state = {
+        labels: ['Goal Won','Goal Attempted','Goal Accuracy'],
+        datasets: [
+          {
+            label: 'Goal',
+            backgroundColor: [
+              '#0e9aa7',
+              '#f37121',
+              '#d92027'
+            ],
+            hoverBackgroundColor: [
+            '#501800',
+            '#4B5000',
+            '#303960'
+            ],
+            data: [props.goalwons,props.goalattempteds,props.goals],
+          }
+        ]
+      }
+    
+      return(
+          <div>
+              <h1 className="GoalGraph">GOAL ACCURACY &nbsp;<i class="fas fa-volleyball-ball"></i></h1>
+            <Doughnut
+                 data={state}
+                 options={{
+                    title:{
+                       display:true,
+                       
+                    },
+                    legend:{
+                       display:true,
+                       position:'right',
+                    }
+                }}
+            />
+        </div>
+      );
+}
+
+//////////////////////////////////////////////////// Tackles ACCURACY GRAPH/////////////////////////////////////////////////////////////////////////////////
+
+
+const TackleGraph=(props)=>{
+    
+    const state = {
+        labels: ['Tackles Won','Tackles Attempted','Tackles Accuracy'],
+        datasets: [
+          {
+            label: 'Tackles',
+            backgroundColor: [
+              '#0e9aa7',
+              '#f37121',
+              '#d92027'
+            ],
+            hoverBackgroundColor: [
+            '#501800',
+            '#4B5000',
+            '#303960'
+            ],
+            data: [props.tacklewons,props.tackleattempteds,props.tackles],
+          }
+        ]
+      }
+    
+      return(
+          <div>
+              <h1 className="GoalGraph">TACKLE ACCURACY &nbsp;<i class="fas fa-running"></i></h1>
+            <Doughnut
+                 data={state}
+                 options={{
+                    title:{
+                       display:true,
+                       
+                    },
+                    legend:{
+                       display:true,
+                       position:'right',
+                    }
+                }}
+            />
+        </div>
+      );
+}
+//////////////////////////////////////////////////// Passes ACCURACY GRAPH/////////////////////////////////////////////////////////////////////////////////
+
+
+const PassesGraph=(props)=>{
+    
+    const state = {
+        labels: ['Passes Won','Passes Attempted','Passes Accuracy'],
+        datasets: [
+          {
+            label: 'Passes',
+            backgroundColor: [
+              '#0e9aa7',
+              '#f37121',
+              '#d92027'
+            ],
+            hoverBackgroundColor: [
+            '#501800',
+            '#4B5000',
+            '#303960'
+            ],
+            data: [props.passeswons,props.passesattempteds,props.passes],
+          }
+        ]
+      }
+    
+      return(
+          <div>
+              <h1 className="GoalGraph">PASSES ACCURACY &nbsp;<i class="fas fa-street-view"></i></h1>
+            <Doughnut
+                 data={state}
+                 options={{
+                    title:{
+                       display:true,
+                       
+                    },
+                    legend:{
+                       display:true,
+                       position:'right',
+                    }
+                }}
+            />
+        </div>
+      );
+}
+
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
 
 
 const DropDownTabs = (props) =>{
@@ -75,16 +214,16 @@ const DropDownTabs = (props) =>{
                 </DropdownButton>
                 <Tab.Content>
                     <Tab.Pane eventKey="allAccuracy">
-                      <Graph goals = {props.Goal} tackles = {props.Tackles} passes={props.Passes}/>
+                      <Graph          goals = {props.Goal} tackles = {props.Tackles} passes={props.Passes}/>
                     </Tab.Pane>
                     <Tab.Pane eventKey="gAccuracy">
-                        <h1>Goal Accuracy</h1>
+                       <GoalGraph     goalwons = {props.GoalWons} goalattempteds = {props.GoalAttempteds} goals = {props.Goal} />
                     </Tab.Pane>
                     <Tab.Pane eventKey="tAccuracy">
-                        <h1>Tackle Accuracy</h1>
+                       <TackleGraph   tacklewons = {props.TackleWons} tackleattempteds = {props.TackleAttempteds}  tackles = {props.Tackles}/>
                     </Tab.Pane>
                     <Tab.Pane eventKey="pAccuracy">
-                        <h1>passes Accuracy</h1>
+                        <PassesGraph  passeswons = {props.PassesWons} passesattempteds = {props.PassesAttempteds}  passes = {props.Passes}/>
                     </Tab.Pane>
                 </Tab.Content>
             </Tab.Container>
@@ -192,8 +331,8 @@ class AYATab extends React.Component{
                                     <Accordion.Collapse eventKey="0">
                                     <Card.Body className="AccBody">
                                         GOALS WONS :&nbsp;&nbsp;{this.state.goalWon}<br></br>
-                                        <br></br>
-                                        GOALS ATTEMPTED:&nbsp;&nbsp;{this.state.goalAttmp}
+                                        GOALS ATTEMPTED:&nbsp;&nbsp;{this.state.goalAttmp}<br></br>
+                                        <p className="Accbodyinner1">GOALS ACCURACY:&nbsp;&nbsp;{this.state.GoalAccuracy}</p>
                                     </Card.Body>
                                     </Accordion.Collapse>
                                     </Card>
@@ -212,8 +351,8 @@ class AYATab extends React.Component{
                                     <Accordion.Collapse eventKey="0">
                                     <Card.Body className="AccBody">
                                         TACKLES WONS :&nbsp;&nbsp;{this.state.tackleWon}<br></br>
-                                        <br></br>
-                                        TACKLES ATTEMPTED:&nbsp;&nbsp;{this.state.tackleAttmp}
+                                        TACKLES ATTEMPTED:&nbsp;&nbsp;{this.state.tackleAttmp}<br></br>
+                                        <p className="Accbodyinner2">TACKLES ACCURACY:&nbsp;&nbsp;{this.state.TackleAccuracy}</p>
                                     </Card.Body>
                                     </Accordion.Collapse>
                                     </Card>
@@ -231,8 +370,8 @@ class AYATab extends React.Component{
                                     <Accordion.Collapse eventKey="0">
                                     <Card.Body className="AccBody">
                                         PASSES WONS:&nbsp;&nbsp;{this.state.passesWon}<br></br>
-                                        <br></br>
-                                        PASSES ATTEMPTED :&nbsp;&nbsp;{this.state.passesAttmp}
+                                        PASSES ATTEMPTED :&nbsp;&nbsp;{this.state.passesAttmp}<br></br>
+                                        <p className="Accbodyinner3">PASSES ACCURACY:&nbsp;&nbsp;{this.state.PassesAccuracy}</p>
                                     </Card.Body>
                                     </Accordion.Collapse>
                                     </Card>
@@ -247,7 +386,20 @@ class AYATab extends React.Component{
                 <Col sm={8}>
                     <Tab.Content>
                         <Tab.Pane eventKey="userCard">
-                           <DropDownTabs  Goal= {this.state.GoalAccuracy} Tackles = {this.state.TackleAccuracy}  Passes={this.state.PassesAccuracy}/>
+                           <DropDownTabs  Goal= {this.state.GoalAccuracy}
+                                          Tackles = {this.state.TackleAccuracy}  
+                                          Passes={this.state.PassesAccuracy}
+                                          
+                                          GoalWons = {this.state.goalWon}
+                                          GoalAttempteds = {this.state.goalAttmp}
+                                        
+                                          TackleWons = {this.state.tackleWon}
+                                          TackleAttempteds = {this.state.tackleAttmp}
+
+                                          PassesWons = {this.state.passesWon}
+                                          PassesAttempteds = {this.state.passesAttmp}
+                                          
+                                          />
                         </Tab.Pane>
                     </Tab.Content>
                 </Col>
