@@ -54,17 +54,17 @@
 }
 .Accbodyinner1{
     color:#d63447;
-    font-weight: 25px;;
+    font-weight: 200px !important;
 }
 
 .Accbodyinner2{
     color:#f3c623;
-    font-weight: 25px;;
+    font-weight: 100px;
 }
 
 .Accbodyinner3{
     color:#5c2a9d;
-    font-weight: 25px;;
+    font-weight: 100px;
 }
 
 .GoalGraph{

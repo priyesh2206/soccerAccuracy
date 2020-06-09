@@ -281,10 +281,10 @@ class AYATab extends React.Component{
                           })
                const gw  = this.state.goalWon;
                const gA =  this.state.goalAttmp;
-               const GoalAcc =  (gw/gA)*100;
+               const GoalAcc =  Math.round((gw/gA)*100);
                const tw = this.state.tackleWon;
                const tA  = this.state.tackleAttmp;
-               const TacklesAcc = (tw/tA)*100;
+               const TacklesAcc = Math.round((tw/tA)*100);
                const pw = this.state.passesWon;
                const pA = this.state.passesAttmp;
                const PassesAcc = Math.round((pw/pA)*100);
@@ -324,7 +324,7 @@ class AYATab extends React.Component{
                                 <Accordion className ="AccordionGoalAYA">
                                     <Card>
                                     <Card.Header>
-                                    <Accordion.Toggle as={Button} variant="green" eventKey="0">
+                                    <Accordion.Toggle as={Button} variant="red" eventKey="0">
                                         Goals&nbsp;<i class="fab fa-font-awesome-flag"></i>
                                     </Accordion.Toggle>
                                     </Card.Header>
@@ -344,7 +344,7 @@ class AYATab extends React.Component{
                                 <Accordion className ="AccordionGoalAYA">
                                     <Card>
                                     <Card.Header>
-                                    <Accordion.Toggle as={Button} variant="green" eventKey="0">
+                                    <Accordion.Toggle as={Button} variant="yellow" eventKey="0">
                                         TACKLES&nbsp;<i class="fas fa-running"></i>
                                     </Accordion.Toggle>
                                     </Card.Header>
@@ -363,7 +363,7 @@ class AYATab extends React.Component{
                                 <Accordion className ="AccordionGoalAYA">
                                     <Card>
                                     <Card.Header>
-                                    <Accordion.Toggle as={Button} variant="green" eventKey="0">
+                                    <Accordion.Toggle as={Button} variant="purple" eventKey="0">
                                         Passes&nbsp;<i class="fas fa-people-carry"></i>
                                     </Accordion.Toggle>
                                     </Card.Header>

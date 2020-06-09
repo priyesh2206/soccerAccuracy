@@ -47,8 +47,19 @@
     text-align: center;
  }
  
+.Dropdown{
+  margin-left: 65px;
+}
 
+.card2{
+    margin-left:20px ;
+}
 
+.Graph{
+    margin-top:120px;
+    margin-left: -52px;
+
+}
 @media screen and (max-width: 800px) {
      .CardBodyCWOTab{
        /* The width is 100%, when the viewport is 800px or smaller  */
