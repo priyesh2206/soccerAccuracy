@@ -11,6 +11,8 @@ const Graph = (props) =>{
 
   return(
       <div>
+           <h1 className="GoalGraphAYAline">Player Accuracy Analysis&nbsp;<i class="fas fa-chart-line"></i></h1>
+      <div>
       <Line 
       options={{
           responsive:true,
@@ -54,6 +56,7 @@ const Graph = (props) =>{
         ]
       }}  
       />
+      </div>
       </div>
   )
 }
@@ -332,7 +335,7 @@ class AYATab extends React.Component{
                                     <Card.Body className="AccBody">
                                         GOALS WONS :&nbsp;&nbsp;{this.state.goalWon}<br></br>
                                         GOALS ATTEMPTED:&nbsp;&nbsp;{this.state.goalAttmp}<br></br>
-                                        <p className="Accbodyinner1">GOALS ACCURACY:&nbsp;&nbsp;{this.state.GoalAccuracy}</p>
+                                        <p className="Accbodyinner1"><strong>GOALS ACCURACY:&nbsp;&nbsp;{this.state.GoalAccuracy}</strong></p>
                                     </Card.Body>
                                     </Accordion.Collapse>
                                     </Card>
@@ -352,7 +355,7 @@ class AYATab extends React.Component{
                                     <Card.Body className="AccBody">
                                         TACKLES WONS :&nbsp;&nbsp;{this.state.tackleWon}<br></br>
                                         TACKLES ATTEMPTED:&nbsp;&nbsp;{this.state.tackleAttmp}<br></br>
-                                        <p className="Accbodyinner2">TACKLES ACCURACY:&nbsp;&nbsp;{this.state.TackleAccuracy}</p>
+                                        <p className="Accbodyinner2"><strong>TACKLES ACCURACY:&nbsp;&nbsp;{this.state.TackleAccuracy}</strong></p>
                                     </Card.Body>
                                     </Accordion.Collapse>
                                     </Card>
@@ -371,7 +374,7 @@ class AYATab extends React.Component{
                                     <Card.Body className="AccBody">
                                         PASSES WONS:&nbsp;&nbsp;{this.state.passesWon}<br></br>
                                         PASSES ATTEMPTED :&nbsp;&nbsp;{this.state.passesAttmp}<br></br>
-                                        <p className="Accbodyinner3">PASSES ACCURACY:&nbsp;&nbsp;{this.state.PassesAccuracy}</p>
+                                        <p className="Accbodyinner3"><strong>PASSES ACCURACY:&nbsp;&nbsp;{this.state.PassesAccuracy}</strong></p>
                                     </Card.Body>
                                     </Accordion.Collapse>
                                     </Card>

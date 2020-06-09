@@ -56,10 +56,69 @@
 }
 
 .Graph{
-    margin-top:120px;
+    margin-top:80px;
     margin-left: -52px;
 
 }
+
+.passesp2{
+  background-color: #709fb0 !important;
+}
+
+.tacklep2{
+    background-color: #b5076b !important;
+}
+
+.goalp2{
+    background-color: #45046a !important;
+}
+
+.Accbodyinnerp1{
+    color:#ff9234;
+    font-weight: 200px !important;
+}
+
+.Accbodyinnerp2{
+    color:#ffcd3c;
+    font-weight: 100px;
+}
+
+.Accbodyinnerp3{
+    color:#d92027;
+    font-weight: 100px;
+}
+
+.Accbodyinnerp4{
+    color:#45046a;
+    font-weight: 200px !important;
+}
+
+.Accbodyinnerp5{
+    color:#b5076b;
+    font-weight: 100px;
+}
+
+.Accbodyinnerp6{
+    color:#709fb0;
+    font-weight: 100px;
+}
+
+.GoalGraphCWO{
+    margin-top: 50px;
+    text-align: center;
+    margin-left: -90px;
+}
+
+.GoalGraphCWOline{
+    margin-top: 50px;
+    text-align: center;
+    
+
+}
+
+
+
+
 @media screen and (max-width: 800px) {
      .CardBodyCWOTab{
        /* The width is 100%, when the viewport is 800px or smaller  */

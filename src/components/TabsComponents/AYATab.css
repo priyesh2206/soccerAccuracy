@@ -72,6 +72,12 @@
     margin-left: -90px;
 }
 
+.GoalGraphAYAline{
+    margin-top: 20px;
+    text-align: center;
+    
+
+}
 @media screen and (max-width: 800px) {
      .CardBodyAYATab{
        /* The width is 100%, when the viewport is 800px or smaller  */

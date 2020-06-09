@@ -1,7 +1,7 @@
 import React from 'react';
 import{Col,Row} from 'reactstrap';
 import {Tab,Breadcrumb,Card,Accordion,Button,Dropdown,DropdownButton} from 'react-bootstrap'
-import{Line} from 'react-chartjs-2';
+import{Line,Doughnut} from 'react-chartjs-2';
 import './CWOTab.css';
 
 
@@ -11,6 +11,8 @@ const Graph = (props) =>{
 
 
   return(
+      <div>
+     <h1 className="GoalGraphCWOline">Player Accuracy Comparison&nbsp;<i class="fas fa-chart-line"></i></h1>
       <div className="Graph">
       <Line 
       options={{
@@ -86,9 +88,146 @@ const Graph = (props) =>{
       }}  
       />
       </div>
+      </div>
   )
 }
 
+//////////////////////////////////////////////////// Player 1 ACCURACY GRAPH/////////////////////////////////////////////////////////////////////////////////
+
+const PlayerGraph1=(props)=>{
+    
+    const state = {
+        labels: ['Goal Accuracy','Tackle Accuracy','Passes Accuracy'],
+        datasets: [
+          {
+            label: 'Goal',
+            backgroundColor: [
+              '#ff9234',
+              '#ffcd3c',
+              '#d92027'
+            ],
+            hoverBackgroundColor: [
+            '#501800',
+            '#4B5000',
+            '#303960'
+            ],
+            data: [props.goal1,props.tackle1,props.passes1],
+          }
+        ]
+      }
+    
+      return(
+          <div>
+              <h1 className="GoalGraphCWO">Player 1 Accuracy&nbsp;<i class="fas fa-volleyball-ball"></i></h1>
+            <Doughnut
+                 data={state}
+                 options={{
+                    title:{
+                       display:true,
+                       
+                    },
+                    legend:{
+                       display:true,
+                       position:'right',
+                    }
+                }}
+            />
+        </div>
+      );
+}
+
+//////////////////////////////////////////////////// Player 2 ACCURACY GRAPH/////////////////////////////////////////////////////////////////////////////////
+
+const PlayerGraph2=(props)=>{
+    
+    const state = {
+        labels: ['Goal Accuracy','Tackle Accuracy','Passes Accuracy'],
+        datasets: [
+          {
+            label: 'Goal',
+            backgroundColor: [
+              '#45046a',
+              '#b5076b',
+              '#709fb0'
+            ],
+            hoverBackgroundColor: [
+            '#501800',
+            '#4B5000',
+            '#303960'
+            ],
+            data: [props.goal2,props.tackle2,props.passes2],
+          }
+        ]
+      }
+    
+      return(
+          <div>
+              <h1 className="GoalGraphCWO">Player 2 Accuracy&nbsp;<i class="fas fa-volleyball-ball"></i></h1>
+            <Doughnut
+                 data={state}
+                 options={{
+                    title:{
+                       display:true,
+                       
+                    },
+                    legend:{
+                       display:true,
+                       position:'right',
+                    }
+                }}
+            />
+        </div>
+      );
+}
+
+////////////////////////////////////////////////////  PIE CHART ////////////////////////////////////////////////////////////////////////////////////////
+
+const PlayerGraph=(props)=>{
+    
+    const state = {
+        labels: ['Goal Accuracy P1 ','Tackle Accuracy P1','Passes Accuracy P3','Goal Accuracy P2' ,'Tackle Accuracy P2' ,'Passes Accuracy P2'],
+        datasets: [
+          {
+            label: 'Goal',
+            backgroundColor: [
+              '#ff9234',
+              '#ffcd3c',
+              '#d92027',
+              '#45046a',
+              '#b5076b',
+              '#709fb0'
+            ],
+            hoverBackgroundColor: [
+            '#501800',
+            '#4B5000',
+            '#303960',
+            '#501800',
+            '#4B5000',
+            '#303960'
+            ],
+            data: [props.goal1,props.tackle1,props.passes1,props.goal2,props.tackle2,props.passes2],
+          }
+        ]
+      }
+    
+      return(
+          <div>
+              <h1 className="GoalGraphCWO">Player Accuracy Comparison&nbsp;<i class="fas fa-chart-pie"></i></h1>
+            <Doughnut
+                 data={state}
+                 options={{
+                    title:{
+                       display:true,
+                    },
+                    legend:{
+                       display:true,
+                       position:'right',
+                    }
+                }}
+            />
+        </div>
+      );
+}
 
 // --------------------------------------------DROPDOWN LIST FOR PLAYER ON ONE DATE -----------------------------------------------------------------//
 const DropDownTabs = (props) =>{
@@ -97,24 +236,32 @@ const DropDownTabs = (props) =>{
        <div className="tabsCWO">
            <Tab.Container  defaultActiveKey="allAccuracy">
                <DropdownButton  title="Accuracy!"> 
-               <Dropdown.Item action eventKey="allAccuracy">All Accuracy</Dropdown.Item>
+               <Dropdown.Item action eventKey="allAccuracy">Line Graph</Dropdown.Item>
+               <Dropdown.Divider />
+               <Dropdown.Item action eventKey="pie">Pie Chart</Dropdown.Item>
                <Dropdown.Divider />
                <Dropdown.Item action eventKey="P1Accuracy">Pie Chart P-1 Accuracy</Dropdown.Item>
                <Dropdown.Divider />
                <Dropdown.Item eventKey="P2Accuracy">Pie Chart P-2 Accuracy</Dropdown.Item>
-               <Dropdown.Divider />
                </DropdownButton>
                <Tab.Content>
                    <Tab.Pane eventKey="allAccuracy">
-                       <Graph  goal1={props.Goal1}  tackle1={props.Tackle1} passes1={props.Passes1}
-                               goal2 ={props.Goal2} tackle2={props.Tackle2} passes2={props.Passes2}
+                       <Graph  
+                            goal1={props.Goal1}  tackle1={props.Tackle1} passes1={props.Passes1}
+                            goal2 ={props.Goal2} tackle2={props.Tackle2} passes2={props.Passes2}
+                       />
+                   </Tab.Pane>
+                   <Tab.Pane eventKey="pie">
+                       <PlayerGraph
+                            goal1={props.Goal1}  tackle1={props.Tackle1} passes1={props.Passes1}
+                            goal2 ={props.Goal2} tackle2={props.Tackle2} passes2={props.Passes2}
                        />
                    </Tab.Pane>
                    <Tab.Pane eventKey="P1Accuracy">
-                       <h1>Goal Accuracy</h1>
+                       <PlayerGraph1 goal1={props.Goal1}  tackle1={props.Tackle1} passes1={props.Passes1} />
                    </Tab.Pane>
                    <Tab.Pane eventKey="P2Accuracy">
-                       <h1>Tackle Accuracy</h1>
+                       <PlayerGraph2   goal2 ={props.Goal2} tackle2={props.Tackle2} passes2={props.Passes2} />
                    </Tab.Pane>
                    
                </Tab.Content>
@@ -267,8 +414,8 @@ class CWOTab extends React.Component{
                                             <Accordion.Collapse eventKey="0">
                                             <Card.Body className="AccBody">
                                                 GOALS WONS:&nbsp;&nbsp;{this.state.goalWonP1}<br></br>
-                                                <br></br>
-                                                GOALS ATTEMPTED:&nbsp;&nbsp;{this.state.goalAttmpP1}
+                                                GOALS ATTEMPTED:&nbsp;&nbsp;{this.state.goalAttmpP1}<br></br>
+                                                <p className="Accbodyinnerp1"><strong>GOAL ACCURACY:&nbsp;&nbsp;{this.state.GoalAccuracyP1}</strong></p>
                                             </Card.Body>
                                             </Accordion.Collapse>
                                             </Card>
@@ -288,7 +435,7 @@ class CWOTab extends React.Component{
                                             <Card.Body className="AccBody">
                                                 TACKLES WONS:&nbsp;&nbsp;{this.state.tackleWonP1}<br></br>
                                                 TACKLES ATTEMPTED:&nbsp;&nbsp;{this.state.tackleAttmpP1}<br></br>
-                                                <p className="Accbodyinner3">TACKLE ACCURACY:&nbsp;&nbsp;{this.state.TackleAccuracyP1}</p>
+                                                <p className="Accbodyinnerp2"><strong>TACKLE ACCURACY:&nbsp;&nbsp;{this.state.TackleAccuracyP1}</strong></p>
                                             </Card.Body>
                                             </Accordion.Collapse>
                                             </Card>
@@ -306,8 +453,8 @@ class CWOTab extends React.Component{
                                             <Accordion.Collapse eventKey="0">
                                             <Card.Body className="AccBody">
                                                 PASSES WONS:&nbsp;&nbsp;{this.state.passesWonP1}<br></br>
-                                                <br></br>
-                                                PASSES ATTEMPTED:&nbsp;&nbsp;{this.state.passesAttmpP1}
+                                                PASSES ATTEMPTED:&nbsp;&nbsp;{this.state.passesAttmpP1}<br></br>
+                                                <p className="Accbodyinnerp3"><strong>PASSES ACCURACY:&nbsp;&nbsp;{this.state.PassesAccuracyP1}</strong></p>
                                             </Card.Body>
                                             </Accordion.Collapse>
                                             </Card>
@@ -353,15 +500,15 @@ class CWOTab extends React.Component{
                                                     <Accordion className ="AccordionGoalCWO">
                                                         <Card>
                                                         <Card.Header>
-                                                        <Accordion.Toggle as={Button} variant="green" eventKey="0">
+                                                        <Accordion.Toggle as={Button} className="goalp2" eventKey="0">
                                                             Goals&nbsp;<i class="fab fa-font-awesome-flag"></i>
                                                         </Accordion.Toggle>
                                                         </Card.Header>
                                                         <Accordion.Collapse eventKey="0">
                                                         <Card.Body className="AccBody">
                                                             GOALS WONS:&nbsp;&nbsp;{this.state.goalWonP2}<br></br>
-                                                            <br></br>
-                                                            GOALS ATTEMPTED:&nbsp;&nbsp;{this.state.goalAttmpP2}
+                                                            GOALS ATTEMPTED:&nbsp;&nbsp;{this.state.goalAttmpP2}<br></br>
+                                                            <p className="Accbodyinnerp4"><strong>GOAL ACCURACY:&nbsp;&nbsp;{this.state.GoalAccuracyP2}</strong></p>
                                                         </Card.Body>
                                                         </Accordion.Collapse>
                                                         </Card>
@@ -373,15 +520,15 @@ class CWOTab extends React.Component{
                                                     <Accordion className ="AccordionGoalCWO">
                                                         <Card>
                                                         <Card.Header>
-                                                        <Accordion.Toggle as={Button} variant="green" eventKey="0">
+                                                        <Accordion.Toggle as={Button} className="tacklep2"  eventKey="0">
                                                             Tackles&nbsp;<i class="fas fa-running"></i>
                                                         </Accordion.Toggle>
                                                         </Card.Header>
                                                         <Accordion.Collapse eventKey="0">
                                                         <Card.Body className="AccBody">
                                                             TACKLES WONS:&nbsp;&nbsp;{this.state.tackleWonP2}<br></br>
-                                                            <br></br>
-                                                            TACKLES ATTEMPTED:&nbsp;&nbsp;{this.state.tackleAttmpP2}
+                                                            TACKLES ATTEMPTED:&nbsp;&nbsp;{this.state.tackleAttmpP2}<br></br>
+                                                            <p className="Accbodyinnerp5"><strong>TACKLE ACCURACY:&nbsp;&nbsp;{this.state.TackleAccuracyP2}</strong></p>
                                                         </Card.Body>
                                                         </Accordion.Collapse>
                                                         </Card>
@@ -392,15 +539,15 @@ class CWOTab extends React.Component{
                                                     <Accordion className ="AccordionGoalCWO">
                                                         <Card>
                                                         <Card.Header>
-                                                        <Accordion.Toggle as={Button} variant="green" eventKey="0">
+                                                        <Accordion.Toggle as={Button} className="passesp2" eventKey="0">
                                                             Passes&nbsp;<i class="fas fa-people-carry"></i>
                                                         </Accordion.Toggle>
                                                         </Card.Header>
                                                         <Accordion.Collapse eventKey="0">
                                                         <Card.Body className="AccBody">
                                                             PASSES WONS:&nbsp;&nbsp;{this.state.passesWonP2}<br></br>
-                                                            <br></br>
-                                                            PASSES ATTEMPTED:&nbsp;&nbsp;{this.state.passesAttmpP2}
+                                                            PASSES ATTEMPTED:&nbsp;&nbsp;{this.state.passesAttmpP2}<br></br>
+                                                            <p className="Accbodyinnerp6"><strong>PASSES ACCURACY:&nbsp;&nbsp;{this.state.PassesAccuracyP2}</strong></p>
                                                         </Card.Body>
                                                         </Accordion.Collapse>
                                                         </Card>
