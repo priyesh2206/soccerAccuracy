@@ -55,6 +55,54 @@
     text-align: center;
  }
 
+ .passesd2{
+    background-color: #709fb0 !important;
+  }
+  
+  .tackled2{
+      background-color: #b5076b !important;
+  }
+  
+  .goald2{
+      background-color: #45046a !important;
+  }
+
+
+.Accbodyinnerd1{
+    color:#ff9234;
+    font-weight: 200px !important;
+}
+
+.Accbodyinnerd2{
+    color:#ffcd3c;
+    font-weight: 100px;
+}
+
+.Accbodyinnerd3{
+    color:#d92027;
+    font-weight: 100px;
+}
+
+.Accbodyinnerd4{
+    color:#45046a;
+    font-weight: 200px !important;
+}
+
+.Accbodyinnerd5{
+    color:#b5076b;
+    font-weight: 100px;
+}
+
+.Accbodyinnerd6{
+    color:#709fb0;
+    font-weight: 100px;
+}
+
+
+
+
+
+
 @media screen and (max-width: 800px) {
      .CardBodyCWITab{
        /* The width is 100%, when the viewport is 800px or smaller  */

@@ -407,7 +407,7 @@ class CWOTab extends React.Component{
                                         <Accordion className ="AccordionGoalCWO">
                                             <Card>
                                             <Card.Header>
-                                            <Accordion.Toggle as={Button} variant="orange " eventKey="0">
+                                            <Accordion.Toggle as={Button} variant="orange" eventKey="0">
                                                 Goals&nbsp;<i class="fab fa-font-awesome-flag"></i>
                                             </Accordion.Toggle>
                                             </Card.Header>
