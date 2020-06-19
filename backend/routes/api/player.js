@@ -262,20 +262,5 @@ router.get('/:playername/:matchdate',(req,res,next)=>{
         });
     })
 
-// router.get('/week/:playername/:matchdate',(req,res,next)=>{
-
-//   PlayerDetail.findOne({playername:req.params.playername})
-//   .then(user=>{
-//       if(user){
-
-//       }
-//   })
-
-
-
-// })
-
-
-
 module.exports = router;
 

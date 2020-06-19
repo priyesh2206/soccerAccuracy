@@ -5,6 +5,7 @@ mongoose.Promise = global.Promise;
 const cors= require("cors");
 const passport = require("passport");
 const players = require('./routes/api/player')
+const weekly = require('./routes/api/weekly')
 
 require('dotenv').config();
 
@@ -42,4 +43,4 @@ require('./config/passport')(passport);
 
 
 app.use('/api/users',players);
-
+app.use('/weekly',weekly);

@@ -34,10 +34,92 @@ const DropDownTabs = (props) =>{
 }
 
 
+
+
+
+
+
+
+
 class WVDTab extends React.Component{
     constructor(props){
         super(props);
+        this.state = {
+            teamname:'',
+            goalWonD1:0,
+            goalAttmpD1:0,
+            tackleWonD1:0,
+            tackleAttmpD1:0,
+            passesWonD1:0,
+            passesAttmpD1:0,
+            goalWonD2:0,
+            goalAttmpD2:0,
+            tackleWonD2:0,
+            tackleAttmpD2:0,
+            passesWonD2:0,
+            passesAttmpD2:0,
+            goalWonD3:0,
+            goalAttmpD3:0,
+            tackleWonD3:0,
+            tackleAttmpD3:0,
+            passesWonD3:0,
+            passesAttmpD3:0,
+            goalWonD4:0,
+            goalAttmpD4:0,
+            tackleWonD4:0,
+            tackleAttmpD4:0,
+            passesWonD4:0,
+            passesAttmpD4:0,
+            goalWonD5:0,
+            goalAttmpD5:0,
+            tackleWonD5:0,
+            tackleAttmpD5:0,
+            passesWonD5:0,
+            passesAttmpD5:0,
+            goalWonD6:0,
+            goalAttmpD6:0,
+            tackleWonD6:0,
+            tackleAttmpD6:0,
+            passesWonD6:0,
+            passesAttmpD6:0,
+            goalWonD7:0,
+            goalAttmpD7:0,
+            tackleWonD7:0,
+            tackleAttmpD7:0,
+            passesWonD7:0,
+            passesAttmpD7:0,
+            GoalAccuracyweekly:0,
+            TackleAccuracyweekly:0,
+            PassesAccuracyweekly:0,
+        }
     }
+
+
+    componentDidMount(){
+        const isLoggedIn = localStorage.getItem('isLoggedIn')
+        if(isLoggedIn){
+            fetch(`http://localhost:5000/weekly/${localStorage.getItem('WVDplayername')}`).then(data=>{
+                return data.json()
+            }).then(data=>{
+                console.log(data[0].playerData)
+                this.setState({teamname:data[0].teamname,goalWonD1:data[0].goalWon,goalAttmpD1:data[0].goalAttmp,
+                              tackleWonD1:data[0].tackleWon,tackleAttmpD1:data[0].tackleAttmp,
+                              passesWonD1:data[0].passesWon,passesAttmpD1:data[0].passesAttmp});
+                const h=data[0].playerData.length;
+                // for(var i=h;i>=0;i--){
+                //     this.setState({goalWonD1:data[0].playerData[i].goalWon,goalAttmpD1:data[0].playerData[i].goalAttmp,
+                //                    tackleWonD1:data[0].playerData[i].tackleWon,tackleAttmpD1:data[0].playerData[i].tackleAttmp,
+                //                    passesWonD1:data[0].playerData[i].playerData[i].passesWon,passesAttmpD1:data[0].playerData[i].passesAttmp}); 
+                // }      
+                
+            })
+        }
+    }
+
+
+
+
+
 
     render(){
         const name = localStorage.getItem('WVDplayername');
