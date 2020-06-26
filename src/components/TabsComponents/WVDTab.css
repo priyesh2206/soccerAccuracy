@@ -46,6 +46,42 @@
    text-align: center;
 }
 
+.AccbodyinnerWVD1{
+      color:#393e46;
+      font-weight: 200px !important;
+}
+
+.Acc1{
+    background-color:#45046a !important;
+}
+
+.Acc2{
+    background-color: #b5076b!important;
+}
+
+.Acc3{
+    background-color: #fa7d09!important;
+}
+
+.Acc4{
+    background-color: #ff4301 !important;
+}
+
+.Acc5{
+    background-color: #086972 !important;
+}
+
+.Acc6{
+    background-color: #87dfd6 !important;
+}
+
+.Acc7{
+    background-color: #393e46!important;
+}
+
+
+
+
 @media screen and (max-width: 800px) {
      .CardBodyWVDTab{
        /* The width is 100%, when the viewport is 800px or smaller  */

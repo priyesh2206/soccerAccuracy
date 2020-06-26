@@ -1,7 +1,6 @@
 import React from 'react';
 import{Col,Row} from 'reactstrap';
 import {Tab,Breadcrumb,Card,Accordion,Button,Dropdown,DropdownButton} from 'react-bootstrap'
-import { Pagination, PaginationItem, PaginationLink } from 'reactstrap';
 import { toast} from 'react-toastify';
 import {Line} from 'react-chartjs-2';
 import './WVDTab.css';
@@ -253,7 +252,163 @@ const DropDownTabs = (props) =>{
     );
 }
 
+////////////////////////////////////////////////////////////////DropDown of the Card display the weekly data//////////////////////////////////////////////
+const DropDownTabsCard = (props) =>{
+    return (
+       <div>
+           <Tab.Container defaultActiveKey="Week-1$2">
+               <DropdownButton  title="Weekly details" color="danger"> 
+               <Dropdown.Item action eventKey="Week-1$2">Week 1&2</Dropdown.Item>
+               <Dropdown.Divider />
+               <Dropdown.Item eventKey="Week-3$4">Week 3&4</Dropdown.Item>
+               <Dropdown.Divider />
+               <Dropdown.Item eventKey="Week-5$6">Week 5&6</Dropdown.Item>
+               <Dropdown.Divider />
+               <Dropdown.Item eventKey="Week-7">Week 7</Dropdown.Item>
+               </DropdownButton>
 
+               <Tab.Content>
+
+                   <Tab.Pane eventKey="Week-1$2">
+                       
+                        <Accordion className ="AccordionGoalWVD">
+                            <Card>
+                                <Card.Header>
+                                    <Accordion.Toggle as={Button} className="Acc1"  eventKey="0">
+                                            Week-1&nbsp;<i class="fas fa-calendar-week"></i>
+                                    </Accordion.Toggle>
+                                </Card.Header>
+                                <Accordion.Collapse eventKey="0">
+                                    <Card.Body className="AccBody">
+                                        <p className="AccbodyinnerWVD1"><strong>GOALS ACCURACY:&nbsp;&nbsp; {props.GoalAccuracyweekly1} </strong></p>
+                                        <p className="AccbodyinnerWVD1"><strong>TACKLE ACCURACY:&nbsp;&nbsp;{props.TackleAccuracyweekly1} </strong></p>
+                                        <p className="AccbodyinnerWVD1"><strong>PASSES ACCURACY:&nbsp;&nbsp;{props.PassesAccuracyweekly1} </strong></p>
+                                    </Card.Body>
+                                </Accordion.Collapse>
+                            </Card>
+                        </Accordion>
+
+                        <Accordion className ="AccordionGoalWVD">
+                            <Card>
+                                <Card.Header>
+                                    <Accordion.Toggle as={Button} className="Acc2" eventKey="0">
+                                        Week-2&nbsp;<i class="fas fa-calendar-week"></i>
+                                    </Accordion.Toggle>
+                                </Card.Header>
+                                <Accordion.Collapse eventKey="0">
+                                    <Card.Body className="AccBody">
+                                        <p className="AccbodyinnerWVD1"><strong>GOALS ACCURACY:&nbsp;&nbsp;  {props.GoalAccuracyweekly2}</strong></p>
+                                        <p className="AccbodyinnerWVD1"><strong>TACKLE ACCURACY:&nbsp;&nbsp; {props.TackleAccuracyweekly2}</strong></p>
+                                        <p className="AccbodyinnerWVD1"><strong>PASSES ACCURACY:&nbsp;&nbsp; {props.PassesAccuracyweekly2}</strong></p>
+                                    </Card.Body>
+                                </Accordion.Collapse>
+                            </Card>
+                        </Accordion>
+
+                   </Tab.Pane>
+
+                   <Tab.Pane eventKey="Week-3$4">
+
+                        <Accordion className ="AccordionGoalWVD">
+                            <Card>
+                                <Card.Header>
+                                    <Accordion.Toggle as={Button} className="Acc3"  eventKey="0">
+                                            Week-3&nbsp;<i class="fas fa-calendar-week"></i>
+                                    </Accordion.Toggle>
+                                </Card.Header>
+                                <Accordion.Collapse eventKey="0">
+                                    <Card.Body className="AccBody">
+                                        <p className="AccbodyinnerWVD1"><strong>GOALS ACCURACY:&nbsp;&nbsp; {props.GoalAccuracyweekly3} </strong></p>
+                                        <p className="AccbodyinnerWVD1"><strong>TACKLE ACCURACY:&nbsp;&nbsp;{props.TackleAccuracyweekly3} </strong></p>
+                                        <p className="AccbodyinnerWVD1"><strong>PASSES ACCURACY:&nbsp;&nbsp;{props.PassesAccuracyweekly3} </strong></p>
+                                    </Card.Body>
+                                </Accordion.Collapse>
+                            </Card>
+                        </Accordion>
+
+                        <Accordion className ="AccordionGoalWVD">
+                            <Card>
+                                <Card.Header>
+                                    <Accordion.Toggle as={Button} className="Acc4" eventKey="0">
+                                        Week-4&nbsp;<i class="fas fa-calendar-week"></i>
+                                    </Accordion.Toggle>
+                                </Card.Header>
+                                <Accordion.Collapse eventKey="0">
+                                    <Card.Body className="AccBody">
+                                        <p className="AccbodyinnerWVD1"><strong>GOALS ACCURACY:&nbsp;&nbsp;  {props.GoalAccuracyweekly4}</strong></p>
+                                        <p className="AccbodyinnerWVD1"><strong>TACKLE ACCURACY:&nbsp;&nbsp; {props.TackleAccuracyweekly4}</strong></p>
+                                        <p className="AccbodyinnerWVD1"><strong>PASSES ACCURACY:&nbsp;&nbsp; {props.PassesAccuracyweekly4}</strong></p>
+                                    </Card.Body>
+                                </Accordion.Collapse>
+                            </Card>
+                        </Accordion>
+                   </Tab.Pane>
+
+                   <Tab.Pane eventKey="Week-5$6">
+
+                        <Accordion className ="AccordionGoalWVD">
+                            <Card>
+                                <Card.Header>
+                                    <Accordion.Toggle as={Button} className="Acc5"  eventKey="0">
+                                            Week-5&nbsp;<i class="fas fa-calendar-week"></i>
+                                    </Accordion.Toggle>
+                                </Card.Header>
+                                <Accordion.Collapse eventKey="0">
+                                    <Card.Body className="AccBody">
+                                        <p className="AccbodyinnerWVD1"><strong>GOALS ACCURACY:&nbsp;&nbsp; {props.GoalAccuracyweekly5} </strong></p>
+                                        <p className="AccbodyinnerWVD1"><strong>TACKLE ACCURACY:&nbsp;&nbsp;{props.TackleAccuracyweekly5} </strong></p>
+                                        <p className="AccbodyinnerWVD1"><strong>PASSES ACCURACY:&nbsp;&nbsp;{props.PassesAccuracyweekly5} </strong></p>
+                                    </Card.Body>
+                                </Accordion.Collapse>
+                            </Card>
+                        </Accordion>
+
+                        <Accordion className ="AccordionGoalWVD">
+                            <Card>
+                                <Card.Header>
+                                    <Accordion.Toggle as={Button} className="Acc6" eventKey="0">
+                                        Week-6&nbsp;<i class="fas fa-calendar-week"></i>
+                                    </Accordion.Toggle>
+                                </Card.Header>
+                                <Accordion.Collapse eventKey="0">
+                                    <Card.Body className="AccBody">
+                                        <p className="AccbodyinnerWVD1"><strong>GOALS ACCURACY:&nbsp;&nbsp;  {props.GoalAccuracyweekly6}</strong></p>
+                                        <p className="AccbodyinnerWVD1"><strong>TACKLE ACCURACY:&nbsp;&nbsp; {props.TackleAccuracyweekly6}</strong></p>
+                                        <p className="AccbodyinnerWVD1"><strong>PASSES ACCURACY:&nbsp;&nbsp; {props.PassesAccuracyweekly6}</strong></p>
+                                    </Card.Body>
+                                </Accordion.Collapse>
+                            </Card>
+                        </Accordion>
+
+                   </Tab.Pane>
+
+                   <Tab.Pane eventKey="Week-7">
+
+                        <Accordion className ="AccordionGoalWVD">
+                                 <Card>
+                                     <Card.Header>
+                                         <Accordion.Toggle as={Button} className="Acc7" eventKey="0">
+                                             Week-7&nbsp;<i class="fas fa-calendar-week"></i>
+                                         </Accordion.Toggle>
+                                     </Card.Header>
+                                     <Accordion.Collapse eventKey="0">
+                                         <Card.Body className="AccBody">
+                                             <p className="AccbodyinnerWVD1"><strong>GOALS ACCURACY:&nbsp;&nbsp;  {props.GoalAccuracyweekly7}</strong></p>
+                                             <p className="AccbodyinnerWVD1"><strong>TACKLE ACCURACY:&nbsp;&nbsp; {props.TackleAccuracyweekly7}</strong></p>
+                                             <p className="AccbodyinnerWVD1"><strong>PASSES ACCURACY:&nbsp;&nbsp; {props.PassesAccuracyweekly7}</strong></p>
+                                         </Card.Body>
+                                     </Accordion.Collapse>
+                                 </Card>
+                        </Accordion>
+
+                   </Tab.Pane>
+               </Tab.Content>
+           </Tab.Container>
+       </div>
+    );
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 class WVDTab extends React.Component{
     constructor(props){
@@ -342,10 +497,20 @@ class WVDTab extends React.Component{
 
     componentDidMount(){
         const isLoggedIn = localStorage.getItem('isLoggedIn')
-        if(isLoggedIn){
+        if(isLoggedIn)
+        {
             fetch(`http://localhost:5000/weekly/${localStorage.getItem('WVDplayername')}`).then(data=>{
                 return data.json()
             }).then(data=>{
+
+                if(data.length == 0){
+                    toast.error(("User not Found"), {
+                        position: toast.POSITION.TOP_CENTER
+                      });
+                }
+
+
+                else{
                 console.log(data[0].playerData)
 
                 if(data[0].playerData.length >= 6)
@@ -463,10 +628,10 @@ class WVDTab extends React.Component{
                         position: toast.POSITION.TOP_CENTER
                       });
                 }
-                })     
-                
             }
-        }
+        })              
+    }
+ }
 
 
 
@@ -499,65 +664,37 @@ class WVDTab extends React.Component{
                     <Card.Title className="tittleWVD">{name}</Card.Title>
                     <Card.Subtitle className="subtittleWVD">India</Card.Subtitle>  
                     <Card.Text>
-                    <p className="MDateWVD">Match Date:-{matchdate}</p>
-                        {/* -----------------------------------ACCORDION GOALS-------------------------------------------------------*/}
-                                <Accordion className ="AccordionGoalWVD">
-                                    <Card>
-                                    <Card.Header>
-                                    <Accordion.Toggle as={Button} variant="green" eventKey="0">
-                                        Goals&nbsp;<i class="fab fa-font-awesome-flag"></i>
-                                    </Accordion.Toggle>
-                                    </Card.Header>
-                                    <Accordion.Collapse eventKey="0">
-                                    <Card.Body className="AccBody">
-                                        GOALS WONS :&nbsp;&nbsp;5<br></br>
-                                        GOALS ATTEMPTED:&nbsp;&nbsp;6<br></br>
-                                        <p className="Accbodyinner1"><strong>GOALS ACCURACY:&nbsp;&nbsp;{this.state.GoalAccuracy}</strong></p>
-                                    </Card.Body>
-                                    </Accordion.Collapse>
-                                    </Card>
-                                 </Accordion>
-                        {/* -----------------------------------END-------------------------------------------------------------------*/}
-
-                        {/* -----------------------------------ACCORDION Tackles-----------------------------------------------------*/}
-
-                                <Accordion className ="AccordionGoalWVD">
-                                    <Card>
-                                    <Card.Header>
-                                    <Accordion.Toggle as={Button} variant="green" eventKey="0">
-                                        Tackles&nbsp;<i class="fas fa-running"></i>
-                                    </Accordion.Toggle>
-                                    </Card.Header>
-                                    <Accordion.Collapse eventKey="0">
-                                    <Card.Body>
-                                        Tackles WONS:5<br></br>
-                                        <br></br>
-                                        Tackles ATTMP:6
-                                    </Card.Body>
-                                    </Accordion.Collapse>
-                                    </Card>
-                                </Accordion>
-                        {/* -----------------------------------END-------------------------------------------------------------------*/}
-                        {/* -----------------------------------ACCORDION Tackles-----------------------------------------------------*/}
-
-                                <Accordion className ="AccordionGoalWVD">
-                                    <Card>
-                                    <Card.Header>
-                                    <Accordion.Toggle as={Button} variant="green" eventKey="0">
-                                        Passes&nbsp;<i class="fas fa-people-carry"></i>
-                                    </Accordion.Toggle>
-                                    </Card.Header>
-                                    <Accordion.Collapse eventKey="0">
-                                    <Card.Body>
-                                        Passes WONS:5<br></br>
-                                        <br></br>
-                                        passes ATTMP:6
-                                    </Card.Body>
-                                    </Accordion.Collapse>
-                                    </Card>
-                                </Accordion>
-
-                        {/* -----------------------------------END-------------------------------------------------------------------*/}
+                    <p className="MDateWVD">Match Date:-{matchdate}</p> 
+                        <DropDownTabsCard
+                            GoalAccuracyweekly1    ={this.state.GoalAccuracyweekly1} 
+                            TackleAccuracyweekly1  ={this.state.TackleAccuracyweekly1}
+                            PassesAccuracyweekly1  ={this.state.PassesAccuracyweekly1}
+    
+                            GoalAccuracyweekly2    ={this.state.GoalAccuracyweekly2}
+                            TackleAccuracyweekly2  ={this.state.TackleAccuracyweekly2}      
+                            PassesAccuracyweekly2  ={this.state.PassesAccuracyweekly2}  
+    
+                            GoalAccuracyweekly3    ={this.state.GoalAccuracyweekly3}
+                            TackleAccuracyweekly3  ={this.state.TackleAccuracyweekly3}  
+                            PassesAccuracyweekly3  ={this.state.PassesAccuracyweekly3} 
+    
+                            GoalAccuracyweekly4    ={this.state.GoalAccuracyweekly4}
+                            TackleAccuracyweekly4  ={this.state.TackleAccuracyweekly4}  
+                            PassesAccuracyweekly4  ={this.state.PassesAccuracyweekly4}  
+    
+                            GoalAccuracyweekly5    ={this.state.GoalAccuracyweekly5}
+                            TackleAccuracyweekly5  ={this.state.TackleAccuracyweekly5}  
+                            PassesAccuracyweekly5  ={this.state.PassesAccuracyweekly5} 
+    
+                            GoalAccuracyweekly6    ={this.state.GoalAccuracyweekly6}
+                            TackleAccuracyweekly6  ={this.state.TackleAccuracyweekly6}  
+                            PassesAccuracyweekly6  ={this.state.PassesAccuracyweekly6}
+    
+                            GoalAccuracyweekly7    ={this.state.GoalAccuracyweekly7}
+                            TackleAccuracyweekly7  ={this.state.TackleAccuracyweekly7}
+                            PassesAccuracyweekly7  ={this.state.PassesAccuracyweekly7}
+    
+                        />
                     </Card.Text>
                     </Card.Body>
                     </Card>
