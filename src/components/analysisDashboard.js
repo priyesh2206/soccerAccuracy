@@ -30,12 +30,6 @@ class AnlysisDashboard extends React.Component{
                               *It Compare your Accuracy with other Player that your wish to compare <br></br>it sort of one&nbsp;Vs&nbsp;One comparsion
                             </p>
                     </ListGroup.Item>
-                    <ListGroup.Item action href="#MVD">
-                    <h4>Montly View</h4>
-                            <p>
-                              *It give Montly bases view of Accuracy. if the data is available regular manner <br></br>like week1 week2 week3 and So on..
-                            </p>
-                    </ListGroup.Item>
                     <ListGroup.Item action href="#WVD">
                            <h4>Weekly Accuracy</h4>
                            <p>
@@ -46,6 +40,12 @@ class AnlysisDashboard extends React.Component{
                            <h4>Compare itself</h4>
                            <p>
                               *It compare the Accuracy with our own data of different dates ."Every day is not same" <br></br>it sort of SomeDay&nbsp;Vs&nbsp;Another Day comparsion
+                            </p>
+                    </ListGroup.Item>
+                    <ListGroup.Item action href="#MVD">
+                    <h4>Delete Entry</h4>
+                            <p>
+                              *It give Montly bases view of Accuracy. if the data is available regular manner <br></br>like week1 week2 week3 and So on..
                             </p>
                     </ListGroup.Item>
                 </ListGroup>

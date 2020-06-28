@@ -34,7 +34,7 @@ const Graph = (props) =>{
       }}
 
       data = {{
-        labels: ['WEEK-1', 'WEEK-2', 'WEEK-3','WEEK-4', 'WEEK-5','WEEK-6','WEEK-7'],
+        labels: ['Day-1', 'Day-2', 'Day-3','Day-4', 'Day-5','Day-6','Day-7'],
           datasets:[
           {
             label: 'Total Weekly Accuracy!',
@@ -73,7 +73,7 @@ const GOAl = (props) =>{
       }}
 
       data = {{
-        labels: ['WEEK-1', 'WEEK-2', 'WEEK-3','WEEK-4', 'WEEK-5','WEEK-6','WEEK-7'],
+        labels: ['Day-1', 'Day-2', 'Day-3','Day-4', 'Day-5','Day-6','Day-7'],
           datasets:[
           {
             label: 'Weekly Goal Accuracy!',
@@ -112,7 +112,7 @@ const TACKLES = (props) =>{
         }}
   
         data = {{
-          labels: ['WEEK-1', 'WEEK-2', 'WEEK-3','WEEK-4', 'WEEK-5','WEEK-6','WEEK-7'],
+          labels:  ['Day-1', 'Day-2', 'Day-3','Day-4', 'Day-5','Day-6','Day-7'],
             datasets:[
             {
               label: 'Weekly Tackles Accuracy!',
@@ -151,7 +151,7 @@ const PASSES = (props) =>{
         }}
   
         data = {{
-          labels: ['WEEK-1', 'WEEK-2', 'WEEK-3','WEEK-4', 'WEEK-5','WEEK-6','WEEK-7'],
+          labels:  ['Day-1', 'Day-2', 'Day-3','Day-4', 'Day-5','Day-6','Day-7'],
             datasets:[
             {
               label: 'Weekly Passes Accuracy!',
@@ -258,13 +258,13 @@ const DropDownTabsCard = (props) =>{
        <div>
            <Tab.Container defaultActiveKey="Week-1$2">
                <DropdownButton  title="Weekly details" color="danger"> 
-               <Dropdown.Item action eventKey="Week-1$2">Week 1&2</Dropdown.Item>
+               <Dropdown.Item action eventKey="Week-1$2">Day 1&2</Dropdown.Item>
                <Dropdown.Divider />
-               <Dropdown.Item eventKey="Week-3$4">Week 3&4</Dropdown.Item>
+               <Dropdown.Item eventKey="Week-3$4">Day 3&4</Dropdown.Item>
                <Dropdown.Divider />
-               <Dropdown.Item eventKey="Week-5$6">Week 5&6</Dropdown.Item>
+               <Dropdown.Item eventKey="Week-5$6">Day 5&6</Dropdown.Item>
                <Dropdown.Divider />
-               <Dropdown.Item eventKey="Week-7">Week 7</Dropdown.Item>
+               <Dropdown.Item eventKey="Week-7">Day 7</Dropdown.Item>
                </DropdownButton>
 
                <Tab.Content>
@@ -275,7 +275,7 @@ const DropDownTabsCard = (props) =>{
                             <Card>
                                 <Card.Header>
                                     <Accordion.Toggle as={Button} className="Acc1"  eventKey="0">
-                                            Week-1&nbsp;<i class="fas fa-calendar-week"></i>
+                                            Day-1&nbsp;<i class="fas fa-calendar-week"></i>
                                     </Accordion.Toggle>
                                 </Card.Header>
                                 <Accordion.Collapse eventKey="0">
@@ -292,7 +292,7 @@ const DropDownTabsCard = (props) =>{
                             <Card>
                                 <Card.Header>
                                     <Accordion.Toggle as={Button} className="Acc2" eventKey="0">
-                                        Week-2&nbsp;<i class="fas fa-calendar-week"></i>
+                                        Day-2&nbsp;<i class="fas fa-calendar-week"></i>
                                     </Accordion.Toggle>
                                 </Card.Header>
                                 <Accordion.Collapse eventKey="0">
@@ -313,7 +313,7 @@ const DropDownTabsCard = (props) =>{
                             <Card>
                                 <Card.Header>
                                     <Accordion.Toggle as={Button} className="Acc3"  eventKey="0">
-                                            Week-3&nbsp;<i class="fas fa-calendar-week"></i>
+                                            Day-3&nbsp;<i class="fas fa-calendar-week"></i>
                                     </Accordion.Toggle>
                                 </Card.Header>
                                 <Accordion.Collapse eventKey="0">
@@ -330,7 +330,7 @@ const DropDownTabsCard = (props) =>{
                             <Card>
                                 <Card.Header>
                                     <Accordion.Toggle as={Button} className="Acc4" eventKey="0">
-                                        Week-4&nbsp;<i class="fas fa-calendar-week"></i>
+                                        Day-4&nbsp;<i class="fas fa-calendar-week"></i>
                                     </Accordion.Toggle>
                                 </Card.Header>
                                 <Accordion.Collapse eventKey="0">
@@ -350,7 +350,7 @@ const DropDownTabsCard = (props) =>{
                             <Card>
                                 <Card.Header>
                                     <Accordion.Toggle as={Button} className="Acc5"  eventKey="0">
-                                            Week-5&nbsp;<i class="fas fa-calendar-week"></i>
+                                            Day-5&nbsp;<i class="fas fa-calendar-week"></i>
                                     </Accordion.Toggle>
                                 </Card.Header>
                                 <Accordion.Collapse eventKey="0">
@@ -367,7 +367,7 @@ const DropDownTabsCard = (props) =>{
                             <Card>
                                 <Card.Header>
                                     <Accordion.Toggle as={Button} className="Acc6" eventKey="0">
-                                        Week-6&nbsp;<i class="fas fa-calendar-week"></i>
+                                        Day-6&nbsp;<i class="fas fa-calendar-week"></i>
                                     </Accordion.Toggle>
                                 </Card.Header>
                                 <Accordion.Collapse eventKey="0">
@@ -388,7 +388,7 @@ const DropDownTabsCard = (props) =>{
                                  <Card>
                                      <Card.Header>
                                          <Accordion.Toggle as={Button} className="Acc7" eventKey="0">
-                                             Week-7&nbsp;<i class="fas fa-calendar-week"></i>
+                                             Day-7&nbsp;<i class="fas fa-calendar-week"></i>
                                          </Accordion.Toggle>
                                      </Card.Header>
                                      <Accordion.Collapse eventKey="0">
