@@ -2,10 +2,10 @@ import React from 'react';
 import {Card, Button }from 'react-bootstrap';
 import {Form,FormGroup,Label,Input} from 'reactstrap';
 import DatePicker from 'react-datepicker';
-import './MVD.css';
+import './DUR.css';
 
 
-class MVD extends React.Component{
+class DUR extends React.Component{
   constructor(props){
       super(props);
       this.state={
@@ -27,8 +27,8 @@ onhandlePlayerName=(event)=>{
 }
 
 onhandleSubmit=()=>{
-    localStorage.setItem('MVDplayername',this.state.playername);
-    localStorage.setItem('MVDmatchdate',this.state.StartDate);
+    localStorage.setItem('DURplayername',this.state.playername);
+    localStorage.setItem('DURmatchdate',this.state.StartDate);
 }
 
 handleBlur=(field)=>(evt)=>{
@@ -46,20 +46,21 @@ validate(playername){
 }
  
 
+
  render(){
      const err = this.validate(this.state.playername)
      return(
         <div>
-           <Card  border="dark" className="CardBodyMVD">
-           <Card.Img variant="top" src="assets/images/MVD.jpg" />
+           <Card  border="dark" className="CardBodyDUR">
+           <Card.Img variant="top" src="assets/images/DUR.jpg"/>
             <Card.Body>
-                <Card.Title className="CardtextMVD">Analysis Your Accuracy Monthly!</Card.Title>
-                <p className="AlertMVD">*Shows monthly data from date that you enter Below!<br></br></p>
+                <Card.Title className="CardtextDUR">Analysis Your Accuracy Monthly!</Card.Title>
+                <p className="Alert1DUR">*It Delete the Record premanent of user !*</p>
                 <Card.Text>
                 <div>
                   <Form>
                      <FormGroup>
-                         <Label htmlFor="playername" className="inputTextMVD"><i className="fa fa-user"></i>&nbsp; Player Name</Label>
+                         <Label htmlFor="playername" className="inputTextDUR"><i className="fa fa-user"></i>&nbsp; Player Name</Label>
                          <Input typr="text" id="playername"  name="playername" placeholder="Player Name" 
                          onChange={this.onhandlePlayerName} 
                          valid={err.playername === ''}
@@ -68,6 +69,7 @@ validate(playername){
                          />
                          <p className="error">{err.playername}</p>
                      </FormGroup>
+                     <br></br>
                      <FormGroup>
                          <Label htmlFor="matchdate" className="inputText"><i className="fas fa-calendar-week"></i>&nbsp;Match Date - </Label>
                             &nbsp;&nbsp;
@@ -79,9 +81,8 @@ validate(playername){
                      </FormGroup>
                   </Form>
                  </div>
-                 <p className="Alert1MVD">*If regular Data not available then it gives Random 30-days data*</p>
                 </Card.Text>
-                <Button variant="dark" className="centerMVD" href="/MVDTab" onClick={this.onhandleSubmit} >Show Data</Button>
+                <Button variant="dark" className="centerDUR"  onClick={this.onhandleSubmit} >Delete Data</Button>
             </Card.Body>
             </Card>
         </div>
@@ -90,4 +91,4 @@ validate(playername){
 }
 
 
-export default MVD;
+export default DUR;

@@ -503,7 +503,7 @@ class WVDTab extends React.Component{
                 return data.json()
             }).then(data=>{
 
-                if(data.length == 0){
+                if(data.length === 0){
                     toast.error(("User not Found"), {
                         position: toast.POSITION.TOP_CENTER
                       });

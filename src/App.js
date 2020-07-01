@@ -14,10 +14,10 @@ import DashBoard from './components/dashboard';
 import PlayerDetails from './components/playerdetails';
 import AYATab from './components/TabsComponents/AYATab';
 import CWOTab from './components/TabsComponents/CWOTab';
-import MVDTab from './components/TabsComponents/MVDTab';
 import WVDTab from './components/TabsComponents/WVDTab';
 import CWITab from './components/TabsComponents/CWITab';
 import AnlysisDashboard from './components/analysisDashboard';
+// import DURTab from './components/TabsComponents/DURTab';
 
 
 
@@ -63,10 +63,11 @@ render(){
        <Route  exact path="/signup"         component={()=> <Signup makeMelogin={this.makeMelogin}/> }  />
        <Route  exact path="/AnalysisDash"   component={AnlysisDashboard}/> 
        <Route  exact path="/AYATab"         component={AYATab}/>
-       <Route  exact path="/CWOTab"         component={CWOTab}/>     
-       <Route  exact path="/MVDTab"         component={MVDTab}/>
+       <Route  exact path="/CWOTab"         component={CWOTab}/> 
        <Route  exact path="/WVDTab"         component={WVDTab}/>
-       <Route  exact path="/CWITab"         component={CWITab}/>
+       <Route  exact path="/CWITab"         component={CWITab}/>    
+       {/* <Route  exact path="/DURTab"         component={DURTab}/> */}
+      
 
     </div>
    

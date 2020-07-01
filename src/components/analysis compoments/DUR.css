@@ -1,36 +1,36 @@
-.CardBodyMVD{
+.CardBodyDUR{
     width:25rem;
-    height:41rem;
-    margin-top:3.45rem;
+    height:39rem;
+    margin-top: 2rem;
     margin-left: 22rem;
 }
-.centerMVD{
-    text-align:center !important;
+.centerDUR{
+     text-align:center !important;
      margin-left:7rem !important;
-     margin-top: 2rem !important;
+     margin-top: rem !important;
 
 }
-.CardtextMVD{
+.CardtextDUR{
     text-align: center !important;
     font-weight: 250px;;
 }
-.inputTextMVD{
+.inputTextDUR{
     color: black;
 }
-.AlertMVD{
+.AlertDUR{
     text-align: center;
     font-size: 15px;
 
 }
-.Alert1MVD{
+.Alert1DUR{
     text-align: center;
     font-size: 12px;
     color: red;
 }
 @media screen and (max-width: 800px) {
-    .CardBodyMVD{
+    .CardBodyDUR{
        /* The width is 100%, when the viewport is 800px or smaller */
         margin-left:10%;
         margin-top: 2rem;
        }
-   }
+    }

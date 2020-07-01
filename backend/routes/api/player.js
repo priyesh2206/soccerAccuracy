@@ -239,20 +239,18 @@ router.get('/:playername/:matchdate',(req,res,next)=>{
             }
             
             const h = user.playerData.length;
-            for(var i =h-1;i>=0;i--)
+            for(var i = h-1;i>=0;i--)
             {
                 if(user.playerData[i].matchdate === req.params.matchdate)
                 {   
                     res.statusCode = 200;
                     return res.json(user.playerData[i])
                 }
-                else
-                {  
-                    res.statusCode = 404;
-                    return res.json({message:"Not Found Data of given match date"});
-                }
 
-            }
+            }    
+            res.statusCode = 404;
+            res.json({message:"Not Found Data of given match date"});
+
         }
         else
         {   res.statusCode = 404;

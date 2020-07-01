@@ -2,7 +2,7 @@ import React from "react"
 import {Row,Col,ListGroup,Tab,} from 'react-bootstrap'
 import AYA from './analysis compoments/AYA';
 import CWO from './analysis compoments/CWO';
-import MVD from './analysis compoments/MVD';
+import DUR from './analysis compoments/DUR';
 import WVD from './analysis compoments/WVD';
 import CWI from './analysis compoments/CWI';
 import "./analysisDashboard.css"
@@ -42,10 +42,10 @@ class AnlysisDashboard extends React.Component{
                               *It compare the Accuracy with our own data of different dates ."Every day is not same" <br></br>it sort of SomeDay&nbsp;Vs&nbsp;Another Day comparsion
                             </p>
                     </ListGroup.Item>
-                    <ListGroup.Item action href="#MVD">
-                    <h4>Delete Entry</h4>
+                    <ListGroup.Item action href="#DUR">
+                    <h4>DELETE RECORD</h4>
                             <p>
-                              *It give Montly bases view of Accuracy. if the data is available regular manner <br></br>like week1 week2 week3 and So on..
+                              *It Allows you to delete the records permanent that you have Added !!<br></br>* it's dangerous Opreation :-)
                             </p>
                     </ListGroup.Item>
                 </ListGroup>
@@ -58,8 +58,8 @@ class AnlysisDashboard extends React.Component{
                           <Tab.Pane eventKey="#CWO">
                             <CWO/>
                           </Tab.Pane>
-                          <Tab.Pane eventKey="#MVD">
-                             <MVD/>
+                          <Tab.Pane eventKey="#DUR">
+                             <DUR/>
                           </Tab.Pane>
                           <Tab.Pane eventKey="#WVD">
                              <WVD/>
