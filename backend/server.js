@@ -6,7 +6,7 @@ const cors= require("cors");
 const passport = require("passport");
 const players = require('./routes/api/player')
 const weekly = require('./routes/api/weekly')
-
+const DeleteRecord  = require('./routes/api/delete')
 
 require('dotenv').config();
 
@@ -18,7 +18,7 @@ app.use(bodyparser.urlencoded({extended:true}));
 
 
 
-mongoose.connect("mongodb://football_api:i3DNTy2g18WxCFO8@cluster0-shard-00-00-gwo9r.mongodb.net:27017,cluster0-shard-00-01-gwo9r.mongodb.net:27017,cluster0-shard-00-02-gwo9r.mongodb.net:27017/test?ssl=true&replicaSet=Cluster0-shard-0&authSource=admin&retryWrites=true&w=majority",{useNewUrlParser:true,useUnifiedTopology: true })
+mongoose.connect("mongodb://football_api:i3DNTy2g18WxCFO8@cluster0-shard-00-00-gwo9r.mongodb.net:27017,cluster0-shard-00-01-gwo9r.mongodb.net:27017,cluster0-shard-00-02-gwo9r.mongodb.net:27017/test?ssl=true&replicaSet=Cluster0-shard-0&authSource=admin&retryWrites=true&w=majority",{useCreateIndex: true,useNewUrlParser:true,useUnifiedTopology: true })
 .then(()=>{
     console.log("[Database] -connected to db :-)");
 
@@ -45,3 +45,4 @@ require('./config/passport')(passport);
 
 app.use('/api/users',players);
 app.use('/weekly',weekly);
+app.use('/deletefull',DeleteRecord);

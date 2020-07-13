@@ -1,4 +1,7 @@
 const moongoose = require('mongoose');
+var ObjectIdSchema =moongoose.Schema.ObjectId;
+var ObjectId = moongoose.Types.ObjectId;
+
 
 
 const PlayerDetails = new moongoose.Schema({

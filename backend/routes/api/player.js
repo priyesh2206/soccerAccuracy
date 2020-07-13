@@ -173,35 +173,36 @@ router.post("/playerDetail",(req,res) =>{
                      });
             }
             else if(OldDate != newDate)
-            {   
-                PlayerDetail.updateOne({playername:user.playername},{$push:{playerData:user}}, //it push the current datab in playerData Array//
-                    function(err,send){
-                        if(err)
-                        {
-                            var err = new Error("Error in replacing Detials");
-                            err.statusCode = 401;
-                            res.json(err);
-                        }
-                        else
-                        { //it update the current data with new one//
-                           PlayerDetail.findOneAndUpdate({playername:user.playername},req.body,
-                            {upsert:true,new:true,runValidators:true},
-                            function (err,update){
+            {        
+                    PlayerDetail.updateOne({playername:user.playername},{$push:{playerData:user}},{upsert:true,new:true,runValidators:true}, //it push the current datab in playerData Array//
+                        function(err,send){
                             if(err)
                             {
-                                var err = new Error("ERROR in Updating the Details")
-                                res.statusCode =200;
+                                var err = new Error("Error in replacing Detials");
+                                err.statusCode = 401;
                                 res.json(err);
                             }
                             else
-                            {    res.statusCode = 200;
-                                 res.json({success:true,message:"Details Updated"})
+                            { //it update the current data with new one//
+                               PlayerDetail.findOneAndUpdate({playername:user.playername},req.body,
+                                {upsert:true,new:true,runValidators:true},
+                                function (err,update){
+                                if(err)
+                                {
+                                    var err = new Error("ERROR in Updating the Details")
+                                    res.statusCode =200;
+                                    res.json(err);
+                                }
+                                else
+                                {    res.statusCode = 200;
+                                     res.json({success:true,message:"Details Updated"})
+                                }
+                              });
                             }
-                          });
-                        }
-                    });
+    
+                        });
             }
-}
+        }
         else
         {
             const PlayerDetails = new PlayerDetail ({

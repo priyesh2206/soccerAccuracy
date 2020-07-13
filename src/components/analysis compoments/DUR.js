@@ -1,7 +1,9 @@
 import React from 'react';
 import {Card, Button }from 'react-bootstrap';
 import {Form,FormGroup,Label,Input} from 'reactstrap';
-import DatePicker from 'react-datepicker';
+import { toast} from 'react-toastify';
+import axios from 'axios';
+// import DatePicker from 'react-datepicker';
 import './DUR.css';
 
 
@@ -15,6 +17,8 @@ class DUR extends React.Component{
               playername:false
           }
       }
+    this.DeleteClick = this.DeleteClick.bind(this);
+
   }
 
 onhandleChangeDate = date =>{
@@ -26,10 +30,6 @@ onhandlePlayerName=(event)=>{
     this.setState({playername:event.target.value});
 }
 
-onhandleSubmit=()=>{
-    localStorage.setItem('DURplayername',this.state.playername);
-    localStorage.setItem('DURmatchdate',this.state.StartDate);
-}
 
 handleBlur=(field)=>(evt)=>{
     this.setState({touched:{...this.state.touched,[field]:true}})
@@ -44,6 +44,24 @@ validate(playername){
     }
     return err;
 }
+
+
+DeleteClick(){
+    axios.delete(`http://localhost:5000/deletefull/${this.state.playername}`)
+    .then(data=>{
+        console.log(data);
+        if(data.data.success === true){
+          toast.success((data.data.message), {
+            position: toast.POSITION.TOP_CENTER
+          });
+        }
+        else{
+          toast.error((data.data.message), {
+            position: toast.POSITION.TOP_CENTER
+          });
+        }
+    });
+}
  
 
 
@@ -55,7 +73,7 @@ validate(playername){
            <Card.Img variant="top" src="assets/images/DUR.jpg"/>
             <Card.Body>
                 <Card.Title className="CardtextDUR">Analysis Your Accuracy Monthly!</Card.Title>
-                <p className="Alert1DUR">*It Delete the Record premanent of user !*</p>
+                <p className="Alert1DUR">*It Delete the Record premanent thst User Added !*</p>
                 <Card.Text>
                 <div>
                   <Form>
@@ -70,7 +88,7 @@ validate(playername){
                          <p className="error">{err.playername}</p>
                      </FormGroup>
                      <br></br>
-                     <FormGroup>
+                     {/* <FormGroup>
                          <Label htmlFor="matchdate" className="inputText"><i className="fas fa-calendar-week"></i>&nbsp;Match Date - </Label>
                             &nbsp;&nbsp;
                               <DatePicker
@@ -78,11 +96,11 @@ validate(playername){
                                selected={this.state.StartDate}
                                onChange={this.onhandleChangeDate}
                              />        
-                     </FormGroup>
+                     </FormGroup> */}
                   </Form>
                  </div>
                 </Card.Text>
-                <Button variant="dark" className="centerDUR"  onClick={this.onhandleSubmit} >Delete Data</Button>
+                <Button variant="dark" className="centerDUR" onClick={this.DeleteClick}>Delete Data</Button>
             </Card.Body>
             </Card>
         </div>
