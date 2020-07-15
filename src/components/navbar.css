@@ -3,10 +3,8 @@
     margin-left: 1350px;
 }
 
-@media screen and (max-width: 800px) {
- .bar{
-      width: 100%; /* The width is 100%, when the viewport is 800px or smaller */
-    }
+.color-nav{
+  background-color: rgb(0, 0, 0);
 }
 
 /* ----------------HEADING ------------*/
@@ -14,6 +12,38 @@
   font-size: 30px;
   font-weight: 600px;
   font-family: cursive;
+  color:rgb(223, 128, 128) !important;
+}
+
+.nav-link{
+  color:white!important;
+  font-size: 20px;
+
+}
+
+
+@media screen and (max-width: 800px) {
+ 
+  .bar{
+      width: 100%; /* The width is 100%, when the viewport is 800px or smaller */
+    }
+
+  .color-nav{
+    background-color: rgb(235, 129, 96);
+  }
+
+  .nav-link{
+    color:black!important;
+    font-size: 20px;
+  }
+
+  .heading{
+    font-size: 30px;
+    font-weight: 600px;
+    font-family: cursive;
+    background-color:rgb(0, 0, 0) !important;
+  }
+
 }
 
 

@@ -10,7 +10,7 @@ class Navbars extends React.Component{
         return(
             <div>
             <div>
-                <Navbar collapseOnSelect expand="md" variant="light" bg="light"  >
+                <Navbar collapseOnSelect className="color-nav" expand="md" variant="light">
                     <Navbar.Brand href="/">
                     <img src={football} alt="football" 
                     width="60" height="60"
@@ -18,11 +18,11 @@ class Navbars extends React.Component{
                     />
                     </Navbar.Brand>
                 <Navbar.Brand href="/"><div className="heading">Ancast</div> </Navbar.Brand>
-                <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+                <Navbar.Toggle  aria-controls="responsive-navbar-nav"/>
                 <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav className="mr-auto bar">
                     <Nav.Link href="/login" className="nav-link">Login</Nav.Link>
-                    <Nav.Link href="/signup" >SignUp </Nav.Link>
+                    <Nav.Link href="/signup" className="nav-link" >SignUp</Nav.Link>
                     </Nav>
                 </Navbar.Collapse>
                 </Navbar>

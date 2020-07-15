@@ -131,7 +131,7 @@ render(){
                         <div className='text-center mb-3 col-md-12'>
                           <Link to='/login'>
                             <MDBBtn
-                              color='dark'
+                              color='green'
                               rounded
                               type='button'
                               className='btn-block z-depth-1'
