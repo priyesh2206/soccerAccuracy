@@ -1,5 +1,5 @@
 import React from "react"
-import {Row,Col,ListGroup,Tab,} from 'react-bootstrap'
+import {Row,Col,ListGroup,Tab,Breadcrumb} from 'react-bootstrap'
 import AYA from './analysis compoments/AYA';
 import CWO from './analysis compoments/CWO';
 import DUR from './analysis compoments/DUR';
@@ -17,6 +17,11 @@ class AnlysisDashboard extends React.Component{
         <Tab.Container defaultActiveKey="#link1">
             <Row>
              <Col sm={4}>
+                <Breadcrumb className="bread">
+                       <Breadcrumb.Item href ="/playerDetails">Add Detail</Breadcrumb.Item>
+                       <Breadcrumb.Item active>Dashboard</Breadcrumb.Item>
+                </Breadcrumb>
+                <br></br>
                 <ListGroup>
                     <ListGroup.Item action href="#AYA">
                             <h4>Analysis Your Accuracy!</h4>

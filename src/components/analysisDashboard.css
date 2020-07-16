@@ -2,11 +2,16 @@
 margin-left: 35px;
 margin-top:100px;
 width: 100%;
-
 }
+
+.bread{
+    margin-top:0rem;
+    margin-left:12rem;
+    margin-right:12rem;
+ }
+
 @media screen and (max-width: 800px) {
     .resize{
-         
         width: 100%; /* The width is 100%, when the viewport is 800px or smaller */
         margin-left: 0px;
 
