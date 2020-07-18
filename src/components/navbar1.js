@@ -18,14 +18,14 @@ class NavabarOne extends React.Component{
        return(
            <div>
                 <div>
-                <Navbar collapseOnSelect expand="xl" bg="dark" variant="dark" >
+                <Navbar collapseOnSelect className="color-nav" expand="xl" variant="light" >
                     <Navbar.Brand >
                     <img src={football} alt="football" 
                     width="60" height="60"
                     className="d-inline-block align-top"
                     />
                     </Navbar.Brand>
-                    <Navbar.Brand href="#"><div className="heading">Football</div> </Navbar.Brand>
+                    <Navbar.Brand href="#"><div className="heading">Ancast</div> </Navbar.Brand>
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav className="mr-auto bar">

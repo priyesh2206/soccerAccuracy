@@ -10,6 +10,7 @@ import "@fortawesome/fontawesome-free/css/all.min.css";
 
 import Login from './components/login';
 import Signup from './components/signup';
+import Developer from './components/dev';
 import DashBoard from './components/dashboard';
 import PlayerDetails from './components/playerdetails';
 import AYATab from './components/TabsComponents/AYATab';
@@ -61,6 +62,7 @@ render(){
        <Route  path="/playerDetails"        component={() => <PlayerDetails makeMelogin={this.makeMelogin} isUserLoggedIn={this.state.isUserLoggedIn}/>}/>
        <Route  exact path="/login"          component={()=> <Login makeMelogin={this.makeMelogin}/>} />
        <Route  exact path="/signup"         component={()=> <Signup makeMelogin={this.makeMelogin}/> }  />
+       <Route  exact path="/devops"          component={()=> <Developer makeMelogin={this.makeMelogin}/>} />
        <Route  exact path="/AnalysisDash"   component={AnlysisDashboard}/> 
        <Route  exact path="/AYATab"         component={AYATab}/>
        <Route  exact path="/CWOTab"         component={CWOTab}/> 

@@ -5,7 +5,7 @@ import './slider.css';
 
 const SliderImage =(props)=>{
     console.log(window.location.href)
-    if(window.location.href === "http://localhost:3000/login" || window.location.href === "http://localhost:3000/signup"){
+    if(window.location.href === "http://localhost:3000/login" || window.location.href === "http://localhost:3000/signup" || window.location.href === "http://localhost:3000/devops"){
         return(
             <div></div>
         )
@@ -41,19 +41,22 @@ const SliderImage =(props)=>{
                     alt="Third slide"
                   />
                 </Carousel.Item>
+                <Carousel.Item>
+                  <img
+                    className="d-block w-100"
+                    src="assets/images/finalbg4.jpg"
+                    alt="four slide"
+                  />
+                </Carousel.Item>
+                <Carousel.Item>
+                  <img
+                    className="d-block w-100"
+                    src="assets/images/finalbg5.jpg"
+                    alt="fifth slide"
+                  />
+                </Carousel.Item>
             </Carousel>
             </div>
-            {/* <Jumbotron>
-                    <div className="container">
-                        <div className="row row-header">
-                            <div className="col-12 col-sm-6">
-                            <h1>WELCOME TO ANCAST!</h1>
-                            <p>Ancat is bursting with useful football statistics and information and Analysis the Performance on varies factors and inhaces Performance.It streams Live scores of varies Tournaments</p>
-                            
-                            </div>
-                        </div>
-                    </div>
-                </Jumbotron> */}
             </div>
           );
     }

@@ -23,6 +23,7 @@ class Navbars extends React.Component{
                     <Nav className="mr-auto bar">
                     <Nav.Link href="/login" className="nav-link">Login</Nav.Link>
                     <Nav.Link href="/signup" className="nav-link" >SignUp</Nav.Link>
+                    <Nav.Link href="/devops" className="nav-link" >Contact Us</Nav.Link>
                     </Nav>
                 </Navbar.Collapse>
                 </Navbar>
