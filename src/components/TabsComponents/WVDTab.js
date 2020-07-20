@@ -1,8 +1,8 @@
 import React from 'react';
 import{Col,Row} from 'reactstrap';
-import {Tab,Breadcrumb,Card,Accordion,Button,Dropdown,DropdownButton} from 'react-bootstrap'
 import { toast} from 'react-toastify';
 import {Line} from 'react-chartjs-2';
+import {Tab,Breadcrumb,Card,Accordion,Button,Dropdown,DropdownButton} from 'react-bootstrap';
 import './WVDTab.css';
 
 //////////////////////////////////////////////////// All Weekly ACCURACY GRAPH/////////////////////////////////////////////////////////////////////////////////

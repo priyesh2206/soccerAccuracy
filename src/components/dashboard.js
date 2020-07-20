@@ -1,8 +1,8 @@
 import React from 'react'
 import Navbars from "./navbar"
 import NavbarOne from "./navbar1"//navabr after login//
-import './dashboard.css'
 import PlayerDetails from './playerdetails';
+import './dashboard.css'
 
 
 class DashBoard extends React.Component{

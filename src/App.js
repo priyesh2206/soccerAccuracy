@@ -67,8 +67,7 @@ render(){
        <Route  exact path="/AYATab"         component={AYATab}/>
        <Route  exact path="/CWOTab"         component={CWOTab}/> 
        <Route  exact path="/WVDTab"         component={WVDTab}/>
-       <Route  exact path="/CWITab"         component={CWITab}/>    
-       {/* <Route  exact path="/DURTab"         component={DURTab}/> */}
+       <Route  exact path="/CWITab"         component={CWITab}/> 
       
 
     </div>

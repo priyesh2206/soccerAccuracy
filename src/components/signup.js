@@ -1,8 +1,8 @@
 import React from "react"
-import { MDBContainer, MDBRow, MDBCol, MDBBtn, MDBCard, MDBInput } from 'mdbreact';
 import axios from "axios";
 import {Link} from 'react-router-dom';
 import {toast} from 'react-toastify';
+import { MDBContainer, MDBRow, MDBCol, MDBBtn, MDBCard, MDBInput } from 'mdbreact';
 class Signup extends React.Component{
 
   constructor(props){

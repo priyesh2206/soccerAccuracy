@@ -1,14 +1,11 @@
 import  React from 'react';
-import { MDBContainer, MDBRow, MDBCol, MDBBtn, MDBCard, MDBCardBody} from 'mdbreact';
-import {Container,Col,Row} from 'react-bootstrap';
-import DatePicker from "react-datepicker";
-import { toast} from 'react-toastify';
 import axios from 'axios';
-import './playerdetails.css';
+import { toast} from 'react-toastify';
+import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-
-
-
+import {Container,Col,Row,Breadcrumb} from 'react-bootstrap';
+import { MDBContainer, MDBRow, MDBCol, MDBBtn, MDBCard, MDBCardBody} from 'mdbreact';
+import './playerdetails.css';
 
 
 toast.configure();
@@ -119,6 +116,10 @@ return(
     <Container>
       <Row >
          <Col sm={6} className="col1">
+         <Breadcrumb className="breadADD">
+                       <Breadcrumb.Item  active>Add Details</Breadcrumb.Item>
+                       <Breadcrumb.Item href='/AnalysisDash'>Analysis Dashboard</Breadcrumb.Item>
+          </Breadcrumb>
           <MDBContainer>
             <MDBRow>
               <MDBCol>

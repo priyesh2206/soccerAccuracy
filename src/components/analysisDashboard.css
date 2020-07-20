@@ -6,8 +6,8 @@ width: 100%;
 
 .bread{
     margin-top:0rem;
-    margin-left:12rem;
-    margin-right:12rem;
+    margin-left:5.5rem;
+    margin-right:15rem;
  }
 
 @media screen and (max-width: 800px) {
@@ -16,4 +16,10 @@ width: 100%;
         margin-left: 0px;
 
        }
+       .bread{
+        margin-top:-5rem;
+        margin-left:5rem;
+        margin-right:10rem;
+     }
+
    }

@@ -1,8 +1,8 @@
 import React from 'react';
-import Navbar from 'react-bootstrap/Navbar';
-import Nav from 'react-bootstrap/Nav';
-import football from './something.png'
 import SliderImage  from './slider';
+import Nav from 'react-bootstrap/Nav';
+import football from './something.png';
+import Navbar from 'react-bootstrap/Navbar';
 import "./navbar.css";
 
 class Navbars extends React.Component{

@@ -1,9 +1,9 @@
 import React from 'react';
 import{Col,Row} from 'reactstrap';
+import { toast} from 'react-toastify';
+import {Line,Doughnut} from 'react-chartjs-2'
 import {Tab,Breadcrumb,Card,Accordion,Button,Dropdown,DropdownButton} from 'react-bootstrap'
 import './AYATab.css';
-import {Line,Doughnut} from 'react-chartjs-2'
-
 //////////////////////////////////////////////////// All ACCURACY GRAPH/////////////////////////////////////////////////////////////////////////////////
 const Graph = (props) =>{
     console.log(props)
@@ -275,8 +275,16 @@ class AYATab extends React.Component{
          fetch(`http://localhost:5000/api/users/${localStorage.getItem('AYAplayername')}/${finalDate}`).then(data=>{
              return data.json()
          }).then(data=>{
-            console.log(data)
-              this.setState({
+            // console.log(data)
+            if(data.success === false){
+
+                toast.error((data.message), {
+                    position: toast.POSITION.TOP_CENTER
+                  });               
+            }
+            else{
+              
+                this.setState({
                             teamname:data.teamname,
                             goalWon:data.goalWon,goalAttmp:data.goalAttmp,
                             tackleWon:data.tackleWon,tackleAttmp:data.tackleAttmp,
@@ -292,6 +300,7 @@ class AYATab extends React.Component{
                const pA = this.state.passesAttmp;
                const PassesAcc = Math.round((pw/pA)*100);
                this.setState({GoalAccuracy:GoalAcc,TackleAccuracy:TacklesAcc,PassesAccuracy:PassesAcc});
+            }
          })
         }
     }

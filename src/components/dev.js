@@ -1,6 +1,8 @@
 import React from 'react';
 import './dev.css';
-import Example from './partical'
+import Example from './partical';
+
+
 class Developer extends React.Component{
   
     render(){
@@ -26,7 +28,7 @@ class Developer extends React.Component{
                  <div>
                      <h4>
                       <span className="Subhead">
-                      I'm  a <span className="colors">Full-Stack</span> Web Developer.
+                      I'm  a <span className="colors">Full-Stack</span> Web Developer <i class="fas fa-code"></i>.
                       </span>
                      </h4>
                 </div>

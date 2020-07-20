@@ -17,8 +17,6 @@ router.delete('/:playername',(req,res,next)=>{
         else{
             res.json({message:"User Doesn't Found !!",success:false});
         }
-
-
     })
 })
 

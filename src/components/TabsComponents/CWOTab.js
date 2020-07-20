@@ -1,7 +1,8 @@
 import React from 'react';
 import{Col,Row} from 'reactstrap';
-import {Tab,Breadcrumb,Card,Accordion,Button,Dropdown,DropdownButton} from 'react-bootstrap'
+import { toast} from 'react-toastify';
 import{Line,Doughnut} from 'react-chartjs-2';
+import {Tab,Breadcrumb,Card,Accordion,Button,Dropdown,DropdownButton} from 'react-bootstrap'
 import './CWOTab.css';
 
 
@@ -329,6 +330,12 @@ class CWOTab extends React.Component{
              return data.json()
          }).then(data=>{
                 console.log(data)
+                if(data.success === false){
+                    toast.error((data.message), {
+                        position: toast.POSITION.TOP_CENTER
+                      });    
+                }
+                else{
                 this.setState({
                             teamnameP1:data.teamname,
                             goalWonP1:data.goalWon,goalAttmpP1:data.goalAttmp,
@@ -345,11 +352,18 @@ class CWOTab extends React.Component{
                         const pA1 = this.state.passesAttmpP1;
                         const PassesAcc1 = Math.round((pw1/pA1)*100);
                         this.setState({GoalAccuracyP1:GoalAcc1,TackleAccuracyP1:TacklesAcc1,PassesAccuracyP1:PassesAcc1});
-                //fetcht the detail of player another date 
+                //fetch the detail of player another date 
                 return  fetch(`http://localhost:5000/api/users/${localStorage.getItem('CWOplayername2')}/${finaldateP2}`).then(data=>{
                               return data.json()
                         }).then(data=>{
                             console.log(data)
+                            if(data.success === false){
+                                toast.error(('Record of second Player Not Found!'), {
+                                    position: toast.POSITION.TOP_CENTER
+                                  });    
+                            }
+
+                            else{
                             this.setState({
                                     goalWonP2:data.goalWon,goalAttmpP2:data.goalAttmp,
                                     tackleWonP2:data.tackleWon,tackleAttmpP2:data.tackleAttmp,
@@ -365,7 +379,9 @@ class CWOTab extends React.Component{
                         const pA2 = this.state.passesAttmpP2;
                         const PassesAcc2 = Math.round((pw2/pA2)*100);
                         this.setState({GoalAccuracyP2:GoalAcc2,TackleAccuracyP2:TacklesAcc2,PassesAccuracyP2:PassesAcc2});
+                        }
                         })
+                    }
                 })
             }
         }

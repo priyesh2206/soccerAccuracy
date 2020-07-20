@@ -1,10 +1,9 @@
 import React from 'react'
-import { MDBContainer, MDBRow, MDBCol, MDBBtn, MDBCard, MDBInput} from 'mdbreact';
-import "./login.css";
 import axios from 'axios';
 import {Link} from 'react-router-dom'
 import { toast} from 'react-toastify';
-
+import { MDBContainer, MDBRow, MDBCol, MDBBtn, MDBCard, MDBInput} from 'mdbreact';
+import "./login.css";
 
 toast.configure();
 class Login extends React.Component{
@@ -35,7 +34,7 @@ class Login extends React.Component{
  
      axios.post("http://localhost:5000/api/users/login",User).then((data)=>{
        if(data.data.success === true){
-         toast.success(" User Login Success!", {
+         toast.success(" User Loggged In Success!", {
           position: toast.POSITION.TOP_CENTER,
         });
          console.log("User is LoggedIn")

@@ -1,9 +1,8 @@
 import React from 'react';
+import axios from 'axios';
+import { toast} from 'react-toastify';
 import {Card, Button }from 'react-bootstrap';
 import {Form,FormGroup,Label,Input} from 'reactstrap';
-import { toast} from 'react-toastify';
-import axios from 'axios';
-// import DatePicker from 'react-datepicker';
 import './DUR.css';
 
 

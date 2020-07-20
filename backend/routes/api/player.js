@@ -250,12 +250,12 @@ router.get('/:playername/:matchdate',(req,res,next)=>{
 
             }    
             res.statusCode = 404;
-            res.json({message:"Not Found Data of given match date"});
+            res.json({message:"Record not found of given match date",success:false});
 
         }
         else
         {   res.statusCode = 404;
-            res.json({message:"User not found"});
+            res.json({message:"User not found",success:false});
         }
        
         });

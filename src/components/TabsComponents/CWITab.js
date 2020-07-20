@@ -1,8 +1,10 @@
 import React from 'react';
 import{Col,Row} from 'reactstrap';
-import {Tab,Breadcrumb,Card,Accordion,Button,Dropdown,DropdownButton} from 'react-bootstrap';
+import { toast} from 'react-toastify';
 import{Line,Doughnut} from 'react-chartjs-2';
+import {Tab,Breadcrumb,Card,Accordion,Button,Dropdown,DropdownButton} from 'react-bootstrap';
 import './CWITab.css';
+
 
 ////////////////////////////////////////////////////////All ACCURACY GRAPH/////////////////////////////////////////////////////////////////////////////////
 const Graph = (props) =>{
@@ -325,6 +327,12 @@ class CWITab extends React.Component{
          return data.json()
      }).then(data=>{
             console.log(data)
+            if(data.success === false){
+              toast.error((data.message), {
+                position: toast.POSITION.TOP_CENTER
+              });    
+            }
+            else{
             this.setState({
                         teamname:data.teamname,
                         goalWonD1:data.goalWon,goalAttmpD1:data.goalAttmp,
@@ -346,6 +354,12 @@ class CWITab extends React.Component{
                           return data.json()
                     }).then(data=>{
                         console.log(data)
+                        if(data.success === false){
+                          toast.error(("Record Second Day Not Found!"), {
+                            position: toast.POSITION.TOP_CENTER
+                          });    
+                        }
+                        else{
                         this.setState({
                                 goalWonD2:data.goalWon,goalAttmpD2:data.goalAttmp,
                                 tackleWonD2:data.tackleWon,tackleAttmpD2:data.tackleAttmp,
@@ -361,7 +375,9 @@ class CWITab extends React.Component{
                                const pA2 = this.state.passesAttmpD2;
                                const PassesAcc2 = Math.round((pw2/pA2)*100);
                                this.setState({GoalAccuracyD2:GoalAcc2,TackleAccuracyD2:TacklesAcc2,PassesAccuracyD2:PassesAcc2});
+                              }
                     })
+                  }
             })
         }
     }

@@ -19,7 +19,7 @@ class AnlysisDashboard extends React.Component{
              <Col sm={4}>
                 <Breadcrumb className="bread">
                        <Breadcrumb.Item href ="/playerDetails">Add Detail</Breadcrumb.Item>
-                       <Breadcrumb.Item active>Dashboard</Breadcrumb.Item>
+                       <Breadcrumb.Item active>Analysis Dashboard</Breadcrumb.Item>
                 </Breadcrumb>
                 <br></br>
                 <ListGroup>

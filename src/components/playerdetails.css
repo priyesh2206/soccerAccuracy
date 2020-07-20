@@ -16,6 +16,12 @@
      margin-top: -65rem;
 }  
 
+.breadADD{
+    margin-top:0rem;
+    margin-left:5rem;
+    margin-right:11rem;
+}
+
 @media screen and (max-width: 800px) {
       
        .col1{
