@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import ParticlesBg from 'particles-bg'
 
-class Example extends Component {
+class Particles extends Component {
+
   render () {
     return (
         <div className="back">
@@ -11,4 +12,4 @@ class Example extends Component {
   }
 }
 
-export default Example;
+export default Particles;

@@ -1,6 +1,7 @@
 import React from 'react';
+import Particles from './partical';
+import MouseParticles from "react-mouse-particles";
 import './dev.css';
-import Example from './partical';
 
 
 class Developer extends React.Component{
@@ -8,7 +9,13 @@ class Developer extends React.Component{
     render(){
         return(
         <div>
-           <Example/>
+           <Particles/>
+           <MouseParticles
+             g={5}
+             color="random"
+             cull="MuiSvgIcon-root,MuiButton-root"
+             level={10}
+           />
            <div className="rgba-gradient smaller">
                 <div>
                      <svg viewBox="0 0 2200 500">

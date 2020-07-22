@@ -2,6 +2,7 @@ import React from "react"
 import axios from "axios";
 import {Link} from 'react-router-dom';
 import {toast} from 'react-toastify';
+import ParticleLogin from './particle1' 
 import { MDBContainer, MDBRow, MDBCol, MDBBtn, MDBCard, MDBInput } from 'mdbreact';
 class Signup extends React.Component{
 
@@ -59,6 +60,7 @@ render(){
   const {error} =this.state
   return(
   <div>
+    <ParticleLogin/>
     <div className="Card">
         <MDBContainer>
          <MDBRow>

@@ -2,8 +2,10 @@ import React from 'react'
 import axios from 'axios';
 import {Link} from 'react-router-dom'
 import { toast} from 'react-toastify';
+import ParticleLogin from './particle1';
 import { MDBContainer, MDBRow, MDBCol, MDBBtn, MDBCard, MDBInput} from 'mdbreact';
 import "./login.css";
+
 
 toast.configure();
 class Login extends React.Component{
@@ -56,6 +58,7 @@ class Login extends React.Component{
     <div>
       {this.state.loginOpen?(
         <div>
+        <ParticleLogin/>
       <div className="Card">
       <MDBContainer>
         <MDBRow>
