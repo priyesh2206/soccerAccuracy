@@ -1,4 +1,4 @@
  module.exports={
-     mongoURI:'9EeGLHzyBtq36PHY',
+     mongoURI:'Football_22',
      secretOrKey :"Secret"
  }
